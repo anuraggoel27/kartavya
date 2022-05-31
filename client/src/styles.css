@@ -48,6 +48,8 @@ body {
   margin-top: 7.5rem;
   margin-bottom: 0px;
   background-color: white;
+  position: relative;
+  z-index: 1;
 }
 /************************QUERY FORM**************************/
 .query-form {
@@ -251,7 +253,7 @@ a {
 
 .particles-js {
   position: fixed;
-  /* z-index: -1; */
+  z-index: 0;
   height:100%;
   width: 100vw;
 }
