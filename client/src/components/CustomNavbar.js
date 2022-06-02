@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import CloseIcon from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
 import sidebarData from "./SidebarData.js";
 import "./Navbar.css";
 import {IconContext} from "react-icons";
+import axios from "axios";
+
+
 function CustomNavbar() {
+
   const [ sidebar, setSidebar ] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
+  
   return (
     <>
     <IconContext.Provider value={{color:"#fff"}}>
@@ -23,6 +28,7 @@ function CustomNavbar() {
               <CloseIcon />
             </Link>
           </li>
+          
           {sidebarData.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
