@@ -7,6 +7,7 @@ import Courses from "./pages/Courses";
 import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import StudyMaterial from "./pages/StudyMaterial";
+import NoticeBoard from "./pages/NoticeBoard";
 import AOS from "aos";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "aos/dist/aos.css";
@@ -22,6 +23,7 @@ export default function App() {
                     <Route exact path="/Courses" element={<Courses/>} />
                     <Route exact path="/About" element={<About/>} />
                     <Route exact path="/gallery" element={<Gallery/>} />
+                    <Route exact path="/Notice" element={<NoticeBoard/>} />
                     <Route
                         exact
                         path="/StudyMaterial"

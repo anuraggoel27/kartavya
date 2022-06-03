@@ -478,7 +478,16 @@ a {
   margin-bottom: 0.625rem;
 }
 
-/*************************************Optimize for smaller screens************************************************/
+
+/**********************************Notice Board***********************/
+.notice-content{
+  margin-top: 10rem;
+}
+.notice-board{
+  width:60%;
+  margin: 2rem auto;
+}
+  /*************************************Optimize for smaller screens************************************************/
 @media only screen and (max-width: 1350px) {
   .top {
     margin-top: 0rem;
@@ -1149,5 +1158,8 @@ a {
   .delete-button {
     margin-bottom: 1.125rem;
   }
-  
+  .notice-board{
+    width:90%;
+    margin: 2rem auto;
+  }
 }
