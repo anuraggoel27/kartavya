@@ -5,11 +5,13 @@ const session = require('express-session');
 const passport = require('passport');
 const googleRoute = require('./routes/authGoogle');
 const passportSetup = require('./passport/passport');
+const connectDB = require('./db/connect');
+
 
 app.use(session({
-    name:"noone_suuny",
     secret:"noone_sunny",
-    cookie: {}
+    resave: false,
+    saveUninitialized: false
 }))
 app.use(passport.initialize());
 app.use(passport.session());
@@ -22,4 +24,15 @@ app.use(cors({
 
 app.use('/auth/google',googleRoute);
 
-app.listen(5000,()=>console.log('server running'))
+const startBackendServer = async() =>{
+    try {
+        await connectDB();
+        
+        app.listen(5000,()=>console.log('server running'))
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+startBackendServer();

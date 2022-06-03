@@ -4,6 +4,7 @@ const MONGO_URI="mongodb+srv://kartavya:noone_sunny@node-express.c4wrl.mongodb.n
 const connectDB =async ()=>{
     try{
         await mongoose.connect(MONGO_URI);
+        console.log('Database Connected');
     }
     catch(error){
         console.log(error);
