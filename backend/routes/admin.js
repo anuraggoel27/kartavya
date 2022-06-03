@@ -16,8 +16,7 @@ route.get('/createpost',(req,res)=>{
 })
 
 route.post('/createpost/newpost',async (req,res) =>{
-    const title = req.post.title;
-    const description = req.post.description;
+    const {title,description} = req.post;
     if(!title || !description){
         res.status(400).json({success:false,msg:"please fill all the fields"});
     }

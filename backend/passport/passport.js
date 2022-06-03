@@ -11,7 +11,6 @@ passport.use(new GoogleStrategy({
     callbackURL:"http://localhost:5000/auth/google/callback"
 },
     async (accessToken,refreshToken,profile,done) => {
-        console.log('four params function called');
         const username = profile.name.givenName;
         const googleID = profile.id;
         const isAdmin = true;

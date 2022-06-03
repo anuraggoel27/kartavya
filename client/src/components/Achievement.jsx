@@ -1,6 +1,6 @@
 import React from "react";
 import AchieverCard from "./Card";
-import Achievers from "../Acheivers";
+import Achievers from "../pages/Acheivers";
 function AchievementContent() {
   return (
     <div className="achievement">

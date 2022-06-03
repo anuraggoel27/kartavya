@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
 })
 
 const noticeSchema = new mongoose.Schema({
+    //add date
     title:String,
     description: String
 })
