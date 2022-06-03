@@ -4,6 +4,7 @@ const cors= require('cors');
 const session = require('express-session');
 const passport = require('passport');
 const googleRoute = require('./routes/authGoogle');
+const adminRoute = require('./routes/admin');
 const passportSetup = require('./passport/passport');
 const connectDB = require('./db/connect');
 
@@ -22,6 +23,8 @@ app.use(cors({
     credentials:true
 }))
 
+app.use(express.json());
+app.use('/admin',adminRoute);
 app.use('/auth/google',googleRoute);
 
 const startBackendServer = async() =>{

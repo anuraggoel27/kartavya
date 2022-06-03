@@ -6,4 +6,12 @@ const userSchema = new mongoose.Schema({
     isAdmin: Boolean
 })
 
-module.exports = mongoose.model('TempUser',userSchema,'TempUser');
+const noticeSchema = new mongoose.Schema({
+    title:String,
+    description: String
+})
+
+const TempUsers = mongoose.model('TempUsers',userSchema,'TempUsers');
+const Notices = mongoose.model('Notices',noticeSchema,'Notices');
+
+module.exports = {TempUsers,Notices};
