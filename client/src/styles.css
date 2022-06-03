@@ -416,9 +416,9 @@ a {
 }
 
 /***************************ADMIN BODY****************************/
-.admin-body {
+.admin-content{
   margin-top: 6.5rem;
-  padding: 3rem;
+  padding:3rem;
 }
 
 .query-card {
@@ -487,7 +487,14 @@ a {
   width:60%;
   margin: 2rem auto;
 }
-  /*************************************Optimize for smaller screens************************************************/
+
+
+/******* Create Notice ******/
+.create-notice-content
+{
+  margin-top: 6.5rem;
+  padding:3rem;
+}  /*************************************Optimize for smaller screens************************************************/
 @media only screen and (max-width: 1350px) {
   .top {
     margin-top: 0rem;
