@@ -6,33 +6,32 @@ import AdminContent from "../components/AdminContent";
 import axios from "axios";
 function Admin(){
     const [allowed,setAllowed] = useState(false);
-    const allow = async ()=>{
-        let response = await axios.get('http://localhost:5000/admin',{
-            withCredentials:true,
-            headers:{
-                Accept: "application/json",
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Credentials":true,
-            }
-        })
-        if(response.status===200) { setAllowed(true);}
-        console.log(allowed);
-    }
 
     useEffect(()=>{
-        allow();
-    },[])
-
-    
-
-    return (
-    
-        <div>
-        {
-            allowed ? console.log('allowed'): <Navigate to="/" />
+        const allow =async()=>{
+            const response= await axios.get('http://localhost:5000/admin',{
+                withCredentials:true,
+                headers:{
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Credentials":true,
+                }
+            })
+            if(response.status===200){
+                console.log("Yaay!")
+                setAllowed(true);
+            }
         }
+        allow();
+    },[]);
+    
+    return (
+        <div>
         <Header/>
         <AdminContent/>
+        {
+            allowed ? <div className="">hello</div>: console.log("not allowed")
+        }
         <Footer/>
         </div>
     )
