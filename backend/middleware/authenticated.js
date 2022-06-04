@@ -4,7 +4,7 @@ const authenticationCheck = (req,res,next)=>{
         res.status(401).json({success: false,msg:"You need to login first"});
     }
     else{
-
+        console.log('authentication check passed');
         next();
     }
 }

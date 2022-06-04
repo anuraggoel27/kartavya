@@ -4,7 +4,7 @@ const adminCheck = (req,res,next)=>{
         res.status(403).json({success:false, msg:"Please login with an Admin account"});
     }
     else{
-
+        console.log('admincheck passed');
         next();
     }
 }

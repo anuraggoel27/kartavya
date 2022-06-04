@@ -1,17 +1,16 @@
 const router = require('express').Router();
 const passport = require('passport');
+const authenticationCheck = require('../middleware/authenticated');
 
 const CLIENT_URL = "http://localhost:3000/"
 
-router.get('/login/success',(req,res)=>{
-    if(req.user){
-        res.status(200).json({
-            success:true,
-            msg:"successful",
-            user:req.user
-        })
-    }
-    res.end();
+router.get('/login/success',authenticationCheck,(req,res)=>{
+    res.status(200).json({
+        success:true,
+        msg:"successful",
+        user:req.user
+    })
+    
 })
 
 router.get('/login/failed',(req,res)=>{

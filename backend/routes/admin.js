@@ -8,6 +8,7 @@ route.use(autheticationCheck);
 route.use(adminCheck);
 
 route.get('/',(req,res)=>{
+    console.log('sending status code as 200')
     res.status(200).json({success:true});
 })
 
