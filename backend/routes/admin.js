@@ -12,12 +12,13 @@ route.get('/',(req,res)=>{
     res.status(200).json({success:true});
 })
 
-route.get('/createpost',(req,res)=>{
+route.get('/createNotice',(req,res)=>{
     res.status(200).json({success:true});
 })
 
-route.post('/createpost/newpost',async (req,res) =>{
-    const {title,description} = req.post;
+route.post('/createNotice/newNotice',async (req,res) =>{
+    console.log(req.body);
+    const {title,description} = req.body;
     if(!title || !description){
         res.status(400).json({success:false,msg:"please fill all the fields"});
     }

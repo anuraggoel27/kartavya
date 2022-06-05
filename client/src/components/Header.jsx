@@ -5,7 +5,7 @@ import CustomNavbar from "./CustomNavbar";
 import Login from "./Login";
 import Logout from "./Logout";
 function Header(){
-  
+  console.log('header called..')
   const [user,setUser] = useState(null);
   useEffect(()=>{
     const getUser = () =>{

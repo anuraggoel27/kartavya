@@ -8,7 +8,7 @@ const AdminContent = () => {
     <div className="admin-content">
       <div className="post-create-button">
         <Button onClick={handleClick}>
-          Create New Post
+          Create New Notice
         </Button>
       </div>
     </div>
