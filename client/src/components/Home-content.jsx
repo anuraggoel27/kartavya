@@ -6,17 +6,16 @@ import Download from "./Home/Download";
 import Welcome from "./Home/Welcome";
 import Faculty from "./Home/Faculty";
 function Content() {
-  return (
-    <div className="content">
-      
-      <div className="top">
-        <ImageCarousel />
-        <QueryForm />
-      </div>
-      <Welcome />
-      <Faculty />
-      <Download />
-    </div>
-  );
+    return (
+        <div className="content">
+            <div className="top">
+                <ImageCarousel />
+                <QueryForm />
+            </div>
+            <Welcome />
+            <Faculty />
+            <Download />
+        </div>
+    );
 }
 export default Content;

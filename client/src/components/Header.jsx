@@ -1,34 +1,13 @@
 import axios from "axios";
-import React,{useState,useEffect} from "react";
-import { Navbar, Nav, NavDropdown,Button } from "react-bootstrap";
+import React,{useState,useEffect,useContext} from "react";
+import { UserContext } from "../App";
 import CustomNavbar from "./CustomNavbar";
 import Login from "./Login";
 import Logout from "./Logout";
-function Header(){
+const Header=()=>{
   console.log('header called..')
-  const [user,setUser] = useState(null);
-  useEffect(()=>{
-    const getUser = () =>{
-      axios.get('http://localhost:5000/auth/google/login/success',{
-        withCredentials:true,
-        headers:{
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials":true,
-        }
-      })
-      .then((response)=>{
-        if(response.status===200) return response.data;
-        throw new Error('authentication has been failed');
-      })
-      .then((resObject)=>{
-        setUser(resObject.user);
-      })
-      .catch((error)=> console.log(error))
-
-    }
-    getUser();
-  },[])
+  const user=useContext(UserContext);
+  console.log(user);
   return (
     <div className="header">
     <CustomNavbar/>
@@ -37,9 +16,14 @@ function Header(){
             {!user && 
               <Login/>
             }
-            {user && 
-              <Logout/>
-           }
+            {user &&
+            
+              <div>
+                <h4>{user.username}</h4>
+                <Logout/>
+              </div>
+              
+            }
           </div>
     </div>
   );

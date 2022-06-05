@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import AdminContent from "../components/AdminContent";
 import axios from "axios";
 function Admin() {
@@ -33,9 +31,7 @@ function Admin() {
 
     return (
         <div>
-            <Header />
             {allowed ? <AdminContent /> : <div style={{marginTop:"10rem"}}>"loading..."</div>}
-            <Footer />
         </div>
     );
 }
