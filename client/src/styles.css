@@ -480,14 +480,16 @@ a {
 
 
 /**********************************Notice Board***********************/
-.notice-content{
-  margin-top: 10rem;
-}
-.notice-board{
+.notice-body{
+  margin: 10rem auto 2rem;
   width:60%;
-  margin: 2rem auto;
+}
+.notice-paper{
+  padding:3rem 2rem;
 }
 
+
+/*************************Individual Notice******************/
 
 /******* Create Notice ******/
 .create-notice-content

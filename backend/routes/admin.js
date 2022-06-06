@@ -12,10 +12,6 @@ route.get('/',(req,res)=>{
     res.status(200).json({success:true});
 })
 
-route.get('/createNotice',(req,res)=>{
-    res.status(200).json({success:true});
-})
-
 route.get("/notices",(req,res)=>{
     Notices.find((err,data)=>{
         if(err){
@@ -23,6 +19,14 @@ route.get("/notices",(req,res)=>{
         }else{
             res.send(data);
         }
+    })
+})
+route.get("/notice/:id",(req,res)=>{
+    const id=req.params.id;
+    console.log(id);
+    Notices.findOne({_id:id},(err,docs)=>{
+        if(err) res.send(err);
+        else(res.send(docs));
     })
 })
 

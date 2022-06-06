@@ -12,6 +12,7 @@ const useStyles1 = makeStyles((theme) => ({
     },
 }));
 
+export const NoticeContext=React.createContext();
 const TablePaginationActions=(props)=> {
     const classes = useStyles1();
     const theme = useTheme();

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
+import Notice from "./Notice";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import {
     Table,
@@ -16,6 +17,7 @@ import {
     Checkbox,
 } from "@material-ui/core";
 import TablePaginationActions from "./TablePaginationActions";
+import { Route, Routes, Link } from "react-router-dom";
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -146,7 +148,11 @@ export default function CustomTable() {
                                 {data.date.split("T")[0]}
                             </TableCell>
                             <TableCell component="th" scope="row" align="left">
-                                {data.title}
+                                <Link
+                                to={`/notice/${data._id}`}
+                                >
+                                    {data.title}
+                                </Link>
                             </TableCell>
                             <TableCell align="left">
                                 <Button

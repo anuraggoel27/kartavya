@@ -16,6 +16,7 @@ import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "aos/dist/aos.css";
 import axios from "axios";
+import Notice from "./components/Notice Board/Notice";
 
 AOS.init();
 export const UserContext = React.createContext();
@@ -55,7 +56,7 @@ export default function App() {
                 <Route exact path="/Courses" element={<Courses />} />
                 <Route exact path="/About" element={<About />} />
                 <Route exact path="/gallery" element={<Gallery />} />
-                <Route exact path="/Notice" element={<NoticeBoard />} />
+                <Route exact path="/NoticeBoard" element={<NoticeBoard />} />
                 <Route exact path="/CreateNotice" element={<CreateNotice />} />
                 <Route
                     exact
@@ -63,6 +64,7 @@ export default function App() {
                     element={<StudyMaterial />}
                 />
                 <Route exact path="/admin" element={<Admin />} />
+                <Route exact path="/Notice/:id" element={<Notice/>} />
             </Routes>
             <Footer />
         </div>
