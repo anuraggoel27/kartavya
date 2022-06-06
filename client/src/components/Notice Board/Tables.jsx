@@ -12,8 +12,10 @@ import {
     TableRow,
     Paper,
     TableHead,
+    Button,
+    Checkbox,
 } from "@material-ui/core";
-import TablePaginationActions from "./TablePaginationActions"
+import TablePaginationActions from "./TablePaginationActions";
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -24,7 +26,6 @@ const StyledTableCell = withStyles((theme) => ({
         fontSize: 14,
     },
 }))(TableCell);
-
 
 TablePaginationActions.propTypes = {
     count: PropTypes.number.isRequired,
@@ -43,30 +44,31 @@ function createData(name, calories, fat) {
     return { name, calories, fat };
 }
 
-const rows = [
-    createData("Cupcake", 305, 3.7),
-    createData("Donut", 452, 25.0),
-    createData("Eclair", 262, 16.0),
-    createData("Frozen yoghurt", 159, 6.0),
-    createData("Gingerbread", 356, 16.0),
-    createData("Honeycomb", 408, 3.2),
-    createData("Ice cream sandwich", 237, 9.0),
-    createData("Jelly Bean", 375, 0.0),
-    createData("KitKat", 518, 26.0),
-    createData("Lollipop", 392, 0.2),
-    createData("Marshmallow", 318, 0),
-    createData("Nougat", 360, 19.0),
-    createData("Oreo", 437, 18.0),
-].sort((a, b) => (a.calories < b.calories ? -1 : 1));
+// const rows = [
+//     createData("Cupcake", 305, 3.7),
+//     createData("Donut", 452, 25.0),
+//     createData("Eclair", 262, 16.0),
+//     createData("Frozen yoghurt", 159, 6.0),
+//     createData("Gingerbread", 356, 16.0),
+//     createData("Honeycomb", 408, 3.2),
+//     createData("Ice cream sandwich", 237, 9.0),
+//     createData("Jelly Bean", 375, 0.0),
+//     createData("KitKat", 518, 26.0),
+//     createData("Lollipop", 392, 0.2),
+//     createData("Marshmallow", 318, 0),
+//     createData("Nougat", 360, 19.0),
+//     createData("Oreo", 437, 18.0),
+// ].sort((a, b) => (a.calories < b.calories ? -1 : 1));
 
 export default function CustomTable() {
     const classes = useStyles2();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
-    const [data,setData]=useState([])
+    const [data, setData] = useState([]);
+    const [selectedNotice, setSelectedNotice] = useState([]);
     useEffect(() => {
         const response = async () => {
-            const x=await axios
+            const x = await axios
                 .get("http://localhost:5000/admin/notices", {
                     withCredentials: true,
                     headers: {
@@ -76,7 +78,6 @@ export default function CustomTable() {
                     },
                 })
                 .then((res) => {
-                    console.log(res.data);
                     setData(res.data);
                 })
                 .catch((err) => {
@@ -85,9 +86,25 @@ export default function CustomTable() {
         };
         response();
     }, []);
-    
+
+    const handleClick = async (id) => {
+        await axios
+            .get(`http://localhost:5000/admin/deletePost/${id}`, {
+                withCredentials: true,
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Credentials": true,
+                },
+            })
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => console.log(err));
+    };
+
     const emptyRows =
-        rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+        rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -108,7 +125,8 @@ export default function CustomTable() {
                     <TableRow>
                         <StyledTableCell>S. No.</StyledTableCell>
                         <StyledTableCell align="left">Date</StyledTableCell>
-                        <StyledTableCell align="center">Title</StyledTableCell>
+                        <StyledTableCell align="left">Title</StyledTableCell>
+                        <StyledTableCell align="center">Delete</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -118,17 +136,26 @@ export default function CustomTable() {
                               page * rowsPerPage + rowsPerPage
                           )
                         : data
-                    ).map((data,id) => (
+                    ).map((data, id) => (
                         <TableRow key={id}>
                             <TableCell style={{ width: 80 }} align="left">
-                                {id+1}
+                                {id + 1}
                             </TableCell>
-                            
+
                             <TableCell style={{ width: 160 }} align="left">
-                                {data.date.split('T')[0]}
+                                {data.date.split("T")[0]}
                             </TableCell>
                             <TableCell component="th" scope="row" align="left">
                                 {data.title}
+                            </TableCell>
+                            <TableCell align="left">
+                                <Button
+                                    onClick={(e) => {
+                                        handleClick(data._id);
+                                    }}
+                                >
+                                    Delete
+                                </Button>
                             </TableCell>
                         </TableRow>
                     ))}
