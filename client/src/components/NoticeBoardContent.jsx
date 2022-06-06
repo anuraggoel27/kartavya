@@ -1,5 +1,5 @@
 import React from "react";
-import CustomTable from "../components/Tables";
+import CustomTable from "./Notice Board/Tables";
 const NoticeBoardContent = () => {
     return (
         <div className="notice-content">

@@ -16,6 +16,15 @@ route.get('/createNotice',(req,res)=>{
     res.status(200).json({success:true});
 })
 
+route.get("/notices",(req,res)=>{
+    Notices.find((err,data)=>{
+        if(err){
+            res.status(400).json({success:true,msg:"Cant load data from the database"});
+        }else{
+            res.send(data);
+        }
+    })
+})
 route.post('/createNotice/newNotice',async (req,res) =>{
     console.log(req.body);
     const {title,description} = req.body;

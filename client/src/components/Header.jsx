@@ -17,7 +17,6 @@ const Header=()=>{
               <Login/>
             }
             {user &&
-            
               <div>
                 <h4>{user.username}</h4>
                 <Logout/>

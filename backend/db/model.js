@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
 
 const noticeSchema = new mongoose.Schema({
     //add date
+    date:{type:Date,default: Date.now},
     title:String,
     description: String
 })
