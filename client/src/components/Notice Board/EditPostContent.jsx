@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from "axios";
+import { Button } from 'react-bootstrap';
 const EditPostContent = () => {
   const params=useParams();
   const id = params.id;
@@ -28,6 +29,30 @@ const EditPostContent = () => {
     };
     response();
 }, []);
+const handleSubmit=async(e)=>{
+  const res= await axios({
+    method:'put',
+    url:`http://localhost:5000/admin/editpost/${id}`,
+    data:{
+      title:post.title,
+      description:post.description
+    },
+    withCredentials:true,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Credentials": true,
+  }
+  })
+  .then((res)=>{
+    console.log(res);
+    window.alert("Successfully Updated!")
+  })
+  .catch(err=>{
+    window.alert("Please try again!");
+    console.log(err);
+  })
+}
   return (
     <div style={{marginTop:"10rem"}}>
         <input
@@ -37,6 +62,7 @@ const EditPostContent = () => {
         <input
         onChange={(e)=>setPost({...post,description:e.target.value})}
          value={(Object.keys(post).length!==0)?post.description:""}/>
+        <Button onClick={handleSubmit}>Submit</Button>
     </div>
   )
 }

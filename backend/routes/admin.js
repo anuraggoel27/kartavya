@@ -38,6 +38,19 @@ route.get("/deletePost/:id",(req,res)=>{
         else(res.send(docs));
     })
 })
+
+route.put("/editpost/:id",(req,res)=>{
+    const id=req.params.id;
+    console.log(req.body);
+    Notices.updateOne({_id:id},{
+        title:req.body.title,
+        description:req.body.description
+    },(err,docs)=>{
+        if(err) res.send(err);
+        else res.send(docs);
+    })
+})
+
 route.post('/createNotice/newNotice',async (req,res) =>{
     console.log(req.body);
     const {title,description} = req.body;
