@@ -1,11 +1,12 @@
 import React, { useEffect,useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from "axios";
+import {Paper} from "@material-ui/core"
 import { Button } from 'react-bootstrap';
 const EditPostContent = () => {
   const params=useParams();
   const id = params.id;
-  const [post,setPost]=useState({
+  const [notice,setNotice]=useState({
     title:"",
     description:""
   })
@@ -22,7 +23,7 @@ const EditPostContent = () => {
                 },
             })
             .then((res) => {
-                setPost(res.data);
+                setNotice(res.data);
                 console.log(res.data);
             })
             .catch((err) => console.log(err));
@@ -35,8 +36,8 @@ const handleSubmit=async(e)=>{
     method:'put',
     url:`http://localhost:5000/admin/editpost/${id}`,
     data:{
-      title:post.title,
-      description:post.description
+      title:notice.title,
+      description:notice.description
     },
     withCredentials:true,
     headers: {
@@ -55,16 +56,50 @@ const handleSubmit=async(e)=>{
   })
 }
   return (
-    <div style={{marginTop:"10rem"}}>
-        <input
-        onChange={(e)=>setPost({...post,title:e.target.value})}
-        value={(Object.keys(post).length!==0)?post.title:""}
-        />
-        <input
-        onChange={(e)=>setPost({...post,description:e.target.value})}
-         value={(Object.keys(post).length!==0)?post.description:""}/>
-        <Button onClick={handleSubmit}>Submit</Button>
+    <div className="create-notice-content">
+    <div className="create-notice-header">
+        <h1>Edit Notice</h1>
     </div>
+    <Paper className="create-notice-paper">
+    <div className="create-notice-form">
+        <form onSubmit={handleSubmit}>
+            <div className="create-notice-input-title">
+            {/* <label for="title">Title</label> */}
+                <input
+                    placeholder="Title"
+                    id="title"
+                    name="title"
+                    onChange={(e) =>
+                        setNotice({ ...notice, title: e.target.value })
+                    }
+                    value={notice.title}
+                />
+            </div>
+            <div className="create-notice-input-desc">
+            {/* <label for="content">Description</label> */}
+                <textarea
+                    placeholder="Content"
+                    id="content"
+                    name="content"
+                    type="textarea"
+                    onChange={(e) =>
+                        setNotice({
+                            ...notice,
+                            description: e.target.value,
+                        })
+                    }
+                    value={notice.description}
+                />
+            </div>
+
+            <div>
+                <Button type="submit"> Submit</Button>
+            </div>
+
+        </form>
+        </div>
+    </Paper>
+</div>
   )
 }
 

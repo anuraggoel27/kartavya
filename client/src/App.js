@@ -18,6 +18,9 @@ import "aos/dist/aos.css";
 import axios from "axios";
 import Notice from "./components/Notice Board/Notice";
 import EditPost from "./pages/EditPost";
+import Profile from "./pages/Profile";
+
+
 EditPost
 AOS.init();
 export const UserContext = React.createContext();
@@ -67,6 +70,7 @@ export default function App() {
                 <Route exact path="/admin" element={<Admin />} />
                 <Route exact path="/Notice/:id" element={<Notice/>} />
                 <Route exact path="/editpost/:id" element={<EditPost/>}/>
+                <Route exact path="/profile" element={<Profile/>} />
             </Routes>
             <Footer />
         </div>

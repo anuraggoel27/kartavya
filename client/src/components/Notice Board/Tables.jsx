@@ -138,7 +138,7 @@ export default function CustomTable() {
                               page * rowsPerPage + rowsPerPage
                           )
                         : data
-                    ).reverse().map((data, id) => (
+                    ).map((data, id) => (
                         <TableRow key={id}>
                             <TableCell style={{ width: 80 }} align="left">
                                 {id + 1}

@@ -484,7 +484,7 @@ a {
   margin: 10rem auto 2rem;
   width:60%;
 }
-.notice-paper{
+.notice-paper,.create-notice-paper{
   padding:3rem 2rem;
 }
 .notice-header{
@@ -511,7 +511,17 @@ a {
 {
   margin-top: 6.5rem;
   padding:3rem;
-}  /*************************************Optimize for smaller screens************************************************/
+}  
+.create-notice-form{
+  width:60%;
+  margin:0 auto;
+}
+
+.create-notice-input-title input,.create-notice-input-desc textarea{
+  width:100%;
+  margin:0.25rem;
+}
+/*************************************Optimize for smaller screens************************************************/
 @media only screen and (max-width: 1350px) {
   .top {
     margin-top: 0rem;
@@ -1189,5 +1199,9 @@ a {
   .notice-body{
     margin: 10rem auto 2rem;
     width:95%;
+  }
+  .create-notice-form{
+    width:100%;
+    margin:0 auto;
   }
 }
