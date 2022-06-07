@@ -1,5 +1,5 @@
 import React from "react";
-import Particle from "./Particle";
+import Particle from "../Particle";
 import GalleryCard from "./GalleryCard";
 import links from "./galleryPhotosLink";
 function GalleryContent() {

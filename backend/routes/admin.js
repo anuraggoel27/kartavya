@@ -34,7 +34,7 @@ route.get("/deletePost/:id",(req,res)=>{
     const id=req.params.id;
     console.log(id);
     Notices.findOneAndDelete({_id:id},(err,docs)=>{
-        if(err=>res.send(err));
+        if(err) res.send(err);
         else(res.send(docs));
     })
 })

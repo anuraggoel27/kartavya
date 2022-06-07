@@ -1,7 +1,7 @@
 import axios from "axios";
 import React,{useState,useEffect,useContext} from "react";
 import { UserContext } from "../App";
-import CustomNavbar from "./CustomNavbar";
+import CustomNavbar from "./Navbar/CustomNavbar";
 import Login from "./Login";
 import Logout from "./Logout";
 const Header=()=>{

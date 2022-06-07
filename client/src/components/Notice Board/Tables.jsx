@@ -101,6 +101,7 @@ export default function CustomTable() {
             })
             .then((res) => {
                 console.log(res);
+                window.location.reload()
             })
             .catch((err) => console.log(err));
     };
@@ -116,7 +117,6 @@ export default function CustomTable() {
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
     };
-
     return (
         <TableContainer component={Paper}>
             <Table
@@ -138,19 +138,17 @@ export default function CustomTable() {
                               page * rowsPerPage + rowsPerPage
                           )
                         : data
-                    ).map((data, id) => (
+                    ).reverse().map((data, id) => (
                         <TableRow key={id}>
                             <TableCell style={{ width: 80 }} align="left">
                                 {id + 1}
                             </TableCell>
 
                             <TableCell style={{ width: 160 }} align="left">
-                                {data.date.split("T")[0]}
+                                {data.createdAt.split("T")[0]}
                             </TableCell>
                             <TableCell component="th" scope="row" align="left">
-                                <Link
-                                to={`/notice/${data._id}`}
-                                >
+                                <Link to={`/notice/${data._id}`}>
                                     {data.title}
                                 </Link>
                             </TableCell>
