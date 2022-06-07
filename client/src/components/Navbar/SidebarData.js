@@ -20,21 +20,28 @@ const sidebarData = [
     cName: "nav-text"
   },
   {
+    title:"Courses",
+    path:"/Courses",
+    icon :<RiIcons.RiBookFill className="sidebar-icon"/>,
+    cName:"nav-text"
+    
+  },
+  {
     title: "Study Material",
     path: "/StudyMaterial",
     icon: <FaIcons.FaBook className="sidebar-icon"/>,
     cName: "nav-text"
   },
   {
+    title:"Notice Board",
+    path:"/noticeboard",
+    icon: <AiIcons.AiFillNotification className="sidebar-icon"/>,
+    cName:"nav-text"
+  },
+  {
     title: "Gallery",
     path: "/Gallery",
     icon: <HiIcons.HiPhotograph className="sidebar-icon"/>,
-    cName: "nav-text"
-  },
-  {
-    title: "Contact Us",
-    path: "/Contact",
-    icon: <AiIcons.AiFillContacts className="sidebar-icon"/>,
     cName: "nav-text"
   },
   {
@@ -44,12 +51,11 @@ const sidebarData = [
     cName: "nav-text"
   },
   {
-    title:"Courses",
-    path:"/Courses",
-    icon :<RiIcons.RiBookFill className="sidebar-icon"/>,
-    cName:"nav-text"
-    
-  },
+    title: "Contact Us",
+    path: "/Contact",
+    icon: <AiIcons.AiFillContacts className="sidebar-icon"/>,
+    cName: "nav-text"
+  }, 
   {
     title:"Admin",
     path:"/Admin",
