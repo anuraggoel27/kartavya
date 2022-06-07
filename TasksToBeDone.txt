@@ -1,0 +1,6 @@
+1)Notices are coming in some absurd order, when the rows per page is greater than or equal to the tital notices in database, then there is no problem.. Otherwise they behave weirdly.
+
+2)FileUpload
+3)ProfileSchema
+4)LocalAuthentication
+5)Allow paging in NoticeBoard.

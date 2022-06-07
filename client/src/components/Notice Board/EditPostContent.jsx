@@ -29,6 +29,7 @@ const EditPostContent = () => {
     };
     response();
 }, []);
+
 const handleSubmit=async(e)=>{
   const res= await axios({
     method:'put',
@@ -46,7 +47,7 @@ const handleSubmit=async(e)=>{
   })
   .then((res)=>{
     console.log(res);
-    window.alert("Successfully Updated!")
+    if(!alert("Successfully Updated!")) window.location = `http://localhost:3000/Notice/${id}`
   })
   .catch(err=>{
     window.alert("Please try again!");

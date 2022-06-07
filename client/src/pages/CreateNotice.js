@@ -5,9 +5,9 @@ import CreateNoticeContent from "../components/CreateNoticeContent"
 const CreateNotice = () => {
   return (
     <div>
-    <Header/>
-    <CreateNoticeContent/>
-    <Footer/>
+      <Header/>
+      <CreateNoticeContent/>
+      <Footer/>
     </div>
   )
 }

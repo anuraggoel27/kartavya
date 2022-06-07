@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import Notice from "./Notice";
+//import Notice from "./Notice";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import {
     Table,
@@ -42,9 +42,9 @@ const useStyles2 = makeStyles({
     },
 });
 
-function createData(name, calories, fat) {
-    return { name, calories, fat };
-}
+// function createData(name, calories, fat) {
+//     return { name, calories, fat };
+// }
 
 // const rows = [
 //     createData("Cupcake", 305, 3.7),
