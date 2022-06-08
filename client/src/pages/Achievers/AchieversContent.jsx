@@ -22,7 +22,7 @@ function AchievementContent() {
         ></img>
         <div className="achievers-card-section">
       {Achievers.map(function(Achiever, index){
-        return <AchieverCard key={index} name={Achiever.Name} img={Achiever.imgUrl} text={Achiever.about} />
+        return <AchieverCard className="achievers-card" key={index} name={Achiever.Name} img={Achiever.imgUrl} text={Achiever.about} />
       })}
       </div>
     </div>

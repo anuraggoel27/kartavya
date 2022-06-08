@@ -139,6 +139,9 @@
 }
 
 @media only screen and (max-width: 1350px) {
+    .top {
+        margin-top: 0rem;
+    }
     .Carousel {
         width: 100%;
         height: 620px;
@@ -229,138 +232,137 @@
     /***********************************************FOOTER*******************************************************/
 }
 
-
 @media only screen and (max-width: 720px) {
-  /*********************************FACULTY CARDS*************************/
-  .Faculty {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-  .faculty-card {
-    margin: 1.5rem -1.25rem;
-  }
-  .faculty-heading {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-  }
+    /*********************************FACULTY CARDS*************************/
+    .Faculty {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+    .faculty-card {
+        margin: 1.5rem -1.25rem;
+    }
+    .faculty-heading {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
 
-  /******************************************CAROUSEL***********************/
-  .Carousel {
-    width: 100%;
-    height: 500px;
-    margin: 7.7rem 0rem 0rem 0;
-    display: inline-block;
-    background-color: white;
-    border-radius: 0px;
-  }
-  .carousel-image {
-    height: 500px;
-  }
+    /******************************************CAROUSEL***********************/
+    .Carousel {
+        width: 100%;
+        height: 500px;
+        margin: 7.7rem 0rem 0rem 0;
+        display: inline-block;
+        background-color: white;
+        border-radius: 0px;
+    }
+    .carousel-image {
+        height: 500px;
+    }
 
-  .carousel-image img {
-    /* height: 200px; */
-    border-radius: 0px;
-  }
-  .top {
-    margin-top: 0rem;
-    margin-bottom: 0px;
-    background-color: white;
-  }
-  /************************QUERY FORM**************************/
-  .query-form {
-    width: 90%;
-    padding: 6rem 0rem 3rem;
-    margin-left: 0rem;
-    border-radius: 10px;
-  }
-  .query-form h3 {
-    font-size: 2rem;
-  }
-  .query-form button:hover {
-    background-color: rgb(209, 209, 209);
-    color: black;
-  }
+    .carousel-image img {
+        /* height: 200px; */
+        border-radius: 0px;
+    }
+    .top {
+        margin-top: 0rem;
+        margin-bottom: 0px;
+        background-color: white;
+    }
+    /************************QUERY FORM**************************/
+    .query-form {
+        width: 90%;
+        padding: 6rem 0rem 3rem;
+        margin-left: 0rem;
+        border-radius: 10px;
+    }
+    .query-form h3 {
+        font-size: 2rem;
+    }
+    .query-form button:hover {
+        background-color: rgb(209, 209, 209);
+        color: black;
+    }
 
-  /***********************Welcome Section*************************/
-  .welcome {
-    padding: 4rem 2rem;
-    color: white;
-    text-align: center;
-  }
-  .welcome-subheading {
-    color: #8c8c8c;
-  }
-  .welcome-heading {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-  }
-  .welcome-content {
-    color: #8c8c8c;
-    text-align: center;
-  }
-  .flaticons {
-    margin-top: 1rem;
-  }
-  .flaticon-card {
-    text-align: center;
-    display: inline-block;
-    height: 10rem;
-    width: 10.5rem;
-    margin: 0 1rem;
-    background-color: black;
-    padding: 2rem 0 3rem;
-    border-radius: 5rem;
-  }
+    /***********************Welcome Section*************************/
+    .welcome {
+        padding: 4rem 2rem;
+        color: white;
+        text-align: center;
+    }
+    .welcome-subheading {
+        color: #8c8c8c;
+    }
+    .welcome-heading {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    .welcome-content {
+        color: #8c8c8c;
+        text-align: center;
+    }
+    .flaticons {
+        margin-top: 1rem;
+    }
+    .flaticon-card {
+        text-align: center;
+        display: inline-block;
+        height: 10rem;
+        width: 10.5rem;
+        margin: 0 1rem;
+        background-color: black;
+        padding: 2rem 0 3rem;
+        border-radius: 5rem;
+    }
 
-  .flaticon-image img {
-    height: 100px;
-    width: 100px;
-    margin-bottom: 2rem;
-  }
-  .flaticon-about {
-    margin-top: 1rem;
-    color: #8c8c8c;
-  }
-  .particles-js {
-    margin-top: 10rem;
-  }
-  /*********************************Know more about us************************/
-  .blog-download {
-    padding: 4rem 1rem;
-  }
-  .download-main-heading {
-    font-size: 2rem;
-    color: white;
-    margin-bottom: 3.5rem;
-  }
-  .blog,
-  .download {
-    background-color: white;
-    padding: 3.5rem 2% 2rem;
-    width: 90%;
-    border-radius: 1rem;
-    margin: 1rem 1rem 2rem;
-    color: black;
-    display: inline-block;
-  }
-  .blog button,
-  .download button {
-    padding-right: 2rem;
-    margin-top: 1.5rem;
-    color: white;
-    background-color: black;
-  }
-  .blog-heading,
-  .download-heading {
-    font-size: 1.5rem;
-  }
-  .button-icon {
-    margin-right: 1rem;
-  }
-  .blog button:hover,
-  .download button:hover {
-    background-color: rgb(209, 209, 209);
-    transition: 500ms;
-    color: black;
-  }
+    .flaticon-image img {
+        height: 100px;
+        width: 100px;
+        margin-bottom: 2rem;
+    }
+    .flaticon-about {
+        margin-top: 1rem;
+        color: #8c8c8c;
+    }
+    .particles-js {
+        margin-top: 10rem;
+    }
+    /*********************************Know more about us************************/
+    .blog-download {
+        padding: 4rem 1rem;
+    }
+    .download-main-heading {
+        font-size: 2rem;
+        color: white;
+        margin-bottom: 3.5rem;
+    }
+    .blog,
+    .download {
+        background-color: white;
+        padding: 3.5rem 2% 2rem;
+        width: 90%;
+        border-radius: 1rem;
+        margin: 1rem 1rem 2rem;
+        color: black;
+        display: inline-block;
+    }
+    .blog button,
+    .download button {
+        padding-right: 2rem;
+        margin-top: 1.5rem;
+        color: white;
+        background-color: black;
+    }
+    .blog-heading,
+    .download-heading {
+        font-size: 1.5rem;
+    }
+    .button-icon {
+        margin-right: 1rem;
+    }
+    .blog button:hover,
+    .download button:hover {
+        background-color: rgb(209, 209, 209);
+        transition: 500ms;
+        color: black;
+    }
 }

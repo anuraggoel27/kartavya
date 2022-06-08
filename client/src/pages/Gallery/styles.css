@@ -1,19 +1,18 @@
 .overlay {
     position: absolute;
     height: 0px;
-    width: 400px;
+    width: 100%;
     opacity: 0;
     transition: 0.5s ease;
   }
   .gallery-card {
     height: 260px;
-    width: 350px;
-    display: inline-block;
-    margin: 0px 1rem;
+    width: 30%;
+    margin: 0px 0rem;
     padding: 0;
   }
   .gallery-image {
-    width: 350px;
+    width: 100%;
     height: 260px;
   }
   .gallery-text {
@@ -38,20 +37,30 @@
     padding: 0;
   }
   .gallery-card-section {
+    display: inline-flex;
     margin-top: 5rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-@media only screen and (max-width: 720px){
+  @media only screen and (max-width: 1350px){
+    .gallery-card {
+      height: 260px;
+      width: 50%;
+      margin: 0px 0rem;
+      padding: 0;
+    }
+  }
+  @media only screen and (max-width: 720px){
     .overlay {
         position: absolute;
         height: 0px;
-        width: 95%;
+        width: 100%;
         opacity: 0;
         transition: 0.5s ease;
       }
       .gallery-card {
         height: 260px;
-        width: 95%;
-        display: inline-block;
+        width: 100%;
         margin: 0px 0rem;
         padding: 0;
       }

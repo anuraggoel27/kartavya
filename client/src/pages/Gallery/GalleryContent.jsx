@@ -24,7 +24,7 @@ function GalleryContent() {
         ></img>
         <div className="gallery-card-section">
       {links.map(function(Link, index){
-        return <GalleryCard key={index} img={Link.imgUrl} text={Link.description} />
+        return <GalleryCard className="gallery-card" key={index} img={Link.imgUrl} text={Link.description} />
       })}
       </div>
     </div>
