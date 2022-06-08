@@ -27,81 +27,44 @@ body {
 }
 
 /****************************CONTACT,achievement,course AND ABOUT PAGE***********************************/
-.course-body,
-.about-body,
-.achievement,
-.contact-body {
-    padding: 10.5rem 10% 5rem;
+.top-body {
+    padding: 10.5rem 10% 0rem;
     width: 100%;
     text-align: left;
 }
-.course-heading,
-.about-heading,
-.achievers-heading,
-.contact-heading {
+.top-heading {
     margin-bottom: 5rem;
     font-size: 4.5rem;
     text-align: center;
 }
-.course-paragraph,
-.about-paragraph,
-.achievers-paragraph,
-.contact-paragraph {
-    display: inline-block;
-    width: 60%;
-    margin-right: 10rem;
-    margin-left: 1rem;
+.top-paragraph{
+    width:60%;
 }
-.main-image,
-.course-main-image,
-.achievers-main-image,
-.contact-main-image {
-    width: 15%;
-    margin-left: 5rem;
+.top-main-image {
+    width:200px;
     position: relative;
     bottom: 1rem;
-    display: inline-block;
+}
+
+.top-content{
+    width:100%;
+    display:inline-flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 /*************************************Optimize for smaller screens************************************************/
 @media only screen and (max-width: 1350px) {
     
     /****************************COURSE, ACHIEVEMENT AND ABOUT PAGE***********************************/
-    .course-body,
-    .about-body,
-    .achievement,
-    .contact-body {
-        padding: 10.5rem 10% 5rem;
-        width: 100%;
+    .top-body {
         text-align: center;
     }
-    .course-heading,
-    .about-heading,
-    .achievers-heading,
-    .contact-heading {
-        margin-bottom: 5rem;
+    .top-heading {
         font-size: 3rem;
-        text-align: center;
     }
-    .course-paragraph,
-    .about-paragraph,
-    .achievers-paragraph,
-    .contact-paragraph {
-        display: inline-block;
-        width: 45%;
-        text-align: right;
-        margin-right: 20%;
-        margin-left: 1rem;
-    }
-    .main-image,
-    .course-main-image,
-    .achievers-main-image,
-    .contact-main-image {
-        width: 25%;
-        margin-left: 0rem;
-        position: relative;
-        bottom: 7.5rem;
-        display: inline-block;
+    .top-paragraph {
+        width: 60%;
     }
     
 }
@@ -110,40 +73,22 @@ body {
 @media only screen and (max-width: 720px) {
 
     /****************************CONTACT,achievement,course AND ABOUT PAGE***********************************/
-    .course-body,
-    .about-body,
-    .achievement,
-    .contact-body {
-        padding: 10.5rem 1% 3rem;
-        width: 100%;
+    .top-body{
+        padding: 10.5rem 1% 0;
         text-align: center;
     }
-    .course-heading,
-    .about-heading,
-    .achievers-heading,
-    .contact-heading {
+    .top-heading {
         margin-bottom: 1rem;
         font-size: 3rem;
-        text-align: center;
     }
-    .course-paragraph,
-    .about-paragraph,
-    .achievers-paragraph,
-    .contact-paragraph {
-        display: inline-block;
+    .top-paragraph {
         width: 80%;
-        text-align: center;
-        margin: 2rem auto;
     }
-    .main-image,
-    .course-main-image,
-    .achievers-main-image,
-    .contact-main-image {
+    .top-main-image {
         width: 40%;
-        margin-left: 5rem;
-        position: relative;
-        bottom: 0rem;
-        right: 2rem;
+        margin-top: 2rem;
     }
-    
+    .top-content{
+        justify-content: center;
+    }
 }
