@@ -1,0 +1,366 @@
+.Faculty {
+    padding-top: 6.25rem;
+    padding-bottom: 5.75rem;
+    background-color: white;
+}
+.faculty-card {
+    display: inline-block;
+    margin: 2.5rem 5rem;
+}
+
+.faculty-heading {
+    font-size: 4.5rem;
+}
+
+/******************************************CAROUSEL***********************/
+.Carousel {
+    width: 45%;
+    margin: 5rem 2rem 10rem 0rem;
+    display: inline-block;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.carousel-image {
+    height: 27.5rem;
+    border-radius: 10px;
+}
+.top {
+    margin-top: 7.5rem;
+    margin-bottom: 0px;
+    background-color: white;
+    position: relative;
+    z-index: 1;
+}
+/************************QUERY FORM**************************/
+.query-form {
+    width: 30%;
+    padding: 4rem 0rem;
+    display: inline-block;
+    text-align: left;
+    position: relative;
+    bottom: 2rem;
+    margin-left: 3rem;
+    border-radius: 10px;
+}
+.form {
+    width: 100%;
+}
+.query-form button {
+    background-color: black;
+    color: white;
+    margin-top: 1rem;
+}
+.query-form button:hover {
+    background-color: rgb(209, 209, 209);
+    color: black;
+}
+.error {
+    color: red;
+}
+.form-control {
+    width: 100%;
+}
+/***********************Welcome Section*************************/
+.welcome {
+    padding: 4rem 10rem;
+    color: white;
+    text-align: left;
+}
+.welcome-subheading {
+    color: #8c8c8c;
+}
+.welcome-heading {
+    font-size: 4.5rem;
+    margin-bottom: 2rem;
+}
+.welcome-content {
+    color: #8c8c8c;
+}
+.flaticons {
+    margin-top: 2rem;
+}
+.flaticon-card {
+    text-align: center;
+    display: inline-block;
+    height: 10rem;
+    width: 16.5rem;
+    margin: 0 1rem;
+    background-color: black;
+    padding: 2rem 0 3rem;
+    border-radius: 5rem;
+}
+
+.flaticon-image img {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 2rem;
+}
+.flaticon-about {
+    margin-top: 1rem;
+    color: #8c8c8c;
+}
+
+/*********************************Know more about us************************/
+.blog-download {
+    padding: 4rem 6rem;
+}
+.download-main-heading {
+    font-size: 4.5rem;
+    color: white;
+    margin-bottom: 3.5rem;
+}
+.blog,
+.download {
+    background-color: white;
+    padding: 3.5rem 2%;
+    width: 35%;
+    border-radius: 1rem;
+    margin: 1rem 2rem 5rem;
+    color: black;
+    display: inline-block;
+}
+.blog button,
+.download button {
+    padding-right: 2rem;
+    margin-top: 3rem;
+    color: white;
+    background-color: black;
+}
+
+.button-icon {
+    margin-right: 1rem;
+}
+.blog button:hover,
+.download button:hover {
+    background-color: rgb(209, 209, 209);
+    transition: 500ms;
+    color: black;
+}
+
+@media only screen and (max-width: 1350px) {
+    .Carousel {
+        width: 100%;
+        height: 620px;
+        border-radius: 0;
+        margin-bottom: 5rem;
+        margin-right: 0px;
+    }
+    .carousel-image {
+        border-radius: 0;
+        height: 620px;
+    }
+    .query-form {
+        width: 80%;
+
+        padding: 1rem 2.75rem;
+    }
+    .query-form h1 {
+        text-align: center;
+    }
+    .query-form h3 {
+        font-size: 3rem;
+        text-align: center;
+    }
+    .welcome {
+        z-index: 1;
+        padding: 4rem 5rem;
+        text-align: center;
+    }
+
+    .welcome-heading {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .flaticons {
+        margin-top: 2rem;
+    }
+    .flaticon-card {
+        text-align: center;
+        display: inline-block;
+        height: 10rem;
+        width: 16.5rem;
+        margin: 0 1.5rem;
+        padding: 2rem 0 3rem;
+        border-radius: 5rem;
+    }
+
+    .flaticon-image img {
+        height: 100px;
+        width: 100px;
+        margin-bottom: 2rem;
+    }
+    .flaticon-about {
+        margin-top: 1rem;
+    }
+    .Faculty {
+        padding: 3rem 4rem;
+    }
+    .faculty-card {
+        display: inline-block;
+        margin: 2rem 2rem;
+    }
+    .card-img-top {
+        width: 100%;
+        height: 300px;
+    }
+    .faculty-heading {
+        font-size: 3rem;
+    }
+    .blog-download {
+        padding: 4rem 6rem;
+    }
+    .download-main-heading {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+    }
+    .blog,
+    .download {
+        padding: 3.5rem 5%;
+        width: 80%;
+        margin: 1rem 2rem 2rem;
+    }
+    .blog button,
+    .download button {
+        margin-top: 2rem;
+    }
+
+    /***********************************************FOOTER*******************************************************/
+}
+
+
+@media only screen and (max-width: 720px) {
+  /*********************************FACULTY CARDS*************************/
+  .Faculty {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  .faculty-card {
+    margin: 1.5rem -1.25rem;
+  }
+  .faculty-heading {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  /******************************************CAROUSEL***********************/
+  .Carousel {
+    width: 100%;
+    height: 500px;
+    margin: 7.7rem 0rem 0rem 0;
+    display: inline-block;
+    background-color: white;
+    border-radius: 0px;
+  }
+  .carousel-image {
+    height: 500px;
+  }
+
+  .carousel-image img {
+    /* height: 200px; */
+    border-radius: 0px;
+  }
+  .top {
+    margin-top: 0rem;
+    margin-bottom: 0px;
+    background-color: white;
+  }
+  /************************QUERY FORM**************************/
+  .query-form {
+    width: 90%;
+    padding: 6rem 0rem 3rem;
+    margin-left: 0rem;
+    border-radius: 10px;
+  }
+  .query-form h3 {
+    font-size: 2rem;
+  }
+  .query-form button:hover {
+    background-color: rgb(209, 209, 209);
+    color: black;
+  }
+
+  /***********************Welcome Section*************************/
+  .welcome {
+    padding: 4rem 2rem;
+    color: white;
+    text-align: center;
+  }
+  .welcome-subheading {
+    color: #8c8c8c;
+  }
+  .welcome-heading {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  .welcome-content {
+    color: #8c8c8c;
+    text-align: center;
+  }
+  .flaticons {
+    margin-top: 1rem;
+  }
+  .flaticon-card {
+    text-align: center;
+    display: inline-block;
+    height: 10rem;
+    width: 10.5rem;
+    margin: 0 1rem;
+    background-color: black;
+    padding: 2rem 0 3rem;
+    border-radius: 5rem;
+  }
+
+  .flaticon-image img {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 2rem;
+  }
+  .flaticon-about {
+    margin-top: 1rem;
+    color: #8c8c8c;
+  }
+  .particles-js {
+    margin-top: 10rem;
+  }
+  /*********************************Know more about us************************/
+  .blog-download {
+    padding: 4rem 1rem;
+  }
+  .download-main-heading {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 3.5rem;
+  }
+  .blog,
+  .download {
+    background-color: white;
+    padding: 3.5rem 2% 2rem;
+    width: 90%;
+    border-radius: 1rem;
+    margin: 1rem 1rem 2rem;
+    color: black;
+    display: inline-block;
+  }
+  .blog button,
+  .download button {
+    padding-right: 2rem;
+    margin-top: 1.5rem;
+    color: white;
+    background-color: black;
+  }
+  .blog-heading,
+  .download-heading {
+    font-size: 1.5rem;
+  }
+  .button-icon {
+    margin-right: 1rem;
+  }
+  .blog button:hover,
+  .download button:hover {
+    background-color: rgb(209, 209, 209);
+    transition: 500ms;
+    color: black;
+  }
+}

@@ -1,0 +1,67 @@
+.contact-card {
+    height: 17.5rem;
+}
+.contact-card-detail {
+    display: inline-block;
+    width: 70%;
+    color: #8c8c8c;
+}
+.contact-card-image {
+    display: inline-block;
+    width: 20%;
+}
+.contact-card-image img {
+    position: relative;
+    bottom: 4rem;
+    left: 3rem;
+    width: 100%;
+}
+@media only screen and (max-width: 1350px) {
+    .contact-main-image {
+        position: relative;
+        top: 0rem;
+    }
+    .contact-paragraph {
+        margin-bottom: 8rem;
+    }
+    .contact-card {
+        height: 17.5rem;
+    }
+    .contact-card-detail {
+        display: inline-block;
+        width: 70%;
+    }
+    .contact-card-image {
+        display: inline-block;
+        width: 20%;
+    }
+    .contact-card-image img {
+        position: relative;
+        bottom: 4rem;
+        left: 3rem;
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 720px) {
+    .contact-card {
+        height: 15rem;
+    }
+    .contact-card-detail {
+        display: inline-block;
+        width: 70%;
+        color: #8c8c8c;
+    }
+    .contact-card-about {
+        font-size: 12px;
+    }
+    .contact-card-image {
+        display: inline-block;
+        width: 20%;
+    }
+    .contact-card-image img {
+        position: relative;
+        bottom: 3rem;
+        left: 1rem;
+        width: 100%;
+    }
+}

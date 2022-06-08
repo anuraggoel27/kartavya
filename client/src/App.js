@@ -1,24 +1,26 @@
 import "./styles.css";
 import React, { useEffect, useState } from "react";
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import Achievement from "./pages/Achievement";
-import Courses from "./pages/Courses";
-import About from "./pages/About";
-import Gallery from "./pages/Gallery";
-import StudyMaterial from "./pages/StudyMaterial";
-import NoticeBoard from "./pages/NoticeBoard";
-import CreateNotice from "./pages/CreateNotice";
-import Admin from "./pages/Admin";
+import Home from "./pages/Home/Home";
+import Contact from "./pages/Contact/Contact";
+import Achievement from "./pages/Achievers/Achievement";
+import Courses from "./pages/Courses/Courses";
+import About from "./pages/About/About";
+import Gallery from "./pages/Gallery/Gallery";
+import StudyMaterial from "./pages/Study Material/StudyMaterial";
+import NoticeBoard from "./pages/Notice Board/NoticeBoard";
+import CreateNotice from "./pages/CreatePost/CreateNotice";
+import Admin from "./pages/Admin/Admin";
 import AOS from "aos";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Notice from "./pages/Notice Board/Notice";
+import EditPost from "./pages/EditPost/EditPost";
+import Profile from "./pages/Profile/Profile";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "aos/dist/aos.css";
 import axios from "axios";
-import Notice from "./components/Notice Board/Notice";
-import EditPost from "./pages/EditPost";
-import Profile from "./pages/Profile";
+
 
 
 EditPost

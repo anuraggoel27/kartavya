@@ -1,0 +1,55 @@
+.achievers-card {
+    display: inline-block;
+    margin: 2rem 3.5rem;
+    text-align: center;
+    z-index: -1;
+}
+
+.achievers-card-section {
+    margin-top: 3rem;
+}
+.achiever-title {
+    font-weight: bold;
+}
+.achiever-image {
+    height: 20rem;
+}
+
+@media only screen and (max-width: 1350px) {
+    .achievers-card {
+        display: inline-block;
+        margin: 2rem 3.5rem;
+        text-align: center;
+    }
+
+    .achievers-card-section {
+        margin-top: 3rem;
+    }
+    .achiever-title {
+        font-weight: bold;
+    }
+    .achiever-image {
+        height: 20rem;
+    }
+}
+@media only screen and (max-width: 720px) {
+    .achievers-card {
+        display: inline-block;
+        margin: 2rem 3.5rem;
+        text-align: center;
+    }
+
+    .achievers-card-section {
+        margin-top: 3rem;
+    }
+    .achiever-title {
+        font-weight: bold;
+    }
+    .achiever-image {
+        height: 20rem;
+    }
+    .achievers-card {
+        margin: 2rem 2rem;
+        text-align: center;
+    }
+}

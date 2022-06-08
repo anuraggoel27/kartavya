@@ -1,0 +1,73 @@
+.create-notice-label-title h6 {
+    margin: 0;
+}
+
+.create-notice-input-title {
+    margin-bottom: 1rem;
+}
+.notice-body {
+    margin: 10rem auto 2rem;
+    width: 60%;
+}
+.notice-paper,
+.create-notice-paper {
+    padding: 3rem 2rem;
+}
+.notice-header {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.notice-title,
+.notice-date {
+    margin: 0;
+    width: 50%;
+    display: inline-block;
+}
+.notice-date {
+    text-align: right;
+}
+.noticeboard-content {
+    margin: 10rem auto 2rem;
+    width: 60%;
+}
+/*************************Individual Notice******************/
+
+/******* Create Notice ******/
+.create-notice-content {
+    margin-top: 6.5rem;
+    padding: 3rem;
+}
+.create-notice-form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.create-notice-input-title input,
+.create-notice-input-desc textarea {
+    width: 100%;
+    margin: 0.25rem;
+}
+
+@media only screen and (max-width: 720px) {
+    .noticeboard-content {
+        width: 100%;
+    }
+
+    .create-notice-form {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .notice-board {
+        width: 95%;
+        margin: 2rem auto;
+    }
+    .notice-body {
+        margin: 10rem auto 2rem;
+        width: 95%;
+    }
+    .noticeboard-footer{
+        width:100%;
+    }
+}
