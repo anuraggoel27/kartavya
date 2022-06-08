@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Paper } from "@material-ui/core";
 import { Button } from "react-bootstrap";
-import "./styles.css";
+import "../styles.css";
 
 const EditPostContent = () => {
     const params = useParams();

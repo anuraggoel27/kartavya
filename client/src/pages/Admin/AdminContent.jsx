@@ -5,7 +5,7 @@ const AdminContent = ({allowed}) => {
     window.location="http://localhost:3000/CreateNotice";
   }
   return (
-    <div className="admin-content">
+    <div className="admin-content" style={{marginTop:"10rem"}}>
       <div className="post-create-button">
         <Button onClick={handleClick}>
           Create New Notice

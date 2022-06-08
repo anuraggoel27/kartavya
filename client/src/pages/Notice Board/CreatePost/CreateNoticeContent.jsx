@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Paper} from "@material-ui/core";
 import { Button} from "react-bootstrap";
-import "./styles.css";
+import "../styles.css";
 
 const CreateNoticeContent = () => {
     const [notice, setNotice] = useState({

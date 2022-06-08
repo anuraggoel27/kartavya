@@ -1,5 +1,5 @@
 import React from 'react'
-import CreateNoticeContent from "../Notice Board/CreateNoticeContent"
+import CreateNoticeContent from "./CreateNoticeContent"
 const CreateNotice = () => {
   return (
     <div>

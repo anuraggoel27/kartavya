@@ -8,22 +8,19 @@ import About from "./pages/About/About";
 import Gallery from "./pages/Gallery/Gallery";
 import StudyMaterial from "./pages/Study Material/StudyMaterial";
 import NoticeBoard from "./pages/Notice Board/NoticeBoard";
-import CreateNotice from "./pages/CreatePost/CreateNotice";
+import CreateNotice from "./pages/Notice Board/CreatePost/CreateNotice";
 import Admin from "./pages/Admin/Admin";
 import AOS from "aos";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Notice from "./pages/Notice Board/Notice";
-import EditPost from "./pages/EditPost/EditPost";
+import EditPost from "./pages/Notice Board/EditPost/EditPost";
 import Profile from "./pages/Profile/Profile";
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "aos/dist/aos.css";
 import axios from "axios";
 
-
-
-EditPost
+EditPost;
 AOS.init();
 export const UserContext = React.createContext();
 export default function App() {
@@ -70,9 +67,9 @@ export default function App() {
                     element={<StudyMaterial />}
                 />
                 <Route exact path="/admin" element={<Admin />} />
-                <Route exact path="/Notice/:id" element={<Notice/>} />
-                <Route exact path="/editpost/:id" element={<EditPost/>}/>
-                <Route exact path="/profile" element={<Profile/>} />
+                <Route exact path="/Notice/:id" element={<Notice />} />
+                <Route exact path="/editpost/:id" element={<EditPost />} />
+                <Route exact path="/profile" element={<Profile />} />
             </Routes>
             <Footer />
         </div>
