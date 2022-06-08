@@ -1,3 +1,6 @@
+.gallery-content{
+  padding:1rem 1.25rem 4rem;
+}
 .overlay {
     position: absolute;
     height: 0px;
@@ -51,6 +54,9 @@
     }
   }
   @media only screen and (max-width: 720px){
+    .gallery-content{
+      padding:1rem 0.25rem;
+    }
     .overlay {
         position: absolute;
         height: 0px;

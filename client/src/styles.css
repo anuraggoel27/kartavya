@@ -17,8 +17,7 @@ body {
     background-color: white;
 }
 
-/**************************ACHIEVERS PAGE*********************************/
-
+/**********************Particles js****************************/
 .particles-js {
     position: fixed;
     z-index: 0;
@@ -26,7 +25,8 @@ body {
     width: 100vw;
 }
 
-/****************************CONTACT,achievement,course AND ABOUT PAGE***********************************/
+
+/******************Top Section of Pages************************/
 .top-body {
     padding: 10.5rem 10% 0rem;
     width: 100%;
@@ -37,26 +37,24 @@ body {
     font-size: 4.5rem;
     text-align: center;
 }
-.top-paragraph{
-    width:60%;
+.top-paragraph {
+    width: 60%;
 }
 .top-main-image {
-    width:200px;
+    width: 200px;
     position: relative;
     bottom: 1rem;
 }
 
-.top-content{
-    width:100%;
-    display:inline-flex;
+.top-content {
+    width: 100%;
+    display: inline-flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
 /*************************************Optimize for smaller screens************************************************/
 @media only screen and (max-width: 1350px) {
-    
-    /****************************COURSE, ACHIEVEMENT AND ABOUT PAGE***********************************/
     .top-body {
         text-align: center;
     }
@@ -66,14 +64,12 @@ body {
     .top-paragraph {
         width: 60%;
     }
-    
 }
 
 /**********************Optimize for mobiles************************/
 @media only screen and (max-width: 720px) {
-
     /****************************CONTACT,achievement,course AND ABOUT PAGE***********************************/
-    .top-body{
+    .top-body {
         padding: 10.5rem 1% 0;
         text-align: center;
     }
@@ -82,13 +78,13 @@ body {
         font-size: 3rem;
     }
     .top-paragraph {
-        width: 80%;
+        width: 95%;
     }
     .top-main-image {
         width: 40%;
         margin-top: 2rem;
     }
-    .top-content{
+    .top-content {
         justify-content: center;
     }
 }
