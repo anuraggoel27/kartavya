@@ -7,7 +7,7 @@ const googleRoute = require('./routes/authGoogle');
 const adminRoute = require('./routes/admin');
 const passportSetup = require('./passport/passport');
 const connectDB = require('./db/connect');
-
+const fileRoute = require('./routes/fileUpload');
 
 app.use(session({
     secret:"noone_sunny",
@@ -26,6 +26,7 @@ app.use(cors({
 app.use(express.json());
 app.use('/admin',adminRoute);
 app.use('/auth/google',googleRoute);
+app.use('/file',fileRoute);
 
 const startBackendServer = async() =>{
     try {

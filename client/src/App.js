@@ -70,8 +70,10 @@ export default function App() {
                 <Route exact path="/Notice/:id" element={<Notice />} />
                 <Route exact path="/editpost/:id" element={<EditPost />} />
                 <Route exact path="/profile" element={<Profile />} />
+                
             </Routes>
             <Footer />
+            
         </div>
     );
 }
