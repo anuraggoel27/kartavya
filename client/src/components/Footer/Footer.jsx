@@ -6,7 +6,7 @@ import "./styles.css";
 
 function Footer() {
     return (
-        <div data-aos="fade-up" data-aos-duration="1000" className="footer">
+        <div className="footer">
             <div className="footer-links">
                 <div>
                     <h2 className="brand-footer">Kartavya Academy</h2>
