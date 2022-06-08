@@ -4,7 +4,7 @@ import QueryForm from "./QueryForm";
 import ImageCarousel from "./ImageCarousel";
 import Download from "./Download";
 import Welcome from "./Welcome";
-import Faculty from "./Faculty";
+import Faculty from "./Faculty/Faculty";
 function Content() {
     return (
         <div className="content">

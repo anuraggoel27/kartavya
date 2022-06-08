@@ -1,15 +1,21 @@
 .Faculty {
-    padding-top: 6.25rem;
-    padding-bottom: 5.75rem;
+    padding: 4rem 6rem;
     background-color: white;
 }
 .faculty-card {
-    display: inline-block;
-    margin: 2.5rem 5rem;
+    width:27.5%;
+    margin: 2rem 1rem;
 }
-
+.faculty-cards{
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 .faculty-heading {
-    font-size: 4.5rem;
+    font-size: 3rem;
+}
+.faculty-card img{
+    height:350px;
 }
 
 /******************************************CAROUSEL***********************/
@@ -79,10 +85,12 @@
 }
 .flaticons {
     margin-top: 2rem;
+    display: inline-flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 .flaticon-card {
     text-align: center;
-    display: inline-block;
     height: 10rem;
     width: 16.5rem;
     margin: 0 1rem;
@@ -94,16 +102,21 @@
 .flaticon-image img {
     height: 100px;
     width: 100px;
-    margin-bottom: 2rem;
+    margin-bottom: 0.75rem;
 }
 .flaticon-about {
-    margin-top: 1rem;
     color: #8c8c8c;
 }
 
 /*********************************Know more about us************************/
 .blog-download {
     padding: 4rem 6rem;
+    width:100%;
+}
+.blog-download-content{
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .download-main-heading {
     font-size: 4.5rem;
@@ -118,7 +131,7 @@
     border-radius: 1rem;
     margin: 1rem 2rem 5rem;
     color: black;
-    display: inline-block;
+    
 }
 .blog button,
 .download button {
@@ -167,7 +180,7 @@
     }
     .welcome {
         z-index: 1;
-        padding: 4rem 5rem;
+        padding: 2rem 3rem;
         text-align: center;
     }
 
@@ -177,30 +190,27 @@
     }
 
     .flaticons {
-        margin-top: 2rem;
+        margin-top: 0rem;
     }
     .flaticon-card {
         text-align: center;
-        display: inline-block;
-        height: 10rem;
-        width: 16.5rem;
-        margin: 0 1.5rem;
-        padding: 2rem 0 3rem;
-        border-radius: 5rem;
+        /* height: 10rem; */
+        width: 25%;
+        margin: 1rem 1.5rem;
+        padding: 2rem 0 0;
     }
 
     .flaticon-image img {
         height: 100px;
         width: 100px;
-        margin-bottom: 2rem;
+        margin-bottom: 0.75rem;
     }
-    .flaticon-about {
-        margin-top: 1rem;
-    }
+    
     .Faculty {
         padding: 3rem 4rem;
     }
     .faculty-card {
+        width:40%;
         display: inline-block;
         margin: 2rem 2rem;
     }
@@ -218,10 +228,13 @@
         font-size: 3rem;
         margin-bottom: 2rem;
     }
+    .blog-download-content{
+        width:100%;
+    }
     .blog,
     .download {
         padding: 3.5rem 5%;
-        width: 80%;
+        width: 100%;
         margin: 1rem 2rem 2rem;
     }
     .blog button,
@@ -235,11 +248,11 @@
 @media only screen and (max-width: 720px) {
     /*********************************FACULTY CARDS*************************/
     .Faculty {
-        padding-top: 4rem;
-        padding-bottom: 4rem;
+        padding:2rem 1rem;
     }
     .faculty-card {
-        margin: 1.5rem -1.25rem;
+        margin: 1.5rem 0rem;
+        width:100%
     }
     .faculty-heading {
         font-size: 3rem;
@@ -285,7 +298,7 @@
 
     /***********************Welcome Section*************************/
     .welcome {
-        padding: 4rem 2rem;
+        padding: 3rem 1rem;
         color: white;
         text-align: center;
     }
@@ -304,11 +317,9 @@
         margin-top: 1rem;
     }
     .flaticon-card {
-        text-align: center;
-        display: inline-block;
-        height: 10rem;
-        width: 10.5rem;
-        margin: 0 1rem;
+        width: 80%;
+        height:10rem;
+        margin: 0.5rem 1rem;
         background-color: black;
         padding: 2rem 0 3rem;
         border-radius: 5rem;
@@ -317,10 +328,9 @@
     .flaticon-image img {
         height: 100px;
         width: 100px;
-        margin-bottom: 2rem;
+        margin-bottom: 0.75rem;
     }
     .flaticon-about {
-        margin-top: 1rem;
         color: #8c8c8c;
     }
     .particles-js {
@@ -328,7 +338,7 @@
     }
     /*********************************Know more about us************************/
     .blog-download {
-        padding: 4rem 1rem;
+        padding: 4rem 0rem;
     }
     .download-main-heading {
         font-size: 2rem;
@@ -338,7 +348,7 @@
     .blog,
     .download {
         background-color: white;
-        padding: 3.5rem 2% 2rem;
+        padding: 3.5rem 5% 2rem;
         width: 90%;
         border-radius: 1rem;
         margin: 1rem 1rem 2rem;
