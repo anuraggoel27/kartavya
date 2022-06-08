@@ -31,7 +31,7 @@ body {
 .about-body,
 .achievement,
 .contact-body {
-    padding: 10.5rem 10% 7.5rem;
+    padding: 10.5rem 10% 5rem;
     width: 100%;
     text-align: left;
 }
@@ -61,21 +61,6 @@ body {
     position: relative;
     bottom: 1rem;
     display: inline-block;
-}
-.course-cards{
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.course-card,
-.contact-card {
-    width: 45%;
-    background-color: black;
-    color: white;
-    height: 22.5rem;
-    padding: 2.5rem 3rem;
-    border-radius: 1rem;
-    margin: 0.25rem;
 }
 
 /*************************************Optimize for smaller screens************************************************/
@@ -118,14 +103,7 @@ body {
         bottom: 7.5rem;
         display: inline-block;
     }
-    .course-card,
-    .contact-card {
-        width: 45%;
-        padding: 2.5rem 3rem;
-        border-radius: 1rem;
-        margin: 0.5rem;
-        text-align: left;
-    }
+    
 }
 
 /**********************Optimize for mobiles************************/
@@ -136,7 +114,7 @@ body {
     .about-body,
     .achievement,
     .contact-body {
-        padding: 10.5rem 1% 5rem;
+        padding: 10.5rem 1% 3rem;
         width: 100%;
         text-align: center;
     }
@@ -167,10 +145,5 @@ body {
         bottom: 0rem;
         right: 2rem;
     }
-    .course-card,
-    .contact-card {
-        width: 95%;
-        padding: 2.5rem 1rem 0rem 2rem;
-        margin: 2rem 1rem 1rem 0.6rem;
-    }
+    
 }

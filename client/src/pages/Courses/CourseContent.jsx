@@ -21,8 +21,8 @@ function CourseContent() {
         ></img>
       </div>
       <div className="course-cards">
-        {Courses.map((course,id)=>{
-          return (<CourseCard className="course-card" heading={course.heading} subheading={course.subheading} image={course.image} about={course.about}/>)
+        {Courses.map((course,index)=>{
+          return (<CourseCard key={index} className="course-card" heading={course.heading} subheading={course.subheading} image={course.image} about={course.about}/>)
         })}
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./styles.css"
 const CourseCard = (props) => {
     return (
         <div className={props.className}>
@@ -8,10 +8,13 @@ const CourseCard = (props) => {
                 {props.subheading}
             </h5>
             <div className="card-content">
-                <p className="card-about">
-                   {props.about}
-                </p>
-                <img src={props.image} className="card-image"></img>
+                <div className="card-about">
+                <p>{props.about}</p>
+                </div>
+                <div className="card-image">
+                <img src={props.image}></img>
+                </div>
+                
             </div>
         </div>
     );

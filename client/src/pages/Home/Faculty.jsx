@@ -36,7 +36,6 @@ function Faculty(){
         </Card>
         <Card className="card3 faculty-card" style={{ width: "18rem" }}>
           <Card.Img
-            
             variant="top"
             src="/images/Faculty/Faculty-3.jpeg"
           />

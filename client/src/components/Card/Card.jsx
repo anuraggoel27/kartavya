@@ -1,6 +1,5 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import "./styles.css"
 function AchieverCard(props) {
   return (
     <div className={props.className}>
