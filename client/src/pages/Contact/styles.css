@@ -1,67 +1,67 @@
-.contact-card {
-    height: 17.5rem;
+.contact-cards {
+    width:100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
 }
-.contact-card-detail {
-    display: inline-block;
-    width: 70%;
+.contact-card-content {
+    width:100%;
+    display: inline-flex;
+    justify-content: space-between;
+}
+.contact-card {
+    width: 45%;
+    background-color: black;
+    color: white;
+    padding: 2.5rem 3rem;
+    border-radius: 1rem;
+    margin: 0.25rem;
+}
+.contact-card-heading {
+    margin-bottom: 2rem;
+}
+.contact-card-about {
     color: #8c8c8c;
 }
-.contact-card-image {
-    display: inline-block;
-    width: 20%;
-}
-.contact-card-image img {
+.contact-card-image img{
+    height:150px;
+    width:150px;
     position: relative;
-    bottom: 4rem;
-    left: 3rem;
-    width: 100%;
+    bottom:1rem;
 }
+.card-about {
+    font-size: 1rem;
+    color: #8c8c8c;
+}
+
 @media only screen and (max-width: 1350px) {
-    .contact-main-image {
-        position: relative;
-        top: 0rem;
-    }
-    .contact-paragraph {
-        margin-bottom: 8rem;
-    }
     .contact-card {
-        height: 17.5rem;
+        width: 80%;
+        padding: 2.5rem 3rem;
+        border-radius: 1rem;
+        margin: 0.5rem;
+        text-align: left;
     }
-    .contact-card-detail {
-        display: inline-block;
-        width: 70%;
+    .card-heading {
+        margin-bottom: 2rem;
     }
-    .contact-card-image {
-        display: inline-block;
-        width: 20%;
-    }
-    .contact-card-image img {
-        position: relative;
-        bottom: 4rem;
-        left: 3rem;
-        width: 100%;
-    }
+    
 }
+
 @media only screen and (max-width: 720px) {
+    .contact-cards{
+        margin-top:3rem;
+    }
     .contact-card {
-        height: 15rem;
+        width: 95%;
+        padding: 1.5rem 1rem 0rem 1rem;
+        margin: 0.5rem auto 0.6rem;
     }
-    .contact-card-detail {
-        display: inline-block;
-        width: 70%;
-        color: #8c8c8c;
+    .card-heading {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
     }
-    .contact-card-about {
-        font-size: 12px;
-    }
-    .contact-card-image {
-        display: inline-block;
-        width: 20%;
-    }
-    .contact-card-image img {
-        position: relative;
-        bottom: 3rem;
-        left: 1rem;
-        width: 100%;
-    }
+    
 }
+

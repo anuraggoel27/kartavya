@@ -24,7 +24,7 @@
 }
 .card-about {
     color: #8c8c8c;
-    display: inline-block;
+    /* display: inline-block; */
 }
 .card-image img{
     height:150px;
@@ -56,7 +56,7 @@
     }
     .course-card {
         width: 95%;
-        padding: 1.5rem 0.25rem 0rem 0.25rem;
+        padding: 1.5rem 1rem 0rem 1rem;
         margin: 0.5rem auto 0.6rem;
     }
     .card-heading {
