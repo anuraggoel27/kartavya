@@ -5,7 +5,7 @@ import ImageCarousel from "./ImageCarousel";
 import Download from "./Download";
 import Welcome from "./Welcome";
 import Faculty from "./Faculty/Faculty";
-function Content() {
+function HomeContent() {
     return (
         <div className="content">
             <div className="top">
@@ -18,4 +18,4 @@ function Content() {
         </div>
     );
 }
-export default Content;
+export default HomeContent;
