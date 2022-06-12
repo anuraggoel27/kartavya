@@ -15,15 +15,14 @@ const noticeSchema = new mongoose.Schema({
 })
 
 const studyMaterialSchema = new mongoose.Schema({
+    fileId:String,
     name:String,
+    webContentLink:String,
+    webViewLink:String,
     class:Number,
     subject:String,
     chapter:String,
     description:String,
-    pdf:{
-        data:Buffer,
-        contentType: String
-    }
 })
 
 const TempUsers = mongoose.model('TempUsers',userSchema,'TempUsers');
