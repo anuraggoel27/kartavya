@@ -6,4 +6,4 @@
 
 3)ProfileSchema
 4)LocalAuthentication => Researching on it. Will try to implement directly the best option either cookie or jwt
-5)Allow paging in NoticeBoard. => use limit and skip functions in Mongoose.(YET to be discussed with chacha)
+5)Allow paging in NoticeBoard. => use limit and skip (offset) functions in Mongoose.(YET to be discussed with chacha)

@@ -29,7 +29,7 @@ route.post('/new',upload.single('file'),async (req,res)=>{
             }
         })
 
-        //console.log(newPdf);
+        //console.log(newPdf.pdf.data);
         console.log('New pdf uploaded to database');
         res.status(200).json({success:true,msg:"Pdf uploaded"});
         
