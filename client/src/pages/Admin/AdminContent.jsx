@@ -1,5 +1,7 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Button } from 'react-bootstrap'
+
+
 const AdminContent = ({allowed}) => {
   const handleClick=()=>{
     window.location="http://localhost:3000/CreateNotice";
