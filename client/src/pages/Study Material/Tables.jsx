@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import axios from "axios";
-//import Notice from "./Notice";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import "./styles.css";
+// import "./styles.css";
 import {
     Table,
     TableBody,
@@ -16,9 +14,11 @@ import {
     TableHead,
     Button,
 } from "@material-ui/core";
-import TablePaginationActions from "./TablePaginationActions";
-import {Link } from "react-router-dom";
-import "./styles.css";
+import TablePaginationActions from "./TablePaginationAction";
+import * as RiIcons from 'react-icons/ri';
+import * as AiIcons from "react-icons/ai";
+// import "./styles.css";
+import { MaterialContext } from "./StudyMaterialContent";
 
 
 const StyledTableCell = withStyles((theme) => ({
@@ -48,46 +48,8 @@ export default function CustomTable() {
     const classes = useStyles2();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
-    const [data, setData] = useState([]);
-    const [selectedNotice, setSelectedNotice] = useState([]);
-    useEffect(() => {
-        const response = async () => {
-            const x = await axios
-                .get("http://localhost:5000/admin/notices", {
-                    withCredentials: true,
-                    headers: {
-                        Accept: "application/json",
-                        "Content-Type": "application/json",
-                        "Access-Control-Allow-Credentials": true,
-                    },
-                })
-                .then((res) => {
-                    setData(res.data);
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
-        };
-        response();
-    }, []);
-
-    const handleClick = async (id) => {
-        await axios
-            .get(`http://localhost:5000/admin/deletePost/${id}`, {
-                withCredentials: true,
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                    "Access-Control-Allow-Credentials": true,
-                },
-            })
-            .then((res) => {
-                console.log(res);
-                window.location.reload()
-            })
-            .catch((err) => console.log(err));
-    };
-
+    const data=useContext(MaterialContext);
+    console.log(data);
     const emptyRows =
         rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
 
@@ -108,9 +70,10 @@ export default function CustomTable() {
                 <TableHead>
                     <TableRow>
                         <StyledTableCell>S. No.</StyledTableCell>
-                        <StyledTableCell align="left">Date</StyledTableCell>
-                        <StyledTableCell align="left">Title</StyledTableCell>
-                        <StyledTableCell align="center">Delete</StyledTableCell>
+                        <StyledTableCell align="center">Subject</StyledTableCell>
+                        <StyledTableCell align="center">Name</StyledTableCell>
+                        <StyledTableCell align="center">View</StyledTableCell>
+                        <StyledTableCell align="center">Download</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -125,23 +88,22 @@ export default function CustomTable() {
                             <TableCell style={{ width: 80 }} align="left">
                                 {id + 1}
                             </TableCell>
+                            <TableCell style={{ width: 80 }} align="left">
+                                {data.subject}
+                            </TableCell>
+                            <TableCell component="th" scope="row" align="center">
+                                {data.name}
+                            </TableCell>
 
-                            <TableCell style={{ width: 160 }} align="left">
-                                {data.createdAt.split("T")[0]}
+                            <TableCell  align="center">
+                                <a href={data.webViewLink}>
+                                    <AiIcons.AiFillEye/>
+                                </a>
                             </TableCell>
-                            <TableCell component="th" scope="row" align="left">
-                                <Link to={`/notice/${data._id}`}>
-                                    {data.title}
-                                </Link>
-                            </TableCell>
-                            <TableCell align="left">
-                                <Button
-                                    onClick={(e) => {
-                                        handleClick(data._id);
-                                    }}
-                                >
-                                    Delete
-                                </Button>
+                            <TableCell align="center">
+                                <a href={data.webContentLink}>
+                                <RiIcons.RiDownloadLine/>
+                                </a>
                             </TableCell>
                         </TableRow>
                     ))}

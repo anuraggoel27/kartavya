@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import Top from "../../components/Top";
 import { TopData } from "../../components/Topdata";
 import axios from "axios";
+import Tables from "./Tables";
+
+export const MaterialContext=React.createContext();
 function StudyMaterialContent() {
     const [material, setMaterial] = useState([]);
     useEffect(() => {
@@ -22,17 +25,9 @@ function StudyMaterialContent() {
                 image={TopData[5].image}
             />
             <div className="studymaterial">
-                {material.map((m, index) => {
-                        return <div key={index} className="material">
-                            <div className="material-name">{m.name}</div>
-                            <div className="material-webview">
-                                <a href={m.webViewLink}>View</a>
-                            </div>
-                            <div className="material-webContent">
-                                <a href={m.webContentLink}>Download</a>
-                            </div>
-                        </div>;
-                    })}
+                    <MaterialContext.Provider value={material}>
+                        <Tables />
+                    </MaterialContext.Provider>
             </div>
         </div>
     );

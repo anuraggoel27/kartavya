@@ -1,0 +1,15 @@
+.custom-table{
+    width:80%;
+    margin:0 auto;
+    border: 2px solid black;
+}
+.table{
+    margin-bottom: 0;
+}
+.table-title-row{
+    background-color: black;
+    color:white;
+}
+.table-title-cell-name{
+    width:70%;
+}
