@@ -3,7 +3,7 @@
     height: 650px;
     margin: auto;
     position: relative;
-    padding: 6rem 5rem 3rem;
+    padding: 6rem 5rem 2rem;
     background-color: black;
     color: white;
   }
@@ -54,7 +54,7 @@
     color: #8c8c8c;
   }
 
-  @media only screen and (max-width: 1350px) {
+  @media only screen and (max-width: 1007px) {
     .footer {
         padding: 6rem 6rem 3rem;
       }
@@ -67,10 +67,10 @@
       }
   }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 640px) {
     .footer {
         text-align: center;
-        padding: 6rem 1rem 3rem;
+        padding: 6rem 1rem 2rem;
       }
       .row-heading {
         margin-bottom: 1rem;

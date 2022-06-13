@@ -45,7 +45,7 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-  @media only screen and (max-width: 1350px){
+  @media only screen and (max-width: 1007px){
     .gallery-card {
       height: 260px;
       width: 50%;
@@ -53,7 +53,7 @@
       padding: 0;
     }
   }
-  @media only screen and (max-width: 720px){
+  @media only screen and (max-width: 640px){
     .gallery-content{
       padding:1rem 0.25rem;
     }

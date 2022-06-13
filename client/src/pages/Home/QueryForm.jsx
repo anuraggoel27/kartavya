@@ -80,7 +80,7 @@ function QueryForm() {
         }}
       >
         {(formik) => (
-          <div >
+          <div className="formic-form">
             <h1> Query</h1>
             <Form>
               <TextField label="Name" name="name" type="text" />

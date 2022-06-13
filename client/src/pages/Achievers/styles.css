@@ -19,7 +19,7 @@
     height: 20rem;
 }
 
-@media only screen and (max-width: 1350px) {
+@media only screen and (max-width: 1007px) {
     .achievers-card{
         width:40%;
     }
@@ -33,7 +33,7 @@
         height: 20rem;
     }
 }
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 640px) {
     .achievers-card{
         width:95%;
     }

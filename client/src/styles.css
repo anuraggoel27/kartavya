@@ -54,7 +54,7 @@ body {
 }
 
 /*************************************Optimize for smaller screens************************************************/
-@media only screen and (max-width: 1350px) {
+@media only screen and (max-width: 1007px) {
     .top-body {
         text-align: center;
     }
@@ -67,7 +67,7 @@ body {
 }
 
 /**********************Optimize for mobiles************************/
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 640px) {
     /****************************CONTACT,achievement,course AND ABOUT PAGE***********************************/
     .top-body {
         padding: 10.5rem 1% 0;

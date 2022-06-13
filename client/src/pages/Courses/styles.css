@@ -33,7 +33,7 @@
     bottom:1rem;
 }
 
-@media only screen and (max-width: 1350px) {
+@media only screen and (max-width: 1007px) {
     .course-card {
         width: 80%;
         padding: 2.5rem 3rem;
@@ -50,7 +50,7 @@
     
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 640px) {
     .course-cards{
         margin-top:3rem;
     }

@@ -20,9 +20,7 @@
 
 /******************************************CAROUSEL***********************/
 .Carousel {
-    width: 45%;
-    margin: 5rem 2rem 10rem 0rem;
-    display: inline-block;
+    width: 60%;
     background-color: white;
     border-radius: 10px;
 }
@@ -33,16 +31,18 @@
 }
 .top {
     margin-top: 7.5rem;
-    margin-bottom: 0px;
     background-color: white;
+    display: inline-flex;
+    justify-content:space-between;
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    width:100%;
+    padding:4rem 6rem;
+    align-items: center;
 }
 /************************QUERY FORM**************************/
 .query-form {
-    width: 30%;
-    padding: 4rem 0rem;
-    display: inline-block;
+    width:  30%;
     text-align: left;
     position: relative;
     bottom: 2rem;
@@ -69,7 +69,7 @@
 }
 /***********************Welcome Section*************************/
 .welcome {
-    padding: 4rem 10rem;
+    padding: 4rem 6rem;
     color: white;
     text-align: left;
 }
@@ -152,25 +152,31 @@
     color: black;
 }
 
-@media only screen and (max-width: 1350px) {
+@media only screen and (max-width: 1007px) {
     .top {
-        margin-top: 0rem;
+        flex-wrap: wrap;
+        padding:0;
     }
     .Carousel {
         width: 100%;
         height: 620px;
         border-radius: 0;
-        margin-bottom: 5rem;
         margin-right: 0px;
+        
     }
     .carousel-image {
         border-radius: 0;
         height: 620px;
     }
     .query-form {
-        width: 80%;
-
-        padding: 1rem 2.75rem;
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+        padding:4rem 3rem;
+        margin:0;
+    }
+    .formic-form{
+        width: 100%;
     }
     .query-form h1 {
         text-align: center;
@@ -246,7 +252,7 @@
     /***********************************************FOOTER*******************************************************/
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 640px) {
     /*********************************FACULTY CARDS*************************/
     .Faculty {
         padding:2rem 1rem;
@@ -264,9 +270,8 @@
     .Carousel {
         width: 100%;
         height: 500px;
-        margin: 7.7rem 0rem 0rem 0;
+        margin: 0rem 0rem 0rem 0;
         display: inline-block;
-        background-color: white;
         border-radius: 0px;
     }
     .carousel-image {
@@ -274,44 +279,33 @@
     }
 
     .carousel-image img {
-        /* height: 200px; */
         border-radius: 0px;
     }
     .top {
-        margin-top: 0rem;
         margin-bottom: 0px;
-        background-color: white;
     }
     /************************QUERY FORM**************************/
     .query-form {
-        width: 90%;
-        padding: 6rem 0rem 3rem;
-        margin-left: 0rem;
+        width: 100%;
+        padding: 6rem 1rem 3rem;
         border-radius: 10px;
     }
     .query-form h3 {
         font-size: 2rem;
     }
-    .query-form button:hover {
-        background-color: rgb(209, 209, 209);
-        color: black;
-    }
+    
 
     /***********************Welcome Section*************************/
     .welcome {
         padding: 3rem 1rem;
-        color: white;
         text-align: center;
     }
-    .welcome-subheading {
-        color: #8c8c8c;
-    }
+    
     .welcome-heading {
         font-size: 2.5rem;
         margin-bottom: 2rem;
     }
     .welcome-content {
-        color: #8c8c8c;
         text-align: center;
     }
     .flaticons {
@@ -321,7 +315,6 @@
         width: 80%;
         height:10rem;
         margin: 0.5rem 1rem;
-        background-color: black;
         padding: 2rem 0 3rem;
         border-radius: 5rem;
     }
@@ -331,9 +324,7 @@
         width: 100px;
         margin-bottom: 0.75rem;
     }
-    .flaticon-about {
-        color: #8c8c8c;
-    }
+    
     .particles-js {
         margin-top: 10rem;
     }
@@ -343,25 +334,20 @@
     }
     .download-main-heading {
         font-size: 2rem;
-        color: white;
         margin-bottom: 3.5rem;
     }
     .blog,
     .download {
-        background-color: white;
-        padding: 3.5rem 5% 2rem;
+        padding: 3.5rem 1rem 2rem;
         width: 90%;
         border-radius: 1rem;
         margin: 1rem 1rem 2rem;
-        color: black;
         display: inline-block;
     }
     .blog button,
     .download button {
         padding-right: 2rem;
         margin-top: 1.5rem;
-        color: white;
-        background-color: black;
     }
     .blog-heading,
     .download-heading {
@@ -370,10 +356,5 @@
     .button-icon {
         margin-right: 1rem;
     }
-    .blog button:hover,
-    .download button:hover {
-        background-color: rgb(209, 209, 209);
-        transition: 500ms;
-        color: black;
-    }
+    
 }
