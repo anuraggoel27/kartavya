@@ -19,7 +19,7 @@ import * as RiIcons from 'react-icons/ri';
 import * as AiIcons from "react-icons/ai";
 // import "./styles.css";
 import { MaterialContext } from "./StudyMaterialContent";
-
+import axios from "axios";
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -61,6 +61,19 @@ export default function CustomTable() {
         setRowsPerPage(parseInt(event.target.value, 10));
         setPage(0);
     };
+
+    const handleDelete=(fileId)=>{
+        axios.delete("http://localhost:5000/file/delete",{
+            data:{
+                fileId:fileId
+            }
+        })
+        .then(res=>{
+            console.log(res);
+            window.location.reload();
+        })
+        .catch(err=>console.log(err));
+    }
     return (
         <TableContainer component={Paper}>
             <Table
@@ -74,6 +87,7 @@ export default function CustomTable() {
                         <StyledTableCell align="center">Name</StyledTableCell>
                         <StyledTableCell align="center">View</StyledTableCell>
                         <StyledTableCell align="center">Download</StyledTableCell>
+                        <StyledTableCell align="center">Delete</StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -104,6 +118,9 @@ export default function CustomTable() {
                                 <a href={data.webContentLink}>
                                 <RiIcons.RiDownloadLine/>
                                 </a>
+                            </TableCell>
+                            <TableCell align="center">
+                                <Button className="study-material-delete" onClick={()=>handleDelete(data.fileId)}>Delete</Button>
                             </TableCell>
                         </TableRow>
                     ))}
