@@ -1,45 +1,26 @@
 const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const GOOGLE_CLIENT_ID ="513318995384-5tkj1o8a34pq5hiqnksner5md9p68a80.apps.googleusercontent.com";
-const GOOGLE_CLIENT_SECRET = "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";
+const JWTStrategy = require('passport-jwt').Strategy;
+const ExtractJWT = require('passport-jwt').ExtractJwt;
+const fs = require('fs');
+const path = require('path');
+const {Users} = require('../db/model');
 
-const { TempUsers } = require('../db/model');
+const pathToKey = path.join(__dirname,'rsa_pub.pem');
+const publicKey = fs.readFileSync(pathToKey,'utf-8');
 
-passport.use(new GoogleStrategy({
-    clientID:GOOGLE_CLIENT_ID,
-    clientSecret:GOOGLE_CLIENT_SECRET,
-    callbackURL:"http://localhost:5000/auth/google/callback"
-},
-    async (accessToken,refreshToken,profile,done) => {
-        const username = profile.name.givenName;
-        const googleID = profile.id;
-        const isAdmin = true;
-        
-        const user = await TempUsers.findOne({googleID:googleID});
-        if(!user){
-            console.log('Creating new user');
-            const newUser = await TempUsers.create({username:username,googleID:googleID,isAdmin:isAdmin});
-            done(null,newUser);
-        }
-        else{
-            console.log('User already exists');
-            done(null,user);
-        }
+const options={
+    jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
+    secretOrKey: publicKey,
+    algorithms: ['RS256']
+}
 
-        
-    }
-))
+passport.use(new JWTStrategy(options, (jwt_payload,done)=>{
 
-passport.serializeUser((user,done)=>{
-    done(null,user.id);
-})
+    Users.findOne({_id:jwt_payload.sub},(err,user)=>{
+        if(err) return done(err,false);
+        if(user) return done(null,user);
+        else return done(null,false);
+    })
 
-passport.deserializeUser(async (id,done)=>{
-    try {
-        const user = await TempUsers.findById(id);
-        done(null,user);
-        
-    } catch (error) {
-        console.log(error);
-    }
-})
+
+}));
