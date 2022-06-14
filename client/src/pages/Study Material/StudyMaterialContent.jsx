@@ -1,22 +1,38 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Top from "../../components/Top";
 import { TopData } from "../../components/Topdata";
 import axios from "axios";
-import Tables from "./Tables";
+import CustomTable from "./Tables";
 
-export const MaterialContext=React.createContext();
+export const MaterialContext = React.createContext();
 function StudyMaterialContent() {
     const [material, setMaterial] = useState([]);
+    const [original,setOriginal]=useState([]);
     useEffect(() => {
-        const response=async()=>await axios
-          .get("http://localhost:5000/file/getFiles")
-          .then((res) => {
-              setMaterial((res.data));
-              console.log(material);
-          })
-          .catch((err) => console.log(err));
-          response();
-    },[]);
+        const response = async () =>
+            await axios
+                .get("http://localhost:5000/file/getFiles")
+                .then((res) => {
+                    setMaterial(res.data);
+                    setOriginal(res.data);
+                    console.log(material);
+                })
+                .catch((err) => console.log(err));
+        response();
+    }, []);
+    const [search, setSearch] = useState("");
+    const handleSearch=()=>{
+        console.log(search);
+        if(search===''){
+            setMaterial(original);
+        }
+        axios.get(`http://localhost:5000/file/getFile/${search}`)
+        .then(res=>{
+            if(res.data.lenght===1) setMaterial([res.data]);
+            else setMaterial(res.data);
+        })
+        .catch(err=>console.log(err));
+    }
     return (
         <div className="course-container">
             <Top
@@ -25,9 +41,26 @@ function StudyMaterialContent() {
                 image={TopData[5].image}
             />
             <div className="studymaterial">
-                    <MaterialContext.Provider value={material}>
-                        <Tables />
-                    </MaterialContext.Provider>
+                <div className="search-component">
+                    <input
+                        type="text"
+                        onChange={(e) =>{
+                            setSearch(e.target.value);
+                        }}
+                    />
+                    <button onClick={()=>setMaterial(original)}>Reset</button>
+                    <button onClick={handleSearch}>Search</button>
+                </div>
+                <CustomTable
+                    titleRow={[
+                        "Class",
+                        "Subject",
+                        "Name",
+                        "Download",
+                        "Delete",
+                    ]}
+                    data={material}
+                />
             </div>
         </div>
     );

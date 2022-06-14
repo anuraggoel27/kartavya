@@ -1,0 +1,11 @@
+vector<bool> dp(n+1, false);
+        Trie* trie=new Trie();
+        for(auto it: wordDict) trie->insert(it);
+        dp[0] = true;
+        for (int i = 1; i <=n; i++)
+            for (int j = 0; j < i; j++)
+                if ((dp[j]) && (trie->search(s.substr(j, i-j)))) {
+                    dp[i] = true;
+                    
+                }
+        return dp[n];

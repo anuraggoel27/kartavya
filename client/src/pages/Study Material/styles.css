@@ -20,6 +20,11 @@
     border:1px solid #8c8c8c;
     border-radius: 10px;
 }
+@media only screen and (max-width:1007px){
+    .studymaterial{
+        padding:1rem 3rem;
+    }
+}
 @media only screen and (max-width:640px){
     .studymaterial{
         padding:0 1rem;

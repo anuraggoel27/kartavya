@@ -23,7 +23,6 @@ const storageEngine = multer.diskStorage({
 const upload = multer({ storage: storageEngine });
 
 route.post("/new", upload.single("file"), async (req, res) => {
-    
     try {
         console.log(req.body);
         const name = req.file.originalname;
@@ -40,7 +39,7 @@ route.post("/new", upload.single("file"), async (req, res) => {
         const webContent = res2.data.webContentLink; //directly download
         console.log(req.body);
         const newPdf = await StudyMaterial.create({
-            name: req.body.name,
+            name: req.body.name.toLowerCase(),
             fileId: fileId,
             webViewLink: webView,
             webContentLink: webContent,
@@ -74,6 +73,17 @@ route.get("/getFiles", (req, res) => {
     StudyMaterial.find((err, data) => {
         if (err) res.send(err);
         else res.send(data);
+    });
+});
+
+route.get("/getFile/:filename", (req, res) => {
+    const file =  req.params.filename;
+    StudyMaterial.find({ name: {$regex: file}}, (err, docs) => {
+        if (err) {
+            res.status(404).json({ success: false, msg: err });
+        } else {
+            res.send(docs);
+        }
     });
 });
 module.exports = route;

@@ -1,55 +1,17 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import React, {useState,useEffect } from "react";
+import {IconButton} from "@material-ui/core";
+import * as RiIcons from "react-icons/ri";
+import FirstPageIcon from "@material-ui/icons/FirstPage";
+import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
+import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
+import LastPageIcon from "@material-ui/icons/LastPage";
 import axios from "axios";
-//import Notice from "./Notice";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
-import "./styles.css";
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TablePagination,
-    TableFooter,
-    TableRow,
-    Paper,
-    TableHead,
-    Button,
-} from "@material-ui/core";
-import TablePaginationActions from "./TablePaginationActions";
-import {Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import "./styles.css";
 
-
-const StyledTableCell = withStyles((theme) => ({
-    head: {
-        backgroundColor: theme.palette.common.black,
-        color: theme.palette.common.white,
-    },
-    body: {
-        fontSize: 14,
-    },
-}))(TableCell);
-
-TablePaginationActions.propTypes = {
-    count: PropTypes.number.isRequired,
-    onPageChange: PropTypes.func.isRequired,
-    page: PropTypes.number.isRequired,
-    rowsPerPage: PropTypes.number.isRequired,
-};
-
-const useStyles2 = makeStyles({
-    table: {
-        minWidth: 200,
-    },
-});
-
-export default function CustomTable() {
-    const classes = useStyles2();
-    const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(5);
+export default function CustomTable(props) {
+    const [page, setPage] = useState(0);
     const [data, setData] = useState([]);
-    const [selectedNotice, setSelectedNotice] = useState([]);
     useEffect(() => {
         const response = async () => {
             const x = await axios
@@ -70,112 +32,101 @@ export default function CustomTable() {
         };
         response();
     }, []);
-
-    const handleClick = async (id) => {
-        await axios
-            .get(`http://localhost:5000/admin/deletePost/${id}`, {
-                withCredentials: true,
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                    "Access-Control-Allow-Credentials": true,
-                },
-            })
-            .then((res) => {
-                console.log(res);
-                window.location.reload()
-            })
-            .catch((err) => console.log(err));
-    };
-
-    const emptyRows =
-        rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
-
-    const handleChangePage = (event, newPage) => {
-        setPage(newPage);
-    };
-
-    const handleChangeRowsPerPage = (event) => {
-        setRowsPerPage(parseInt(event.target.value, 10));
+    let count=data.length;
+    const handleFirstPage = () => {
         setPage(0);
     };
+    const handleNextPage = () => {
+        setPage((page) => page + 1);
+    };
+    const handlePrePage = () => {
+        setPage((page) => page - 1);
+    };
+    const handleLastPage = () => {
+        setPage(Math.max(0, Math.ceil(count / 5) - 1));
+    };
+    const handleDelete = async(id) => {
+        await axios
+        .get(`http://localhost:5000/admin/deletePost/${id}`, {
+            withCredentials: true,
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Credentials": true,
+            },
+        })
+        .then((res) => {
+            console.log(res);
+            window.location.reload()
+        })
+        .catch((err) => console.log(err));
+    };
     return (
-        <TableContainer component={Paper}>
-            <Table
-                className={classes.table}
-                aria-label="custom pagination table"
-            >
-                <TableHead>
-                    <TableRow>
-                        <StyledTableCell>S. No.</StyledTableCell>
-                        <StyledTableCell align="left">Date</StyledTableCell>
-                        <StyledTableCell align="left">Title</StyledTableCell>
-                        <StyledTableCell align="center">Delete</StyledTableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {(rowsPerPage > 0
-                        ? data.slice(
-                              page * rowsPerPage,
-                              page * rowsPerPage + rowsPerPage
-                          )
-                        : data
-                    ).map((data, id) => (
-                        <TableRow key={id}>
-                            <TableCell style={{ width: 80 }} align="left">
-                                {id + 1}
-                            </TableCell>
-
-                            <TableCell style={{ width: 160 }} align="left">
-                                {data.createdAt.split("T")[0]}
-                            </TableCell>
-                            <TableCell component="th" scope="row" align="left">
-                                <Link to={`/notice/${data._id}`}>
-                                    {data.title}
+        <table className="study-material-table">
+            <tbody>
+                <tr className="title-row">
+                {props.titleRow.map((tr,index)=>{
+                    return <th key={index} className="title-cell table-subject">{tr}</th>
+                })
+                }
+                </tr>
+                {(5 > 0
+                    ? data.slice(
+                          page * 5,
+                          page * 5 + 5
+                      )
+                    : data
+                ).map((d, index) => {
+                    return (
+                        <tr key={index} className="material-row">
+                            <td className="cell">{index+1}</td>
+                            <td className="cell">{d.createdAt.split("T")[0]}</td>
+                            <td className="cell">
+                            <Link to={`/notice/${d._id}`}>
+                                    {d.title}
                                 </Link>
-                            </TableCell>
-                            <TableCell align="left">
-                                <Button
-                                    onClick={(e) => {
-                                        handleClick(data._id);
-                                    }}
-                                >
-                                    Delete
-                                </Button>
-                            </TableCell>
-                        </TableRow>
-                    ))}
+                            </td>
+                            
+                            <td className="cell"><IconButton onClick={()=>handleDelete(d._id)}><RiIcons.RiDeleteBin6Line/></IconButton></td>
+                        </tr>
+                    );
+                })}
+                <tr className="table-footer">
+                    <td colSpan={5}>
+                        <IconButton
+                            onClick={handleFirstPage}
+                            disabled={page === 0}
+                        >
+                            <FirstPageIcon />
+                        </IconButton>
 
-                    {emptyRows > 0 && (
-                        <TableRow style={{ height: 53 * emptyRows }}>
-                            <TableCell colSpan={6} />
-                        </TableRow>
-                    )}
-                </TableBody>
-                <TableFooter className="noticeboard-footer">
-                    <TableRow>
-                        <TablePagination
-                            rowsPerPageOptions={[
-                                5,
-                                10,
-                                25,
-                                { label: "All", value: -1 },
-                            ]}
-                            colSpan={3}
-                            count={data.length}
-                            rowsPerPage={rowsPerPage}
-                            page={page}
-                            SelectProps={{
-                                inputProps: { "aria-label": "rows per page" },
-                                native: true,
-                            }}
-                            onPageChange={handleChangePage}
-                            onRowsPerPageChange={handleChangeRowsPerPage}
-                            ActionsComponent={TablePaginationActions}
-                        />
-                    </TableRow>
-                </TableFooter>
-            </Table>
-        </TableContainer>
+                        <IconButton
+                            onClick={handlePrePage}
+                            disabled={page === 0}
+                        >
+                            <KeyboardArrowLeft />
+                        </IconButton>
+
+                        <IconButton
+                            onClick={handleNextPage}
+                            disabled={
+                                page >= Math.ceil(count / 5) - 1
+                            }
+                        >
+                            <KeyboardArrowRight />
+                        </IconButton>
+
+                        <IconButton
+                            onClick={handleLastPage}
+                            disabled={
+                                page >= Math.ceil(count / 5) - 1
+                            }
+                        >
+                            <LastPageIcon />
+                        </IconButton>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     );
 }
