@@ -32,8 +32,13 @@
     .header {
         padding: 0 1rem;
     }
+    .brandname-div{
+       margin-right:1rem;
+    }
     .brandName {
+        left:1rem;
         font-size: 2rem;
         font-weight: bold;
+        word-wrap:normal ;
     }
 }

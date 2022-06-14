@@ -40,7 +40,7 @@ route.post("/new", upload.single("file"), async (req, res) => {
         const webContent = res2.data.webContentLink; //directly download
         console.log(req.body);
         const newPdf = await StudyMaterial.create({
-            name: name,
+            name: req.body.name,
             fileId: fileId,
             webViewLink: webView,
             webContentLink: webContent,

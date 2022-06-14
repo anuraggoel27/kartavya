@@ -1,0 +1,27 @@
+.studymaterial{
+    width:100%;
+    padding:4rem 6rem;
+    border-radius: 10px;
+}
+.study-material-table{
+    width:100%;
+    border: 1px solid #8c8c8c;
+    
+}
+.title-row{
+    background-color: black;
+    color:white;
+    height:4rem;
+}
+.material-row{
+    border-bottom: 0.5px solid #bebdbd;
+}
+.table-footer{
+    border:1px solid #8c8c8c;
+    border-radius: 10px;
+}
+@media only screen and (max-width:640px){
+    .studymaterial{
+        padding:0 1rem;
+    }
+}
