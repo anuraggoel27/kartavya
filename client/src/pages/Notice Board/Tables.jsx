@@ -14,13 +14,11 @@ export default function CustomTable(props) {
     const [data, setData] = useState([]);
     useEffect(() => {
         const response = async () => {
+            const token = localStorage.getItem("token");
             const x = await axios
-                .get("http://localhost:5000/admin/notices", {
-                    withCredentials: true,
+                .get("http://localhost:5000/notices", {
                     headers: {
-                        Accept: "application/json",
-                        "Content-Type": "application/json",
-                        "Access-Control-Allow-Credentials": true,
+                        "Authorization": token
                     },
                 })
                 .then((res) => {
@@ -46,20 +44,21 @@ export default function CustomTable(props) {
         setPage(Math.max(0, Math.ceil(count / 5) - 1));
     };
     const handleDelete = async(id) => {
+        const token = localStorage.getItem("token");
         await axios
-        .get(`http://localhost:5000/admin/deletePost/${id}`, {
-            withCredentials: true,
+        .get(`http://localhost:5000/notices/deleteNotice/${id}`, {
             headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Credentials": true,
+                "Authorization": token
             },
         })
         .then((res) => {
             console.log(res);
             window.location.reload()
         })
-        .catch((err) => console.log(err));
+        .catch((err) =>{ 
+            console.log(err)
+            window.alert('You need to be an admin to delete the post')
+        });
     };
     return (
         <table className="study-material-table">

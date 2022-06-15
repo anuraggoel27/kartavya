@@ -15,13 +15,11 @@ const Notice = () => {
 
     useEffect(() => {
         const response = async () => {
+            const token = localStorage.getItem("token");
             const x = await axios
-                .get(`http://localhost:5000/admin/notice/${id}`, {
-                    withCredentials: true,
+                .get(`http://localhost:5000/notices/${id}`, {
                     headers: {
-                        Accept: "application/json",
-                        "Content-Type": "application/json",
-                        "Access-Control-Allow-Credentials": true,
+                        "Authorization":token
                     },
                 })
                 .then((res) => {

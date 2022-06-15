@@ -1,9 +1,3 @@
-=>Notices are coming in some absurd order, when the rows per page is greater than or equal to the tital notices in database, then there is no problem.. Otherwise they behave weirdly. => HANDLED BUT IN OPPOSITE WAY.
-
-=>Notices should be accessed by non-admins also.
-
-2)FileUpload => backend implemented. (React to be implemented) and Discussion needed for how to get the list of study materials at first render. Also => If we want we can delete the whole file folder still the pdfs will come from database server.
-
-3)ProfileSchema
-4)LocalAuthentication => Researching on it. Will try to implement directly the best option either cookie or jwt
-5)Allow paging in NoticeBoard. => use limit and skip (offset) functions in Mongoose.(YET to be discussed with chacha)
+=> Paging in NoticeBoard
+=>Admin home page make better : Add register user button and its ui also
+=> handle register user in the backend

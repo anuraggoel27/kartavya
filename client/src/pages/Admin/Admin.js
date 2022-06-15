@@ -7,13 +7,11 @@ function Admin() {
 
     useEffect(() => {
         const allow = async () => {
+            const token = localStorage.getItem("token");
             await axios
                 .get("http://localhost:5000/admin", {
-                    withCredentials: true,
                     headers: {
-                        Accept: "application/json",
-                        "Content-Type": "application/json",
-                        "Access-Control-Allow-Credentials": true,
+                        "Authorization": token
                     },
                 })
                 .then((res) => {
@@ -22,7 +20,7 @@ function Admin() {
                     }
                 })
                 .catch((error) => {
-                    window.alert("You need to login to access the page");
+                    window.alert("You need to login with an admin account to access the page");
                     window.location = "http://localhost:3000";
                 });
         };

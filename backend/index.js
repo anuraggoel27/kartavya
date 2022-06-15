@@ -19,6 +19,7 @@ const isLoggedProtected= require("./routes/ProtectedRoutes/users");
 const filesAdmin = require("./routes/AdminRoutes/file");
 const registerRouteAdmin = require("./routes/AdminRoutes/user");
 const noticesAdmin = require("./routes/AdminRoutes/notices");
+const homeAdmin = require('./routes/AdminRoutes/admin')
 //Routes Import Closed------------------------------
 
 app.use(passport.initialize());
@@ -50,6 +51,7 @@ app.use("/notices", noticesProtected);
 app.use("/users",isLoggedProtected);
 //Admin Routes:
 app.use(adminCheck);
+app.use('/admin',homeAdmin);
 app.use("/file", filesAdmin);
 app.use("/users", registerRouteAdmin);
 app.use("/notices", noticesAdmin);

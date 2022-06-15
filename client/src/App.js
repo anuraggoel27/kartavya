@@ -40,6 +40,7 @@ export default function App() {
                 setUser(user.username); 
             })
             .catch((err)=>{
+                localStorage.clear();
                 console.log(err);
             })
         };

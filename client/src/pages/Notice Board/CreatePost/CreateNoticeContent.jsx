@@ -3,6 +3,7 @@ import axios from "axios";
 import { Paper} from "@material-ui/core";
 import { Button} from "react-bootstrap";
 import "../styles.css";
+import { AiTwotoneFileUnknown } from "react-icons/ai";
 
 const CreateNoticeContent = () => {
     const [notice, setNotice] = useState({
@@ -11,20 +12,18 @@ const CreateNoticeContent = () => {
     });
 
     const handleSubmit = async (event) => {
+        const token = localStorage.getItem("token");
         event.preventDefault();
         axios
             .post(
-                "http://localhost:5000/admin/createNotice/newNotice",
+                "http://localhost:5000/notices/newNotice",
                 {
                     title: notice.title,
                     description: notice.content,
                 },
                 {
-                    withCredentials: true,
                     headers: {
-                        Accept: "application/json",
-                        "Content-Type": "application/json",
-                        "Access-Control-Allow-Credentials": true,
+                        "Authorization": token
                     },
                 }
             )

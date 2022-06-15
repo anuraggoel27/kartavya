@@ -18,6 +18,7 @@ const AdminContent = ({ allowed }) => {
         setIsFilePicked(true);
     };
     const handleUpload = (e) => {
+        const token = localStorage.getItem("token");
         e.preventDefault();
         console.log(file);
         var formdata = new FormData();
@@ -27,7 +28,16 @@ const AdminContent = ({ allowed }) => {
             formdata.append("class", data.class);
             formdata.append("subject", data.subject);
             axios
-                .post("http://localhost:5000/file/new", formdata)
+                .post("http://localhost:5000/file/new",
+                    formdata,
+                    {
+                        
+                        headers:{
+                            "Authorization":token
+                        }
+                    }
+                
+                )
                 .then((res) => {
                     console.log(res);
                     window.alert("File Uploaded Successfully");

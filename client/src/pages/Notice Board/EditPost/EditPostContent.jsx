@@ -15,13 +15,11 @@ const EditPostContent = () => {
 
     useEffect(() => {
         const response = async () => {
+            const token = localStorage.getItem("token");
             const x = await axios
-                .get(`http://localhost:5000/admin/notice/${id}`, {
-                    withCredentials: true,
+                .get(`http://localhost:5000/notices/${id}`, {
                     headers: {
-                        Accept: "application/json",
-                        "Content-Type": "application/json",
-                        "Access-Control-Allow-Credentials": true,
+                        "Authorization":token
                     },
                 })
                 .then((res) => {
@@ -34,18 +32,16 @@ const EditPostContent = () => {
     }, []);
 
     const handleSubmit = async (e) => {
+        const token = localStorage.getItem("token");
         const res = await axios({
             method: "put",
-            url: `http://localhost:5000/admin/editpost/${id}`,
+            url: `http://localhost:5000/notices/editNotice/${id}`,
             data: {
                 title: notice.title,
                 description: notice.description,
             },
-            withCredentials: true,
             headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Credentials": true,
+                "Authorization": token
             },
         })
             .then((res) => {

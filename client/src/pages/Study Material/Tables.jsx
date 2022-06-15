@@ -23,18 +23,26 @@ export default function CustomTable(props) {
     const handleLastPage = () => {
         setPage(Math.max(0, Math.ceil(count / 5) - 1));
     };
-    const handleDelete = (fileId) => {
+    const handleDelete = async (fileId) => {
+        const token = localStorage.getItem("token");
         axios
             .delete("http://localhost:5000/file/delete", {
                 data: {
                     fileId: fileId,
                 },
+                headers:{
+                    "Authorization":token
+                }
             })
             .then((res) => {
                 console.log(res);
                 window.location.reload();
             })
-            .catch((err) => console.log(err));
+            .catch((err) =>{
+                
+                console.log(err)});
+                window.alert('You need to login with an admin account')
+                window.location="http://localhost:3000"
     };
     return (
         <table className="study-material-table">

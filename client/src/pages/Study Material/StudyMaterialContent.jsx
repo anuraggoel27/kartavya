@@ -9,29 +9,48 @@ function StudyMaterialContent() {
     const [material, setMaterial] = useState([]);
     const [original,setOriginal]=useState([]);
     useEffect(() => {
-        const response = async () =>
+        const response = async () =>{
+            const token = localStorage.getItem("token");
             await axios
-                .get("http://localhost:5000/file/getFiles")
+                .get("http://localhost:5000/file/getFiles",{
+                    headers:{
+                        "Authorization":token
+                    }
+                })
                 .then((res) => {
                     setMaterial(res.data);
                     setOriginal(res.data);
                     console.log(material);
                 })
-                .catch((err) => console.log(err));
+                .catch((err) => {
+                    console.log(err)
+                    window.alert('You need to login');
+                    window.location="http://localhost:3000"
+                })
+            }
         response();
     }, []);
+
     const [search, setSearch] = useState("");
-    const handleSearch=()=>{
+    const handleSearch=async ()=>{
         console.log(search);
         if(search===''){
             setMaterial(original);
         }
-        axios.get(`http://localhost:5000/file/getFile/${search}`)
+        axios.get(`http://localhost:5000/file/getFile/${search}`,{
+            headers:{
+                "Authorization":token
+            }
+        })
         .then(res=>{
             if(res.data.lenght===1) setMaterial([res.data]);
             else setMaterial(res.data);
         })
-        .catch(err=>console.log(err));
+        .catch(err=>{
+            console.log(err)
+            window.alert('You need to login');
+            window.location="http://localhost:3000"
+        });
     }
     return (
         <div className="course-container">

@@ -5,7 +5,7 @@ route.get("/", (req, res) => {
     Notices.find((err, data) => {
         if (err) {
             res.status(400).json({
-                success: true,
+                success: false,
                 msg: "Cant load data from the database",
             });
         } else {
