@@ -3,27 +3,26 @@ const { Users } = require('../../db/model');
 const { validatePassword, issueJwt, genPassword } = require('../../passport/jwtMiddleware');
 
 route.post('/register',async (req,res) =>{
-    const username = req.body.username;
-    const password = req.body.password;
-    const saltNHash = genPassword(password);
-    const salt =  saltNHash.salt;
-    const hash = saltNHash.hash;
+    const {username,password,firstName,lastName,isAdmin,standard,roll,subjects,mobileNumber,fatherName,fatherOccupation,fatherMobileName,motherName,motherOccupation,motherMobileNumber,location,city,pincode}=req.body.data;
+    console.log(req.body.data);
+    // const salt =  saltNHash.salt;
+    // const hash = saltNHash.hash;
         
-    // res.send(username,salt);
+    // // res.send(username,salt);
 
-    try {
-        console.log(username,salt);
-        const newUser = await Users.create({
-            username : username,
-            salt:salt,
-            hash:hash
-        })
+    // try {
+    //     console.log(username,salt);
+    //     const newUser = await Users.create({
+    //         username : username,
+    //         salt:salt,
+    //         hash:hash
+    //     })
         
-        res.status(200).json({success:true,msg:"New user created"});
+    //     res.status(200).json({success:true,msg:"New user created"});
 
-    } catch (error) {
-        res.status(400).json({success:false,error:error});
-    }
+    // } catch (error) {
+    //     res.status(400).json({success:false,error:error});
+    // }
 })
 
 
