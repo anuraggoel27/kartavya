@@ -4,9 +4,9 @@ const userSchema = new mongoose.Schema({
     username: String,
     salt: String,
     hash: String,
-    isAdmin: Boolean,
-    firstname: String,
-    lastname: String,
+    isAdmin: String,
+    firstName: String,
+    lastName: String,
     standard: String,
     roll: String,
     subjects: [
@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
     ],
     attendance: Number,
     mobileNumber: String,
-    parent_details: {
+    parentDetails: {
         father: {
             name: String,
             occupation: String,
