@@ -2,7 +2,8 @@ import React from "react";
 import {Button} from "react-bootstrap";
 const Logout = () => {
     const onLogout = () => {
-        window.open("http://localhost:5000/auth/google/logout", "_self");
+        localStorage.clear();
+        window.location("http://localhost:3000");
     };
     return (
         <div className="navbar-loggedout">

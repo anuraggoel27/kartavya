@@ -47,7 +47,7 @@ app.use("/users", loginRouteOpen);
 app.use(passport.authenticate("jwt", { session: false }));
 app.use("/file", filesProtected);
 app.use("/notices", noticesProtected);
-app.use("./users",isLoggedProtected);
+app.use("/users",isLoggedProtected);
 //Admin Routes:
 app.use(adminCheck);
 app.use("/file", filesAdmin);
