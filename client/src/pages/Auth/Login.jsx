@@ -20,7 +20,7 @@ const Login = () => {
             .then((res) => {
                 const token = res.data.token;
                 localStorage.setItem("token", token);
-                console.log(token);
+                window.location="http://localhost:3000";
             })
             .catch((err) => console.log(err));
     };

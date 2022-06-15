@@ -27,18 +27,22 @@ const Registration = () => {
     return (
         <div className="registrstion-form" style={{ marginTop: "10.5rem" }}>
             <form>
-                <input
-                    placeholder="username"
-                    onChange={(e) =>
-                        setData({ ...data, username: e.target.value })
-                    }
-                />
-                <input
-                    placeholder="password"
-                    onChange={(e) =>
-                        setData({ ...data, password: e.target.value })
-                    }
-                />
+                <div className="form-catoegory">
+                    <h2 className="form-category-header">Personal Details</h2>
+                    <input
+                        placeholder="username"
+                        onChange={(e) =>
+                            setData({ ...data, username: e.target.value })
+                        }
+                    />
+                    <input
+                        placeholder="password"
+                        onChange={(e) =>
+                            setData({ ...data, password: e.target.value })
+                        }
+                    />
+                </div>
+
                 <Button onClick={handleSubmit}>Register</Button>
             </form>
         </div>

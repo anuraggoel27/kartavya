@@ -27,28 +27,24 @@ AOS.init();
 export const UserContext = React.createContext();
 export default function App() {
     const [user, setUser] = useState(null);
-    // useEffect(() => {
-    //     const getUser = () => {
-    //         axios
-    //             .get("http://localhost:5000/auth/google/login/success", {
-    //                 withCredentials: true,
-    //                 headers: {
-    //                     Accept: "application/json",
-    //                     "Content-Type": "application/json",
-    //                     "Access-Control-Allow-Credentials": true,
-    //                 },
-    //             })
-    //             .then((response) => {
-    //                 if (response.status === 200) return response.data;
-    //                 throw new Error("authentication has been failed");
-    //             })
-    //             .then((resObject) => {
-    //                 setUser(resObject.user);
-    //             })
-    //             .catch((error) => console.log(error));
-    //     };
-    //     getUser();
-    // }, []);
+    useEffect(() => {
+        const getUser = async() => {
+            const token =localStorage.getItem("token");
+            await axios.get("http://localhost:5000/users/isLogged",{
+                headers:{
+                    "Authorization":token
+                }
+            })
+            .then((res)=>{
+                const user=res.data.data;
+                setUser(user.username); 
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+        };
+        getUser();
+    }, []);
     return (
         <div className="App">
             <UserContext.Provider value={user}>
