@@ -1,0 +1,48 @@
+.registration-form {
+    width: 100%;
+    padding: 10.5rem 0rem 3rem;
+    text-align: center;
+}
+.form-paper {
+    width: 80%;
+    margin: 0 auto;
+    /* text-align: left; */
+    padding: 2rem;
+}
+.checkbox-label {
+    padding: 0.35rem;
+}
+.form-group {
+    width: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+}
+.form-input {
+    width: 50%;
+    padding: 0.35rem 0;
+}
+.form-input label {
+    margin-right: 0.35rem;
+    width: 35%;
+    text-align: right;
+}
+.form-subcategory-header {
+    margin-top: 1rem;
+}
+.registration-form button {
+    width: 100%;
+    background-color: black;
+    transition: 0.5s;
+    margin-top: 2rem;
+}
+.registration-form button:hover {
+    background-color: #8c8c8c;
+    transition: 0.5s;
+}
+
+@media only screen and (max-width: 1007px) {
+    .form-paper {
+        width: 90%;
+    }
+}
