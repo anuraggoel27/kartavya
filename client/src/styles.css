@@ -25,7 +25,6 @@ body {
     width: 100vw;
 }
 
-
 /******************Top Section of Pages************************/
 .top-body {
     padding: 10.5rem 6rem 0rem;
@@ -56,7 +55,7 @@ body {
 /*************************************Optimize for smaller screens************************************************/
 @media only screen and (max-width: 1007px) {
     .top-body {
-        padding:10.5rem 4rem 0;
+        padding: 10.5rem 4rem 0;
         text-align: center;
     }
     .top-heading {

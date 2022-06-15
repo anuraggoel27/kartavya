@@ -16,6 +16,8 @@ import Footer from "./components/Footer/Footer";
 import Notice from "./pages/Notice Board/Notice";
 import EditPostContent from "./pages/Notice Board/EditPost/EditPostContent";
 import ProfileContent from "./pages/Profile/ProfileContent";
+import Login from "./pages/Auth/Login";
+import Registration from "./pages/Auth/Registration";
 import { Routes, Route } from "react-router-dom";
 import "aos/dist/aos.css";
 import axios from "axios";
@@ -25,28 +27,28 @@ AOS.init();
 export const UserContext = React.createContext();
 export default function App() {
     const [user, setUser] = useState(null);
-    useEffect(() => {
-        const getUser = () => {
-            axios
-                .get("http://localhost:5000/auth/google/login/success", {
-                    withCredentials: true,
-                    headers: {
-                        Accept: "application/json",
-                        "Content-Type": "application/json",
-                        "Access-Control-Allow-Credentials": true,
-                    },
-                })
-                .then((response) => {
-                    if (response.status === 200) return response.data;
-                    throw new Error("authentication has been failed");
-                })
-                .then((resObject) => {
-                    setUser(resObject.user);
-                })
-                .catch((error) => console.log(error));
-        };
-        getUser();
-    }, []);
+    // useEffect(() => {
+    //     const getUser = () => {
+    //         axios
+    //             .get("http://localhost:5000/auth/google/login/success", {
+    //                 withCredentials: true,
+    //                 headers: {
+    //                     Accept: "application/json",
+    //                     "Content-Type": "application/json",
+    //                     "Access-Control-Allow-Credentials": true,
+    //                 },
+    //             })
+    //             .then((response) => {
+    //                 if (response.status === 200) return response.data;
+    //                 throw new Error("authentication has been failed");
+    //             })
+    //             .then((resObject) => {
+    //                 setUser(resObject.user);
+    //             })
+    //             .catch((error) => console.log(error));
+    //     };
+    //     getUser();
+    // }, []);
     return (
         <div className="App">
             <UserContext.Provider value={user}>
@@ -70,6 +72,8 @@ export default function App() {
                 <Route exact path="/Notice/:id" element={<Notice />} />
                 <Route exact path="/editpost/:id" element={<EditPostContent />} />
                 <Route exact path="/profile" element={<ProfileContent />} />
+                <Route exact path="/auth/login" element={<Login/>} />
+                <Route exact path="/auth/register" element={<Registration/>} />
             </Routes>
             <Footer />
             

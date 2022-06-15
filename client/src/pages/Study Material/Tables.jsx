@@ -1,5 +1,5 @@
-import React, {useState } from "react";
-import {IconButton } from "@material-ui/core";
+import React, { useState } from "react";
+import { IconButton } from "@material-ui/core";
 import * as RiIcons from "react-icons/ri";
 import FirstPageIcon from "@material-ui/icons/FirstPage";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
@@ -10,7 +10,7 @@ import "./styles.css";
 
 export default function CustomTable(props) {
     const [page, setPage] = useState(0);
-    let count=props.data.length;
+    let count = props.data.length;
     const handleFirstPage = () => {
         setPage(0);
     };
@@ -40,16 +40,19 @@ export default function CustomTable(props) {
         <table className="study-material-table">
             <tbody>
                 <tr className="title-row">
-                {props.titleRow.map((tr,index)=>{
-                    return <th key={index} className="title-cell table-subject">{tr}</th>
-                })
-                }
+                    {props.titleRow.map((tr, index) => {
+                        return (
+                            <th
+                                key={index}
+                                className="title-cell table-subject"
+                            >
+                                {tr}
+                            </th>
+                        );
+                    })}
                 </tr>
                 {(5 > 0
-                    ? props.data.slice(
-                          page * 5,
-                          page * 5 + 5
-                      )
+                    ? props.data.slice(page * 5, page * 5 + 5)
                     : props.data
                 ).map((d, index) => {
                     return (
@@ -57,8 +60,18 @@ export default function CustomTable(props) {
                             <td className="cell">{d.class}</td>
                             <td className="cell">{d.subject}</td>
                             <td className="cell">{d.name}</td>
-                            <td className="cell"><a href={d.webContentLink}><RiIcons.RiDownloadLine/></a></td>
-                            <td className="cell"><IconButton onClick={()=>handleDelete(d.fileId)}><RiIcons.RiDeleteBin6Line/></IconButton></td>
+                            <td className="cell">
+                                <a href={d.webContentLink}>
+                                    <RiIcons.RiDownloadLine />
+                                </a>
+                            </td>
+                            <td className="cell">
+                                <IconButton
+                                    onClick={() => handleDelete(d.fileId)}
+                                >
+                                    <RiIcons.RiDeleteBin6Line />
+                                </IconButton>
+                            </td>
                         </tr>
                     );
                 })}
@@ -80,18 +93,14 @@ export default function CustomTable(props) {
 
                         <IconButton
                             onClick={handleNextPage}
-                            disabled={
-                                page >= Math.ceil(count / 5) - 1
-                            }
+                            disabled={page >= Math.ceil(count / 5) - 1}
                         >
                             <KeyboardArrowRight />
                         </IconButton>
 
                         <IconButton
                             onClick={handleLastPage}
-                            disabled={
-                                page >= Math.ceil(count / 5) - 1
-                            }
+                            disabled={page >= Math.ceil(count / 5) - 1}
                         >
                             <LastPageIcon />
                         </IconButton>

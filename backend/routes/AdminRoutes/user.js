@@ -5,13 +5,16 @@ const { validatePassword, issueJwt, genPassword } = require('../../passport/jwtM
 route.post('/register',async (req,res) =>{
     const username = req.body.username;
     const password = req.body.password;
-    const saltNHash = genPassword(req.body.password);
+    const saltNHash = genPassword(password);
     const salt =  saltNHash.salt;
     const hash = saltNHash.hash;
+        
+    // res.send(username,salt);
 
     try {
+        console.log(username,salt);
         const newUser = await Users.create({
-            username : req.body.username,
+            username : username,
             salt:salt,
             hash:hash
         })

@@ -2,13 +2,13 @@
     margin: 0.25rem 0.25rem;
     text-align: center;
     z-index: -1;
-    width:29%;
+    width: 29%;
 }
 
 .achievers-card-section {
     display: inline-flex;
     margin: 2rem auto;
-    width:100%;
+    width: 100%;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -20,8 +20,8 @@
 }
 
 @media only screen and (max-width: 1007px) {
-    .achievers-card{
-        width:40%;
+    .achievers-card {
+        width: 40%;
     }
     .achievers-card-section {
         margin-top: 3rem;
@@ -34,8 +34,8 @@
     }
 }
 @media only screen and (max-width: 640px) {
-    .achievers-card{
-        width:95%;
+    .achievers-card {
+        width: 95%;
     }
     .achievers-card-section {
         margin-top: 3rem;
@@ -43,5 +43,4 @@
     .achiever-title {
         font-weight: bold;
     }
-    
 }

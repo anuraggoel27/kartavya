@@ -10,8 +10,8 @@ route.get("/getFiles", (req, res) => {
 });
 
 route.get("/getFile/:filename", (req, res) => {
-    const file =  req.params.filename;
-    StudyMaterial.find({ name: {$regex: file}}, (err, docs) => {
+    const file = req.params.filename;
+    StudyMaterial.find({ name: { $regex: file } }, (err, docs) => {
         if (err) {
             res.status(404).json({ success: false, msg: err });
         } else {
