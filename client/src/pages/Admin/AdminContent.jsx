@@ -6,6 +6,9 @@ const AdminContent = ({ allowed }) => {
     const handleClick = () => {
         window.location = "http://localhost:3000/CreateNotice";
     };
+    const registerUser =()=>{
+        window.location = "http://localhost:3000/auth/register";
+    }
     const [file, setFile] = useState();
     const [data, setData] = useState({
         name: "",
@@ -112,6 +115,9 @@ const AdminContent = ({ allowed }) => {
                         Submit
                     </Button>
                 </form>
+            </div>
+            <div className="create-new-user">
+            <Button onClick={registerUser}>Create New User</Button>
             </div>
         </div>
     );

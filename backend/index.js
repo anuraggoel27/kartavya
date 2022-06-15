@@ -31,7 +31,7 @@ app.use(
     })
 );
 app.use(express.json());
-
+app.use(express.urlencoded({extended:true}))
 /*
 Now We have to efficiently use middlewares:
 No routes not requiring any authentication will be at top.

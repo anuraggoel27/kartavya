@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema({
     username: String,
     salt: String,
     hash: String,
-    isAdmin: String,
+    isAdmin: Boolean,
     firstName: String,
     lastName: String,
     standard: String,
@@ -18,20 +18,20 @@ const userSchema = new mongoose.Schema({
     mobileNumber: String,
     parentDetails: {
         father: {
-            name: String,
-            occupation: String,
-            mobileNumber: String,
+            name: {type:String},
+            occupation: {type:String},
+            mobileNumber: {type:String},
         },
         mother: {
-            name: String,
-            occupation: String,
-            mobileNumber: String,
+            name: {type:String},
+            occupation: {type:String},
+            mobileNumber: {type:String},
         },
     },
     address: {
-        locality: String,
-        city: String,
-        pincode: String,
+        locality: {type:String},
+        city: {type:String},
+        pincode: {type:String},
     },
 });
 

@@ -20,22 +20,23 @@ const Registration = () => {
         motherName: "",
         motherOccupation: "",
         motherMobileNumber: "",
-        location: "",
+        locality: "",
         city: "",
         pincode: "",
     });
     const handleSubmit = async () => {
-        console.log(data);
+        const token = localStorage.getItem("token");
+        
         await axios
-            .post("http://localhost:5000/users/register", {
-                data: data,
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                },
-            })
+            .post("http://localhost:5000/users/register",data,
+                {
+                    headers:{
+                        "Authorization":token
+                    },
+                }
+            )
             .then((res) => {
-                console.log(res);
+                console.log(res.data);
             })
             .catch((err) => {
                 console.log(err);
