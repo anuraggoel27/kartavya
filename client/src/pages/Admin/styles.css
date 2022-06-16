@@ -16,7 +16,6 @@
 }
 .study-registration-form {
     width: 100%;
-    height: 335px;
     text-align: center;
 }
 .study-form-paper {
@@ -36,7 +35,6 @@
     text-align: left;
     width: 20%;
     margin: 0;
-    /* padding-left:0.5rem; */
 }
 .study-form-input input,
 .study-form-input textarea,
@@ -88,5 +86,9 @@
     }
     .admin-study-material {
         width: 100%;
+    }
+    .study-registration-form{
+        margin-top: 1rem;
+        width:100%;
     }
 }

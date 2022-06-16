@@ -36,17 +36,14 @@
 /******* Create Notice ******/
 .create-notice-form-paper{
     padding:2rem;
-    height:100%;
+    height:85.5%;
     width:100%;
     margin:0;
-    position: relative;
-    
 }
 .create-notice-registration-form{
     width:100%;
-    height:335px;
+    height:100%;
     text-align: center;
-    
 }
 .create-notice-form-input{
     display: inline-flex;
@@ -86,7 +83,9 @@
     .noticeboard-content {
         width: 100%;
     }
+    .create-notice-registration-form{
 
+    }
     .create-notice-form {
         width: 100%;
         margin: 0 auto;
