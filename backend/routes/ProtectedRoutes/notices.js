@@ -2,7 +2,7 @@ const route = require("express").Router();
 const { Notices } = require("../../db/model");
 
 route.get("/", (req, res) => {
-    Notices.find((err, data) => {
+    Notices.find({}).sort({updatedAt:-1}).exec((err, data) => {
         if (err) {
             res.status(400).json({
                 success: false,

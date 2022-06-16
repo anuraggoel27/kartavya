@@ -18,20 +18,20 @@ const userSchema = new mongoose.Schema({
     mobileNumber: String,
     parentDetails: {
         father: {
-            name: {type:String},
-            occupation: {type:String},
-            mobileNumber: {type:String},
+            name: { type: String },
+            occupation: { type: String },
+            mobileNumber: { type: String },
         },
         mother: {
-            name: {type:String},
-            occupation: {type:String},
-            mobileNumber: {type:String},
+            name: { type: String },
+            occupation: { type: String },
+            mobileNumber: { type: String },
         },
     },
     address: {
-        locality: {type:String},
-        city: {type:String},
-        pincode: {type:String},
+        locality: { type: String },
+        city: { type: String },
+        pincode: { type: String },
     },
 });
 
@@ -46,16 +46,21 @@ const noticeSchema = new mongoose.Schema(
     }
 );
 
-const studyMaterialSchema = new mongoose.Schema({
-    fileId: String,
-    name: String,
-    webContentLink: String,
-    webViewLink: String,
-    class: Number,
-    subject: String,
-    chapter: String,
-    description: String,
-});
+const studyMaterialSchema = new mongoose.Schema(
+    {
+        fileId: String,
+        name: String,
+        webContentLink: String,
+        webViewLink: String,
+        class: Number,
+        subject: String,
+        chapter: String,
+        description: String,
+    },
+    {
+        timestamps: true,
+    }
+);
 
 const Users = mongoose.model("Users", userSchema, "Users");
 const Notices = mongoose.model("Notices", noticeSchema, "Notices");

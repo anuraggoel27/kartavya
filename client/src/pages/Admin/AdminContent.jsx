@@ -6,9 +6,9 @@ const AdminContent = ({ allowed }) => {
     const handleClick = () => {
         window.location = "http://localhost:3000/CreateNotice";
     };
-    const registerUser =()=>{
+    const registerUser = () => {
         window.location = "http://localhost:3000/auth/register";
-    }
+    };
     const [file, setFile] = useState();
     const [data, setData] = useState({
         name: "",
@@ -31,22 +31,17 @@ const AdminContent = ({ allowed }) => {
             formdata.append("class", data.class);
             formdata.append("subject", data.subject);
             axios
-                .post("http://localhost:5000/file/new",
-                    formdata,
-                    {
-                        
-                        headers:{
-                            "Authorization":token
-                        }
-                    }
-                
-                )
+                .post("http://localhost:5000/file/new", formdata, {
+                    headers: {
+                        "Authorization": token,
+                    },
+                })
                 .then((res) => {
                     console.log(res);
                     window.alert("File Uploaded Successfully");
                 })
                 .catch((err) => {
-                    console.log(res);
+                    console.log(err);
                     window.alert("There was some error! Try again!");
                 });
         } else {
@@ -117,7 +112,7 @@ const AdminContent = ({ allowed }) => {
                 </form>
             </div>
             <div className="create-new-user">
-            <Button onClick={registerUser}>Create New User</Button>
+                <Button onClick={registerUser}>Create New User</Button>
             </div>
         </div>
     );

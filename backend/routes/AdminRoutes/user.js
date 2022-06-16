@@ -44,10 +44,10 @@ route.post('/register', async (req,res) =>{
             }
         })
         console.log('user created')
-        return res.status(200).json({succes:true,msg:"New user created"})
+        return res.status(200).json({success:true,msg:"New user created"})
     } catch (error) {
         console.log(error);
-        return res.status(400).json({succes:false});
+        return res.status(400).json({success:false});
     }
     
 })

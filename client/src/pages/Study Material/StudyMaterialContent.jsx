@@ -7,15 +7,17 @@ import CustomTable from "./Tables";
 export const MaterialContext = React.createContext();
 function StudyMaterialContent() {
     const [material, setMaterial] = useState([]);
-    const [original,setOriginal]=useState([]);
+    const [original, setOriginal] = useState([]);
+    const [token, setToken] = useState("");
     useEffect(() => {
-        const response = async () =>{
-            const token = localStorage.getItem("token");
+        const response = async () => {
+            const token=localStorage.getItem("token");
+            setToken(token);
             await axios
-                .get("http://localhost:5000/file/getFiles",{
-                    headers:{
-                        "Authorization":token
-                    }
+                .get("http://localhost:5000/file/getFiles", {
+                    headers: {
+                        Authorization: token,
+                    },
                 })
                 .then((res) => {
                     setMaterial(res.data);
@@ -23,35 +25,40 @@ function StudyMaterialContent() {
                     console.log(material);
                 })
                 .catch((err) => {
-                    console.log(err)
-                    window.alert('You need to login');
-                    window.location="http://localhost:3000"
-                })
-            }
+                    console.log(err);
+                    // window.alert('You need to login');
+                    // window.location="http://localhost:3000"
+                });
+        };
         response();
     }, []);
-
+   
     const [search, setSearch] = useState("");
-    const handleSearch=async ()=>{
+    const handleSearch = async () => {
         console.log(search);
-        if(search===''){
+        if (search === "") {
             setMaterial(original);
+            return;
         }
-        axios.get(`http://localhost:5000/file/getFile/${search}`,{
-            headers:{
-                "Authorization":token
-            }
-        })
-        .then(res=>{
-            if(res.data.lenght===1) setMaterial([res.data]);
-            else setMaterial(res.data);
-        })
-        .catch(err=>{
-            console.log(err)
-            window.alert('You need to login');
-            window.location="http://localhost:3000"
-        });
-    }
+        await axios
+            .get(`http://localhost:5000/file/getFile/${search}`, {
+                headers: {
+                    Authorization: token,
+                },
+            })
+            .then((res) => {
+                if (res.data.lenght === 1) setMaterial([res.data]);
+                else setMaterial(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+                // window.alert("You need to login");
+                // window.location = "http://localhost:3000";
+            });
+    };
+    useEffect(()=>{
+        handleSearch();
+    },[search])
     return (
         <div className="course-container">
             <Top
@@ -63,11 +70,11 @@ function StudyMaterialContent() {
                 <div className="search-component">
                     <input
                         type="text"
-                        onChange={(e) =>{
+                        onChange={async(e) => {
                             setSearch(e.target.value);
                         }}
                     />
-                    <button onClick={()=>setMaterial(original)}>Reset</button>
+                    <button onClick={() => setMaterial(original)}>Reset</button>
                     <button onClick={handleSearch}>Search</button>
                 </div>
                 <CustomTable

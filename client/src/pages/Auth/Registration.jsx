@@ -213,12 +213,12 @@ const Registration = () => {
                                 />
                             </div>
                             <div className="form-input">
-                                <label>Mobile Number</label>
+                                <label>Phone Number</label>
                                 <input
                                     onChange={(e) =>
                                         setData({
                                             ...data,
-                                            fatherName: e.target.value,
+                                            fatherMobileNumber: e.target.value,
                                         })
                                     }
                                 />
@@ -229,7 +229,6 @@ const Registration = () => {
                             <div className="form-input">
                                 <label>Name</label>
                                 <input
-                                    placeholder="Name"
                                     onChange={(e) =>
                                         setData({
                                             ...data,
@@ -241,7 +240,6 @@ const Registration = () => {
                             <div className="form-input">
                                 <label>Occupation</label>
                                 <input
-                                    placeholder="Occupation"
                                     onChange={(e) =>
                                         setData({
                                             ...data,
@@ -251,9 +249,8 @@ const Registration = () => {
                                 />
                             </div>
                             <div className="form-input">
-                                <label>Mobile Number</label>
+                                <label>Phone Number</label>
                                 <input
-                                    placeholder="Mobile Number"
                                     onChange={(e) =>
                                         setData({
                                             ...data,
@@ -265,7 +262,7 @@ const Registration = () => {
                         </div>
                     </div>
 
-                    <Button onClick={handleSubmit}>Register</Button>
+                    <Button onClick={handleSubmit}><h3>Register</h3></Button>
                 </form>
             </Paper>
         </div>
