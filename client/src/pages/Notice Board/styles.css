@@ -34,19 +34,51 @@
 /*************************Individual Notice******************/
 
 /******* Create Notice ******/
-.create-notice-content {
-    margin-top: 6.5rem;
-    padding: 3rem;
+.create-notice-form-paper{
+    padding:2rem;
+    height:100%;
+    width:100%;
+    margin:0;
+    position: relative;
+    
 }
-.create-notice-form {
-    width: 60%;
-    margin: 0 auto;
+.create-notice-registration-form{
+    width:100%;
+    height:300px;
+    text-align: center;
+    
 }
-
-.create-notice-input-title input,
-.create-notice-input-desc textarea {
+.create-notice-form-input{
+    display: inline-flex;
+    /* flex-wrap: wrap; */
+    justify-content:flex-start;
     width: 100%;
-    margin: 0.25rem;
+    margin-bottom:1rem
+}
+.create-notice-form-input label{
+    text-align: left;
+    width: 20%;
+    margin:0;
+}
+.create-notice-form-input input,.create-notice-form-input textarea{
+    width:80%;
+    height:100%;
+    border:1px solid black;
+    border-radius:5px;
+    padding: 0.5rem 1rem;
+}
+.create-notice-registration-form button {
+    width: 100%;
+    background-color: black;
+    transition: 0.5s;
+    position: relative;
+    top:0.5rem;
+    font-size:1rem;
+    border: 0px;
+}
+.create-notice-registration-form button:hover {
+    background-color: #8c8c8c;
+    transition: 0.5s;
 }
 
 @media only screen and (max-width: 640px) {

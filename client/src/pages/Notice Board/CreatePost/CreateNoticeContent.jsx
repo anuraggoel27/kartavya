@@ -34,17 +34,15 @@ const CreateNoticeContent = () => {
     };
 
     return (
-        <div className="create-notice-content">
+        <div className="create-notice-registration-form">
             <div className="create-notice-header">
                 <h1>Create Notice</h1>
             </div>
-            <Paper className="create-notice-paper">
-            <div className="create-notice-form">
+            <Paper elevation={6} className="create-notice-form-paper">
                 <form onSubmit={handleSubmit}>
-                    <div className="create-notice-input-title">
-                    {/* <label for="title">Title</label> */}
+                    <div className="create-notice-form-input">
+                    <label>Title</label>
                         <input
-                            placeholder="Title"
                             id="title"
                             name="title"
                             onChange={(e) =>
@@ -52,13 +50,13 @@ const CreateNoticeContent = () => {
                             }
                         />
                     </div>
-                    <div className="create-notice-input-desc">
-                    {/* <label for="content">Description</label> */}
+                    <div className="create-notice-form-input">
+                    <label>Description</label>
                         <textarea
-                            placeholder="Content"
                             id="content"
                             name="content"
                             type="textarea"
+                            rows={4}
                             onChange={(e) =>
                                 setNotice({
                                     ...notice,
@@ -73,7 +71,6 @@ const CreateNoticeContent = () => {
                     </div>
 
                 </form>
-                </div>
             </Paper>
         </div>
     );

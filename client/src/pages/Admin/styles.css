@@ -1,0 +1,66 @@
+.admin-content {
+    padding: 10.5rem 6rem 3rem;
+    width: 100%;
+}
+.admin-form-group {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+.admin-post-create-button {
+    width: 45%;
+}
+.admin-study-material {
+    width: 45%;
+}
+.study-registration-form {
+    width: 100%;
+    height: 300px;
+    text-align: center;
+}
+.study-form-paper {
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    height: 100%;
+}
+.study-form-input {
+    display: inline-flex;
+    /* flex-wrap: wrap; */
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.study-form-input label {
+    text-align: left;
+    width: 20%;
+    margin: 0;
+    /* padding-left:0.5rem; */
+}
+.study-form-input input,
+.study-form-input textarea {
+    width: 80%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+.study-registration-form button {
+    width: 100%;
+    background-color: black;
+    transition: 0.5s;
+    font-size: 1rem;
+    border: 0px;
+}
+.study-registration-form button:hover {
+    background-color: #8c8c8c;
+    transition: 0.5s;
+}
+
+.btn-primary.disabled {
+    background-color: rgb(212, 212, 212);
+}
+.btn-primary.disabled:hover {
+    cursor: not-allowed;
+}

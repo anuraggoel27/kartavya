@@ -1,11 +1,13 @@
 /********Registration Form**********/
+.registration-content{
+    padding:0 0 3rem;
+}
 .registration-form {
     width: 100%;
-    padding: 10.5rem 0rem 3rem;
     text-align: center;
 }
 .form-paper {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     /* text-align: left; */
     padding: 2rem;
@@ -49,7 +51,7 @@
     padding:0.5rem;
 }
 .registration-form button {
-    width: 100%;
+    width: 80%;
     background-color: black;
     transition: 0.5s;
     margin-top: 2rem;
