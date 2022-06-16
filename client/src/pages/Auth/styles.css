@@ -1,6 +1,6 @@
 /********Registration Form**********/
 .registration-content{
-    padding:0 0 3rem;
+    padding:0 0 0rem;
 }
 .registration-form {
     width: 100%;
@@ -19,6 +19,7 @@
     background-color: black;
     color:white;
     padding:0.5rem;
+    margin:1rem 0;
 }
 .form-group {
     width: 100%;
@@ -45,7 +46,7 @@
     padding: 0.5rem 1rem;
 }
 .form-subcategory-header {
-    margin-top: 1rem;
+    margin: 1rem 0;
     background-color: #8c8c8c;
     color:white;
     padding:0.5rem;
@@ -76,7 +77,7 @@
 @media only screen and (max-width:640px){
     .registration-form{
         width:100%;
-        padding:10.5rem 1rem 3rem;
+        padding:10.5rem 0rem 3rem;
     }
     .form-paper{
         padding:1rem 0.5rem;

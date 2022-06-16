@@ -56,7 +56,7 @@ const CreateNoticeContent = () => {
                             id="content"
                             name="content"
                             type="textarea"
-                            rows={4}
+                            rows={5}
                             onChange={(e) =>
                                 setNotice({
                                     ...notice,
