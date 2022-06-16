@@ -66,6 +66,9 @@
 
 
 /***********Login Form**********/
+.login-content{
+    padding:10.5rem 0 3rem;
+}
 @media only screen and (max-width: 1007px) {
     .form-paper {
         width: 90%;
@@ -87,3 +90,4 @@
         width:40%;
     }
 }
+

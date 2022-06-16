@@ -2,14 +2,18 @@ const route = require('express').Router();
 const { Notices } = require('../../db/model');
 
 route.get("/deleteNotice/:id",(req,res)=>{
+    const id=req.params.id;
     console.log(id);
     Notices.findOneAndDelete({_id:id},(err,docs)=>{
         if(err) res.send(err);
-        else(res.send(docs));
+        else{
+            res.send(docs);
+        }
     })
 })
 
 route.put("/editNotice/:id",(req,res)=>{
+    const id=req.params.id;
     console.log(req.body);
     Notices.updateOne({_id:id},{
         title:req.body.title,
