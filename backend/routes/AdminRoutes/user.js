@@ -29,7 +29,7 @@ route.post('/register', async (req,res) =>{
                 father: {
                     name: fatherName,
                     occupation: fatherOccupation,
-                    mobileNumber: fatherMobileName,
+                    mobileNumber: fatherMobileNumber,
                 },
                 mother: {
                     name: motherName,
@@ -44,10 +44,10 @@ route.post('/register', async (req,res) =>{
             }
         })
         console.log('user created')
-        return res.status(200).json({success:true,msg:"New user created"})
+        res.status(200).json({success:true,msg:"New user created"})
     } catch (error) {
         console.log(error);
-        return res.status(400).json({success:false});
+        res.status(400).json({success:false});
     }
     
 })

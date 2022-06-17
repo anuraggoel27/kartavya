@@ -23,6 +23,47 @@
     left:1.25rem;
     font-family: "Spectral", serif;
 }
+.visit-profile-content{
+    /* position:relative; */
+}
+.visit-profile-content button{
+    background-color: black;
+}
+/* .dropdown-content{
+    display: none;
+    position: absolute;
+    right:0;
+    background-color: white;
+    width:200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index:1;
+} */
+.dropdown-content{
+    display:inline-flex;
+    padding: 0.75rem;
+    width:200px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding:2rem;
+    background-color: white;
+    border:none;
+    position: absolute;
+    right:1.5rem;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    top:5.5rem;
+
+}
+.dropdown-content a,.dropdown-content button{
+    width:100%;
+    padding:0.5rem;
+    border: none;
+}
+.dropdown-content a:hover{
+    color:#8c8c8c;
+}
+.dropdown-content button:hover{
+    background-color:#8c8c8c;
+}
 @media only screen and (max-width: 1007px) {
     .header{
         padding:0 4rem;

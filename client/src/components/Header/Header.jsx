@@ -5,6 +5,7 @@ import CustomNavbar from "../Navbar/CustomNavbar";
 import Login from "../Login";
 import Logout from "../Logout";
 import "./styles.css";
+import VisitProfile from "./VisitProfile";
 
 const Header = () => {
     console.log("header called..");
@@ -20,12 +21,12 @@ const Header = () => {
             </div>
             <div className="navbar-profile">
                 {!user && <Login />}
-                {user && (
+                {user && 
                     <div>
                         <h4>{user.username}</h4>
-                        <Logout />
+                        <VisitProfile data={user}/>
                     </div>
-                )}
+                }
             </div>
         </div>
     );

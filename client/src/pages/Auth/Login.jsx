@@ -49,7 +49,7 @@ const Login = () => {
         <div className="login-content">
             <div className="registration-form">
                 <h1>Login</h1>
-                <Paper className="form-paper">
+                <Paper elevation={6} className="form-paper">
                     <form>
                         <div className="form-input">
                             <label htmlFor="usename">Username</label>

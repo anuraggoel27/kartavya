@@ -1,0 +1,71 @@
+.profile-content{
+    padding:0 6rem 3rem;
+}
+/* .profile-personal-info{
+
+} */
+.profile-header{
+    width:100%;
+}
+.profile-header-paper{
+    padding:2rem;
+    margin-bottom:2rem;
+}
+.profile-flex{
+    display: inline-flex;
+    width:100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.profile-information{
+    width:60%;
+}
+.profile-information-paper{
+    padding:2rem;
+}
+.personal-info{
+    display: inline-flex;
+    justify-content: space-evenly;
+    width:80%;
+    margin-bottom:1rem;
+}
+.personal-info-category{
+    width:50%;
+    text-align: left;
+}
+.personal-info-data{
+    width:50%;
+    text-align: right;
+    color:rgb(131, 131, 131)
+}
+.profile-flex-subgroup{
+    width:35%;
+}
+.profile-outstanding-fee{
+    width:100%;
+    margin-bottom:2rem;
+}
+.profile-outstanding-fee-paper{
+    padding:2rem;
+}
+.profile-outstanding-fee-content{
+    width:100%;
+    display: inline-flex;
+    justify-content: space-between;
+}
+.profile-attendance{
+    width:100%;
+}
+.profile-attendance-paper{
+    padding:2rem;
+}
+.profile-attendance-content{
+    /* display: inline-flex; */
+    width:100%;
+    /* justify-content: space-between; */
+}
+.profile-attendance-category{
+    display: inline-flex;
+    width:100%;
+    justify-content: space-between;
+}
