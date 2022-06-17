@@ -36,6 +36,8 @@ const ProfileContent = () => {
             }
         };
         getProfile();
+
+        
     }, []);
     return (
         <div className="profile-content" style={{ marginTop: "10.5rem" }}>

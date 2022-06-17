@@ -1,3 +1,9 @@
 => Paging in NoticeBoard
 =>Admin home page make better : Add register user button and its ui also
 => handle register user in the backend => user being created but giving error: can't set headers after they are sent to client + unhandledpromise rejection
+
+
+profile:
+email,age,gender,DOB,attendance,avatarColor,outstandingFee:
+change password:
+Admin_route:

@@ -37,7 +37,8 @@ export default function App() {
             })
             .then((res)=>{
                 const user=res.data.data;
-                setUser(user.firstName); 
+                if(!user.firstName) setUser(user.username);
+                else setUser(user.firstName); 
             })
             .catch((err)=>{
                 localStorage.clear();
