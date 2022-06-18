@@ -67,7 +67,7 @@ export default function CustomTable(props) {
                         <tr key={index} className="material-row">
                             <td className="cell">{d.class}</td>
                             <td className="cell">{d.subject}</td>
-                            <td className="cell">{d.name}</td>
+                            <td className="cell"><a href={d.webViewLink}>{d.name}</a></td>
                             <td className="cell">
                                 <a href={d.webContentLink}>
                                     <RiIcons.RiDownloadLine />

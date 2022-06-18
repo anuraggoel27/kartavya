@@ -12,49 +12,63 @@ function Footer() {
                     <h2 className="brand-footer">Kartavya Academy</h2>
                 </div>
 
-                <div className="quick-links">
-                    <div className="row-heading">Quick Links</div>
-                    <div className="row-links">
-                        <a href="/achievement" target="_blank">
-                            Achievements
-                        </a>
+                <div className="row-heading"><h4>Quick Links</h4></div>
+                <div className="footer-content">
+                    <div className="quick-links">
+                        <div className="row-links">
+                            <a href="/achievement" target="_blank">
+                                Achievements
+                            </a>
+                        </div>
+                        <div className="row-links">
+                            <a href="/about" target="_blank">
+                                About us
+                            </a>
+                        </div>
+                        <div className="row-links">
+                            <a href="/courses" target="_blank">
+                                Courses
+                            </a>{" "}
+                        </div>
+                        <div className="row-links">
+                            <a href="/contact" target="_blank">
+                                Contact Us
+                            </a>
+                        </div>
                     </div>
-                    <div className="row-links">
-                        <a href="/about" target="_blank">
-                            About us
-                        </a>
+                    <div className="footer-right">
+                    <div className="footer-right-content">
+                        <div className="icon-links">
+                            <a
+                                href="https://www.facebook.com/kartavyacademy"
+                                target="_blank"
+                            >
+                                <FacebookIcon className="icons" />
+                            </a>
+                            <InstagramIcon className="icons" />
+                            <MailIcon className="icons" />
+                        </div>
+                            <div className="freepik-mention">
+                                Icons made by{" "}
+                                <a
+                                    href="https://www.freepik.com"
+                                    title="Freepik"
+                                >
+                                    Freepik
+                                </a>{" "}
+                                from{" "}
+                                <a
+                                    href="https://www.flaticon.com/"
+                                    title="Flaticon"
+                                >
+                                    www.flaticon.com
+                                </a>
+                            </div>
+                            <h6 className="copyright">
+                                &#169; KARTAVYA ACADEMY LTD.
+                            </h6>
                     </div>
-                    <div className="row-links">
-                        <a href="/courses" target="_blank">
-                            Courses
-                        </a>{" "}
                     </div>
-                    <div className="row-links">
-                        <a href="/contact" target="_blank">
-                            Contact Us
-                        </a>
-                    </div>
-                </div>
-                <div className="icon-links">
-                    <a
-                        href="https://www.facebook.com/kartavyacademy"
-                        target="_blank"
-                    >
-                        <FacebookIcon className="icons" />
-                    </a>
-                    <InstagramIcon className="icons" />
-                    <MailIcon className="icons" />
-                    <div className="freepik-mention">
-                        Icons made by{" "}
-                        <a href="https://www.freepik.com" title="Freepik">
-                            Freepik
-                        </a>{" "}
-                        from{" "}
-                        <a href="https://www.flaticon.com/" title="Flaticon">
-                            www.flaticon.com
-                        </a>
-                    </div>
-                    <h6 className="copyright">&#169; KARTAVYA ACADEMY LTD.</h6>
                 </div>
             </div>
         </div>
