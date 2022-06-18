@@ -25,7 +25,7 @@ export default function CustomTable(props) {
     };
     const handleDelete = async (fileId) => {
         const token = localStorage.getItem("token");
-        axios
+        await axios
             .delete("http://localhost:5000/file/delete", {
                 data: {
                     fileId: fileId,
@@ -39,10 +39,8 @@ export default function CustomTable(props) {
                 window.location.reload();
             })
             .catch((err) =>{
-                
-                console.log(err)});
-                window.alert('You need to login with an admin account')
-                window.location="http://localhost:3000"
+                console.log(err);
+            });
     };
     return (
         <table className="study-material-table">

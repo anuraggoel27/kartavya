@@ -4,13 +4,21 @@ import { Paper} from "@material-ui/core";
 import { Button} from "react-bootstrap";
 import "../styles.css";
 import { AiTwotoneFileUnknown } from "react-icons/ai";
+import CustomModal from "../../../components/Modal";
 
 const CreateNoticeContent = () => {
     const [notice, setNotice] = useState({
         title: "",
         content: "",
     });
-
+    const [openSuccess, setOpenSuccess] = useState(false);
+    const [openFailure, setOpenFailure] = useState(false);
+    const handleCloseSuccess = () => {
+        setOpenSuccess(false);
+    };
+    const handleCloseFailure=()=>{
+        setOpenFailure(false);
+    }
     const handleSubmit = async (event) => {
         const token = localStorage.getItem("token");
         event.preventDefault();
@@ -27,10 +35,19 @@ const CreateNoticeContent = () => {
                     },
                 }
             )
-            .then((response) => console.log(response))
-            .catch((error) => console.log(error));
+            .then((response) => {
+                setOpenSuccess(true);
+                setNotice({
+                    title:"",
+                    description:""
+                })
+                document.querySelector("form").reset();
+            })
+            .catch((error) => {
+                setOpenFailure(true);
+            });
 
-        window.location.reload();
+        // window.location.reload();
     };
 
     return (
@@ -72,6 +89,18 @@ const CreateNoticeContent = () => {
 
                 </form>
             </Paper>
+            <CustomModal
+                title="Success"
+                message="Notice has been added successfully!"
+                open={openSuccess}
+                handleClose={handleCloseSuccess}
+            />
+            <CustomModal
+                title="Failure"
+                message="There was some error! Please try again!"
+                open={openFailure}
+                handleClose={handleCloseFailure}
+            />
         </div>
     );
 };

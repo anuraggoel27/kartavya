@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 import { Paper } from "@material-ui/core";
+import CustomModal from "../../components/Modal";
+
 const StudyForm = () => {
     const [file, setFile] = useState();
     const [data, setData] = useState({
@@ -10,6 +12,19 @@ const StudyForm = () => {
         subject: "Maths",
     });
     const [isFilePicked, setIsFilePicked] = useState(false);
+    const [openSuccess, setOpenSuccess] = useState(false);
+    const [openFailure, setOpenFailure] = useState(false);
+    const [openFileFailure, setOpenFileFailure] = useState(false);
+    const handleCloseSuccess = () => {
+        setOpenSuccess(false);
+        window.location.reload();
+    };
+    const handleCloseFailure = () => {
+        setOpenFailure(false);
+    };
+    const handleFileFailute=()=>{
+        setOpenFileFailure(false);
+    }
     const handleChange = (e) => {
         setFile(e.target.files[0]);
         setIsFilePicked(true);
@@ -31,15 +46,13 @@ const StudyForm = () => {
                     },
                 })
                 .then((res) => {
-                    console.log(res);
-                    window.alert("File Uploaded Successfully");
+                    setOpenSuccess(true);
                 })
                 .catch((err) => {
-                    console.log(err);
-                    window.alert("There was some error! Try again!");
+                    setOpenFailure(true);
                 });
         } else {
-            window.alert("Please attach a file before submitting!");
+            setOpenFileFailure(true);
         }
     };
 
@@ -84,34 +97,51 @@ const StudyForm = () => {
                         </select>
                     </div>
                     <div className="study-form-input">
-
-                    <label htmlFor="subject">Subject</label>
-                    <select
-                        name="subject"
-                        id="subject"
-                        onChange={(e) =>
-                            setData({ ...data, subject: e.target.value })
-                        }
-                    >
-                        <option value="Maths">Maths</option>
-                        <option value="Chemistry">Chemistry</option>
-                        <option value="Physics">Physics</option>
-                        <option value="Biology">Biology</option>
-                    </select>
+                        <label htmlFor="subject">Subject</label>
+                        <select
+                            name="subject"
+                            id="subject"
+                            onChange={(e) =>
+                                setData({ ...data, subject: e.target.value })
+                            }
+                        >
+                            <option value="Maths">Maths</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Biology">Biology</option>
+                        </select>
                     </div>
                     <div className="study-form-input">
-                    <label>File</label>
-                    <input
-                        type="file"
-                        className="pdf-uploader"
-                        onChange={handleChange}
-                    />
+                        <label>File</label>
+                        <input
+                            type="file"
+                            className="pdf-uploader"
+                            onChange={handleChange}
+                        />
                     </div>
                     <Button type="submit" id="sbtn">
                         Submit
                     </Button>
                 </form>
             </Paper>
+            <CustomModal
+                title="Success"
+                message="Material has been added successfully!"
+                open={openSuccess}
+                handleClose={handleCloseSuccess}
+            />
+            <CustomModal
+                title="Failure"
+                message="There was some error! Please try again!"
+                open={openFailure}
+                handleClose={handleCloseFailure}
+            />
+            <CustomModal
+                title="Failure"
+                message="Please attach a file before submitting"
+                open={openFailure}
+                handleClose={handleCloseFailure}
+            />
         </div>
     );
 };

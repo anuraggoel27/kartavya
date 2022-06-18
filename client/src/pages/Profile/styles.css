@@ -69,3 +69,50 @@
     width:100%;
     justify-content: space-between;
 }
+
+
+@media only screen and (max-width:1007px){
+    .profile-content{
+        padding:0 3rem 3rem;
+    }
+    .profile-information{
+        width:100%;
+    }
+    .profile-flex-subgroup{
+        width: 100%;
+        margin:1rem 0;
+        display:inline-flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .profile-outstanding-fee,.profile-attendance{
+        width:48%;
+    }
+    .profile-header-paper{
+        padding:2rem 1rem;
+        margin-bottom: 1rem;
+    }
+    .profile-information-paper{
+        padding:2rem 1rem;
+    }
+}
+
+@media only screen and (max-width:640px){
+    .profile-content{
+        padding:0 1rem 3rem;
+    }
+    .profile-information,.profile-flex-subgroup{
+        width:100%;
+        margin:1rem 0;
+    }
+    .profile-attendance,.profile-outstanding-fee{
+        width:100%;
+    }
+    .profile-header-paper{
+        padding:2rem 1rem;
+        margin-bottom: 1rem;
+    }
+    .profile-information-paper{
+        padding:2rem 1rem;
+    }
+}

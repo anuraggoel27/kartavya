@@ -3,6 +3,9 @@ import Top from "../../components/Top";
 import { TopData } from "../../components/Topdata";
 import axios from "axios";
 import CustomTable from "./Tables";
+import { Fab, IconButton } from "@material-ui/core";
+import * as AiIcons from "react-icons/ai";
+import "./styles.css";
 
 export const MaterialContext = React.createContext();
 function StudyMaterialContent() {
@@ -11,7 +14,7 @@ function StudyMaterialContent() {
     const [token, setToken] = useState("");
     useEffect(() => {
         const response = async () => {
-            const token=localStorage.getItem("token");
+            const token = localStorage.getItem("token");
             setToken(token);
             await axios
                 .get("http://localhost:5000/file/getFiles", {
@@ -32,7 +35,7 @@ function StudyMaterialContent() {
         };
         response();
     }, []);
-   
+
     const [search, setSearch] = useState("");
     const handleSearch = async () => {
         console.log(search);
@@ -56,26 +59,41 @@ function StudyMaterialContent() {
                 // window.location = "http://localhost:3000";
             });
     };
-    useEffect(()=>{
+    useEffect(() => {
         handleSearch();
-    },[search])
+    }, [search]);
     return (
-        <div className="course-container">
-            <Top
-                heading={TopData[5].heading}
-                paragraph={TopData[5].paragraph}
-                image={TopData[5].image}
-            />
+        
             <div className="studymaterial">
+                <h1 className="study-material-header">Study Material</h1>
                 <div className="search-component">
                     <input
                         type="text"
-                        onChange={async(e) => {
+                        id="search-input"
+                        placeholder="Search"
+                        onChange={async (e) => {
                             setSearch(e.target.value);
                         }}
                     />
-                    <button onClick={() => setMaterial(original)}>Reset</button>
-                    <button onClick={handleSearch}>Search</button>
+                    <div className="search-buttons">
+                        <IconButton
+                            className="search-component-button"
+                            onClick={() => {
+                                setMaterial(original);
+                                setSearch("");
+                                document.getElementById("search-input").value="";
+
+                            }}
+                        >
+                            <AiIcons.AiFillDelete />
+                        </IconButton>
+                        <IconButton
+                            className="search-component-button"
+                            onClick={handleSearch}
+                        >
+                            <AiIcons.AiOutlineSearch />
+                        </IconButton>
+                    </div>
                 </div>
                 <CustomTable
                     titleRow={[
@@ -88,7 +106,6 @@ function StudyMaterialContent() {
                     data={material}
                 />
             </div>
-        </div>
     );
 }
 export default StudyMaterialContent;

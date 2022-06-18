@@ -11,14 +11,14 @@ import axios from "axios";
 function CustomNavbar() {
 
   const [ sidebar, setSidebar ] = useState(false);
-  const showSidebar = () => setSidebar(!sidebar);
+  const showSidebar = () => setSidebar(sidebar=>!sidebar);
   
   return (
     <>
     <IconContext.Provider value={{color:"#fff"}}>
       <div className="navbar">
         <Link to="#" className="menu-bars">
-          <MenuIcon onClick={showSidebar}/>
+          <MenuIcon id="sidebar-menu" onClick={showSidebar}/>
         </Link>
       </div>
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>

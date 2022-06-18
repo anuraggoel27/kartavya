@@ -1,6 +1,7 @@
 .App {
     font-family: sans-serif;
     text-align: center;
+    margin-top:7.5rem ;
 }
 * {
     font-family: "B612", sans-serif;
@@ -27,7 +28,7 @@ body {
 
 /******************Top Section of Pages************************/
 .top-body {
-    padding: 10.5rem 6rem 0rem;
+    padding: 3rem 6rem 0rem;
     width: 100%;
     text-align: left;
 }
@@ -55,7 +56,7 @@ body {
 /*************************************Optimize for smaller screens************************************************/
 @media only screen and (max-width: 1007px) {
     .top-body {
-        padding: 10.5rem 4rem 0;
+        padding: 3rem 4rem 0rem;
         text-align: center;
     }
     .top-heading {
@@ -70,7 +71,7 @@ body {
 @media only screen and (max-width: 640px) {
     /****************************CONTACT,achievement,course AND ABOUT PAGE***********************************/
     .top-body {
-        padding: 10.5rem 1rem 0;
+        padding: 3rem 1rem 0rem;
         text-align: center;
     }
     .top-heading {

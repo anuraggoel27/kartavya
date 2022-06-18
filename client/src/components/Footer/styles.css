@@ -1,8 +1,11 @@
 .footer{
+  /* margin-top:3rem; */
   padding:6rem;
   background-color: black;
   color:white;
   text-align: left;
+  position: relative;
+  z-index: 2;
 }
 a{
   text-decoration: none;
