@@ -7,6 +7,10 @@ const userSchema = new mongoose.Schema({
     isAdmin: Boolean,
     firstName: String,
     lastName: String,
+    email:String,
+    gender:String,
+    age:Number,
+    dob:Date,
     standard: String,
     roll: String,
     subjects: [
@@ -14,8 +18,14 @@ const userSchema = new mongoose.Schema({
             type: String,
         },
     ],
-    attendance: Number,
+    attendance: [
+        {
+            type:Number,
+        }
+    ],
     mobileNumber: String,
+    outstandingFee: Number,
+    avatarColor:String,
     parentDetails: {
         father: {
             name: { type: String },

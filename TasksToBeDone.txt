@@ -1,9 +1,20 @@
 => Paging in NoticeBoard
 =>Admin home page make better : Add register user button and its ui also
-=> handle register user in the backend => user being created but giving error: can't set headers after they are sent to client + unhandledpromise rejection
 
-
+{
 profile:
 email,age,gender,DOB,attendance,avatarColor,outstandingFee:
-change password:
-Admin_route:
+Done: added all the fields
+}
+
+{
+change password: handled in the backend , now handle in the front end:
+1>Put request:
+2>On receiving response--clear their stored token and then redirect them to loclahost:3000
+
+}
+Admin_route:{
+    editing user also done in backend
+}
+
+Handle:{when wi=hile logging in  Password is incorrect, in the front-end}

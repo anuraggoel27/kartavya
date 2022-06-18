@@ -25,7 +25,6 @@ route.post("/login", async (req, res) => {
                 .json({ success: false, msg: "password doesn't match" });
         }
         const jwt = issueJwt(user);
-        console.log(jwt);
         res.status(200).json({
             success: true,
             msg: "successfully logged in",
