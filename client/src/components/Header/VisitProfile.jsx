@@ -15,7 +15,7 @@ const VisitProfile = (props) => {
     },[drop])
     return (
         <div className="visit-profile-content" onClick={()=>setDrop(drop=>!drop)}>
-            <button>
+            <button className="avatar-button">
                 <Avatar className="avatar-button">{props.data[0]}</Avatar>
                 
             </button>

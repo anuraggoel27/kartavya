@@ -13,8 +13,8 @@ const NoticeBoardContent = () => {
         })
         .then((res)=> console.log(res.data))
         .catch(err=>{
-            window.alert('You need to login')
-            window.location = "http://localhost:3000"
+            // window.alert('You need to login')
+            // window.location = "http://localhost:3000"
         })
     },[])
     return (

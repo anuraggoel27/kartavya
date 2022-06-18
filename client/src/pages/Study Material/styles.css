@@ -1,32 +1,57 @@
-.studymaterial{
-    width:100%;
-    padding:4rem 6rem;
+.studymaterial {
+    width: 100%;
+    padding: 4rem 6rem;
     border-radius: 10px;
 }
-.study-material-table{
-    width:100%;
+.study-material-header{
+    font-size: 3rem;
+}
+.study-material-table {
+    width: 100%;
     border: 1px solid #8c8c8c;
-    
 }
-.title-row{
+.title-row {
     background-color: black;
-    color:white;
-    height:4rem;
+    color: white;
+    height: 4rem;
 }
-.material-row{
+.material-row {
     border-bottom: 0.5px solid #bebdbd;
 }
-.table-footer{
-    border:1px solid #8c8c8c;
+.table-footer {
+    border: 1px solid #8c8c8c;
     border-radius: 10px;
 }
-@media only screen and (max-width:1007px){
-    .studymaterial{
-        padding:1rem 3rem;
+.search-component{
+    width:100%;
+    display: inline-flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    position: relative;
+}
+.search-component input{
+    width:100%;
+    /* margin-right:1rem; */
+    padding:1rem
+}
+.search-buttons{
+    position:absolute;
+    right:2rem;
+    top:0.5rem;
+}
+.search-component-button {
+    /* background-color: black; */
+    /* color:white; */
+    color:black;
+    border-radius: 50%;
+}
+@media only screen and (max-width: 1007px) {
+    .studymaterial {
+        padding: 1rem 4rem;
     }
 }
-@media only screen and (max-width:640px){
-    .studymaterial{
-        padding:0 1rem;
+@media only screen and (max-width: 640px) {
+    .studymaterial {
+        padding: 0 1rem;
     }
 }

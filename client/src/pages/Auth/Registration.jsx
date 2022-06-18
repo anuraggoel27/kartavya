@@ -3,6 +3,8 @@ import axios from "axios";
 import { Button } from "react-bootstrap";
 import "./styles.css";
 import { Paper } from "@material-ui/core";
+import CustomModal from "../../components/Modal";
+
 const Registration = () => {
     const [data, setData] = useState({
         username: "",
@@ -24,6 +26,14 @@ const Registration = () => {
         city: "",
         pincode: "",
     });
+    const [openSuccess, setOpenSuccess] = useState(false);
+    const [openFailure, setOpenFailure] = useState(false);
+    const handleCloseSuccess = () => {
+        setOpenSuccess(false);
+    };
+    const handleCloseFailure = () => {
+        setOpenFailure(false);
+    };
     const handleSubmit = async () => {
         const token = localStorage.getItem("token");
 
@@ -34,11 +44,11 @@ const Registration = () => {
                 },
             })
             .then((res) => {
-                console.log(res.data);
-                window.location.reload();
+                setOpenSuccess(true);
+                document.querySelector("form").reset();
             })
             .catch((err) => {
-                console.log(err);
+                setOpenFailure(true);
             });
     };
     return (
@@ -285,6 +295,22 @@ const Registration = () => {
                     </form>
                 </Paper>
             </div>
+            <CustomModal
+                title="Success"
+                message={
+                    data.isAdmin
+                        ? "Admin has been added successfully!"
+                        : "Student has been added successfully!"
+                }
+                open={openSuccess}
+                handleClose={handleCloseSuccess}
+            />
+            <CustomModal
+                title="Failure"
+                message="There was some error! Please try again!"
+                open={openFailure}
+                handleClose={handleCloseFailure}
+            />
         </div>
     );
 };

@@ -67,7 +67,7 @@
 
 /***********Login Form**********/
 .login-content{
-    padding:10.5rem 6rem 3rem;
+    padding:3rem 6rem 3rem;
 }
 .login-content .registration-form{
     width:40%;
@@ -75,16 +75,24 @@
 }
 @media only screen and (max-width: 1007px) {
     .form-paper {
-        width: 90%;
+        width: 100%;
+        padding:1rem 3rem;
     }
     .form-input label{
         width: 30%;
+    }
+    .login-content{
+        padding:3rem 4rem 3rem;
+    }
+    .login-content .registration-form{
+        width:80%;
+        margin:0 auto;
     }
 }
 @media only screen and (max-width:640px){
     .registration-form{
         width:100%;
-        padding:10.5rem 0rem 3rem;
+        padding:0 0rem 3rem;
     }
     .form-paper{
         padding:1rem 0.5rem;
@@ -92,6 +100,13 @@
     }
     .form-input label{
         width:40%;
+    }
+    .login-content{
+        padding:3rem 1rem 3rem;
+    }
+    .login-content .registration-form{
+        width:100%;
+        margin:0 auto;
     }
 }
 
