@@ -16,6 +16,7 @@
     height: 4rem;
 }
 .material-row {
+    height:3rem;
     border-bottom: 0.5px solid #bebdbd;
 }
 .table-footer {

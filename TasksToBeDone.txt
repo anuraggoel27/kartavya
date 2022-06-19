@@ -17,4 +17,4 @@ Admin_route:{
     editing user also done in backend
 }
 
-Handle:{when wi=hile logging in  Password is incorrect, in the front-end}
+Handle:{while logging in  Password is incorrect, in the front-end}

@@ -6,12 +6,14 @@ import CustomTable from "./Tables";
 import { Fab, IconButton } from "@material-ui/core";
 import * as AiIcons from "react-icons/ai";
 import "./styles.css";
+import { UserContext } from "../../App";
 
-export const MaterialContext = React.createContext();
+export const AdminContext = React.createContext();
 function StudyMaterialContent() {
     const [material, setMaterial] = useState([]);
     const [original, setOriginal] = useState([]);
     const [token, setToken] = useState("");
+    const { user, isAdmin } = useContext(UserContext);
     useEffect(() => {
         const response = async () => {
             const token = localStorage.getItem("token");
@@ -63,49 +65,43 @@ function StudyMaterialContent() {
         handleSearch();
     }, [search]);
     return (
-        
-            <div className="studymaterial">
-                <h1 className="study-material-header">Study Material</h1>
-                <div className="search-component">
-                    <input
-                        type="text"
-                        id="search-input"
-                        placeholder="Search"
-                        onChange={async (e) => {
-                            setSearch(e.target.value);
+        <div className="studymaterial">
+            <h1 className="study-material-header">Study Material</h1>
+            <div className="search-component">
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search"
+                    onChange={async (e) => {
+                        setSearch(e.target.value);
+                    }}
+                />
+                <div className="search-buttons">
+                    <IconButton
+                        className="search-component-button"
+                        onClick={() => {
+                            setMaterial(original);
+                            setSearch("");
+                            document.getElementById("search-input").value = "";
                         }}
-                    />
-                    <div className="search-buttons">
-                        <IconButton
-                            className="search-component-button"
-                            onClick={() => {
-                                setMaterial(original);
-                                setSearch("");
-                                document.getElementById("search-input").value="";
-
-                            }}
-                        >
-                            <AiIcons.AiFillDelete />
-                        </IconButton>
-                        <IconButton
-                            className="search-component-button"
-                            onClick={handleSearch}
-                        >
-                            <AiIcons.AiOutlineSearch />
-                        </IconButton>
-                    </div>
+                    >
+                        <AiIcons.AiFillDelete />
+                    </IconButton>
+                    <IconButton
+                        className="search-component-button"
+                        onClick={handleSearch}
+                    >
+                        <AiIcons.AiOutlineSearch />
+                    </IconButton>
                 </div>
+            </div>
+            <AdminContext.Provider value={isAdmin}>
                 <CustomTable
-                    titleRow={[
-                        "Class",
-                        "Subject",
-                        "Name",
-                        "Download",
-                        "Delete",
-                    ]}
+                    titleRow={["Class", "Subject", "Name", "Download"]}
                     data={material}
                 />
-            </div>
+            </AdminContext.Provider>
+        </div>
     );
 }
 export default StudyMaterialContent;

@@ -6,6 +6,9 @@ import CreateNoticeContent from "../Notice Board/CreatePost/CreateNoticeContent"
 import Registration from "../Auth/Registration";
 import "./styles.css";
 
+
+export const AdminContext=React.createContext;
+
 const AdminContent = ({ allowed }) => {
     const handleClick = () => {
         window.location = "http://localhost:3000/CreateNotice";
@@ -13,7 +16,6 @@ const AdminContent = ({ allowed }) => {
     const registerUser = () => {
         window.location = "http://localhost:3000/auth/register";
     };
-    
     return (
         <div className="admin-content">
         <div className="admin-form-group">

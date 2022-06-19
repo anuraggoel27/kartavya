@@ -1,4 +1,5 @@
 const route = require('express').Router();
+const e = require('express');
 const { Users } = require('../../db/model');
 const { validatePassword, issueJwt, genPassword } = require('../../passport/jwtMiddleware');
 
@@ -59,14 +60,14 @@ route.post('/register', async (req,res) =>{
 })
 
 
-route.put('/editUser', async (req,res) =>{
+route.put('/editUser/:id', async (req,res) =>{
     // console.log(req.user);
-    console.log(req.body);
-    const {username,password,firstName,lastName,isAdmin,gender,age,dob,standard,roll,email,avatarColor,outstandingFee,subjects,attendance,mobileNumber,fatherName,fatherOccupation,fatherMobileNumber,motherName,motherOccupation,motherMobileNumber,locality,city,pincode} = req.body;
+    const id=req.params.id;
+    const {username,password,firstName,lastName,isAdmin,gender,age,dob,standard,roll,email,avatarColor,outstandingFee,subjects,attendance,mobileNumber,parentDetails,address} = req.body;
 
     try {
     
-        const updatedUser = await Users.findOneAndUpdate({username:username},{
+        const updatedUser = await Users.findOneAndUpdate({id:id},{
             username: username,
             isAdmin: isAdmin,
             firstName: firstName,
@@ -84,20 +85,20 @@ route.put('/editUser', async (req,res) =>{
             mobileNumber: mobileNumber,
             parentDetails: {
                 father: {
-                    name: fatherName,
-                    occupation: fatherOccupation,
-                    mobileNumber: fatherMobileNumber,
+                    name: parentDetails.father.name,
+                    occupation: parentDetails.father.ccupation,
+                    mobileNumber: parentDetails.father.mobileNumber,
                 },
                 mother: {
-                    name: motherName,
-                    occupation: motherOccupation,
-                    mobileNumber: motherMobileNumber,
+                    name: parentDetails.mother.name,
+                    occupation: parentDetails.mother.occupation,
+                    mobileNumber: parentDetails.mother.mobileNumber,
                 },
             },
             address: {
-                locality: locality,
-                city: city,
-                pincode: pincode,
+                locality: address.locality,
+                city: address.city,
+                pincode: address.pincode,
             }
         },{new:true})
         console.log(updatedUser)
@@ -109,5 +110,24 @@ route.put('/editUser', async (req,res) =>{
     
 })
 
+route.get("/getStudents",async(req,res)=>{
+    Users.find({isAdmin:false},(err,docs)=>{
+        if(err){
+            res.status(400).json({success:false,msg:"Get Student Failed"});
+        }else{
+            res.send(docs);
+        }
+    })
+})
 
+route.get("/getStudent/:id",async(req,res)=>{
+    const id=req.params.id;
+    Users.find({_id:id},(err,docs)=>{
+        if(err){
+            res.status(400).json({success:false,msg:"Get Student Failed"});
+        }else{
+            res.send(docs);
+        }
+    })
+})
 module.exports = route;

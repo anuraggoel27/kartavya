@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { IconButton } from "@material-ui/core";
 import * as RiIcons from "react-icons/ri";
 import FirstPageIcon from "@material-ui/icons/FirstPage";
@@ -7,9 +7,11 @@ import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import LastPageIcon from "@material-ui/icons/LastPage";
 import axios from "axios";
 import "./styles.css";
+import { AdminContext } from "./StudyMaterialContent";
 
 export default function CustomTable(props) {
     const [page, setPage] = useState(0);
+    const isAdmin = useContext(AdminContext);
     let count = props.data.length;
     const handleFirstPage = () => {
         setPage(0);
@@ -30,15 +32,15 @@ export default function CustomTable(props) {
                 data: {
                     fileId: fileId,
                 },
-                headers:{
-                    "Authorization":token
-                }
+                headers: {
+                    Authorization: token,
+                },
             })
             .then((res) => {
                 console.log(res);
                 window.location.reload();
             })
-            .catch((err) =>{
+            .catch((err) => {
                 console.log(err);
             });
     };
@@ -56,6 +58,9 @@ export default function CustomTable(props) {
                             </th>
                         );
                     })}
+                    {isAdmin && (
+                        <th className="title-cell table-subject">Delete</th>
+                    )}
                 </tr>
                 {(5 > 0
                     ? props.data.slice(page * 5, page * 5 + 5)
@@ -65,19 +70,23 @@ export default function CustomTable(props) {
                         <tr key={index} className="material-row">
                             <td className="cell">{d.class}</td>
                             <td className="cell">{d.subject}</td>
-                            <td className="cell"><a href={d.webViewLink}>{d.name}</a></td>
+                            <td className="cell">
+                                <a href={d.webViewLink}>{d.name}</a>
+                            </td>
                             <td className="cell">
                                 <a href={d.webContentLink}>
                                     <RiIcons.RiDownloadLine />
                                 </a>
                             </td>
-                            <td className="cell">
-                                <IconButton
-                                    onClick={() => handleDelete(d.fileId)}
-                                >
-                                    <RiIcons.RiDeleteBin6Line />
-                                </IconButton>
-                            </td>
+                            {isAdmin && (
+                                <td className="cell">
+                                    <IconButton
+                                        onClick={() => handleDelete(d.fileId)}
+                                    >
+                                        <RiIcons.RiDeleteBin6Line />
+                                    </IconButton>
+                                </td>
+                            )}
                         </tr>
                     );
                 })}
