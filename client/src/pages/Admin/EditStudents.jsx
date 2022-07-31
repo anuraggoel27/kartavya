@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Paper } from "@material-ui/core";
 import ClassStudents from "./ClassStudents";
-
+import "./styles.css"; 
 const EditStudents = () => {
     const [students, setStudents] = useState([]);
     const [students9, setStudents9] = useState([]);
@@ -41,7 +41,7 @@ const EditStudents = () => {
         console.log(students9);
     }, [students]);
     return (
-        <div>
+        <div className="students-header">
             <div className="class-content">
 
                 <h1>Class 9</h1>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./styles.css";
+import EditProfileForm from "./EditProfileForm";
 import RegistrationForm from "./RegistrationForm";
 
 
@@ -31,7 +32,7 @@ const Registration = () => {
         }
     }, []);
     return (
-        data?<RegistrationForm formdata={data}/>:<div>...loading</div>
+        data?<EditProfileForm formdata={data}/>:<RegistrationForm/>
     );
 };
 

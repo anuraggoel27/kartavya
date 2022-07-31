@@ -57,6 +57,13 @@ const sidebarData = [
     cName: "nav-text"
   }, 
   {
+    title:"Students",
+    path:"/students",
+    icon :<SiIcons.SiGoogleclassroom className="sidebar-icon"/>,
+    cName:"nav-text"
+    
+  },
+  {
     title:"Admin",
     path:"/Admin",
     icon :<RiIcons.RiAdminFill className="sidebar-icon"/>,

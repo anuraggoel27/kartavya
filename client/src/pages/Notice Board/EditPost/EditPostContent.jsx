@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { Paper } from "@material-ui/core";
-import { Button } from "react-bootstrap";
+import { IconButton, Paper } from "@material-ui/core";
+import {Button} from "react-bootstrap"
 import "../styles.css";
+import * as AiIcons from "react-icons/ai";
 
 const EditPostContent = () => {
     const params = useParams();

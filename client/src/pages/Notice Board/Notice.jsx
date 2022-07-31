@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
-import { Paper,Button } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
+import * as AiIcons from "react-icons/ai";
 import axios from "axios";
 import "./styles.css";
+import { Button } from "react-bootstrap";
 
 const Notice = () => {
     const params = useParams();
@@ -44,7 +46,7 @@ const Notice = () => {
                             <h6 className="notice-date">Posted On: {data.updatedAt.split('T')[0]}</h6>
                         </div>
                         <div className="notice-desc">{data.description}</div>
-                        <Button onClick={handleEdit} className="notice-edit">Edit</Button>
+                        <Button onClick={handleEdit} className="notice-edit">Edit <AiIcons.AiFillEdit/></Button>
                     </Paper>
                 </div>
                 }

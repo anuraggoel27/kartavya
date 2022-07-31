@@ -4,40 +4,9 @@ import { Button } from "react-bootstrap";
 import "./styles.css";
 import { Paper } from "@material-ui/core";
 import CustomModal from "../../components/Modal";
-const RegistrationForm = () => {
-    const [data, setData] = useState({
-        username: "",
-        password:"",
-        isAdmin: false,
-        firstName: "",
-        lastName: "",
-        email: "",
-        gender: "",
-        age: 0,
-        standard: "",
-        roll: "",
-        subjects: [],
-        attendance: [],
-        mobileNumber: "",
-        avatarColor: "",
-        parentDetails: {
-            father: {
-                name: "",
-                occupation: "",
-                mobileNumber: "",
-            },
-            mother: {
-                name: "",
-                occupation: "",
-                mobileNumber: "",
-            },
-        },
-        address: {
-            locality: "",
-            city: "",
-            pincode: "",
-        },
-    });
+
+const EditProfileForm = (props) => {
+    const [data, setData] = useState(props.formdata[0]);
     const [openSuccess, setOpenSuccess] = useState(false);
     const [openFailure, setOpenFailure] = useState(false);
     // const [editForm] =useForm({
@@ -54,7 +23,7 @@ const RegistrationForm = () => {
         const token = localStorage.getItem("token");
 
         await axios
-            .post(`http://localhost:5000/users/register`, data, {
+            .put(`http://localhost:5000/users/editUser/${data._id}`, data, {
                 headers: {
                     Authorization: token,
                 },
@@ -69,8 +38,8 @@ const RegistrationForm = () => {
     };
     return (
         <div className="registration-content">
-            <div className="registration-form">
-                <h1>Registration Form</h1>
+            <div style={{"marginTop":"10rem"}} className="registration-form">
+                <h1>Edit Profile Form</h1>
                 <Paper elevation={6} className="form-paper">
                     <form>
                         <div>
@@ -110,7 +79,7 @@ const RegistrationForm = () => {
                                         Last Name
                                     </label>
                                     <input
-                                        value={data.lastName}
+                                    value={data.lastName}
                                         onChange={(e) =>
                                             setData({
                                                 ...data,
@@ -126,7 +95,7 @@ const RegistrationForm = () => {
                                         User Name
                                     </label>
                                     <input
-                                        value={data.username}
+                                    value={data.username}
                                         onChange={(e) =>
                                             setData({
                                                 ...data,
@@ -135,7 +104,7 @@ const RegistrationForm = () => {
                                         }
                                     />
                                 </div>
-                                <div className="form-input">
+                                {/* <div className="form-input">
                                     <label className="form-label">
                                         Password
                                     </label>
@@ -149,13 +118,13 @@ const RegistrationForm = () => {
                                             })
                                         }
                                     />
-                                </div>
+                                </div> */}
                             </div>
                             <div className="form-group">
                                 <div className="form-input">
                                     <label className="form-label">Class</label>
                                     <input
-                                        value={data.standard}
+                                    value={data.standard}
                                         onChange={(e) =>
                                             setData({
                                                 ...data,
@@ -169,7 +138,7 @@ const RegistrationForm = () => {
                                         Roll Number
                                     </label>
                                     <input
-                                        value={data.roll}
+                                    value={data.roll}
                                         onChange={(e) =>
                                             setData({
                                                 ...data,
@@ -183,7 +152,7 @@ const RegistrationForm = () => {
                                 <div className="form-input">
                                     <label>Phone Number</label>
                                     <input
-                                        value={data.mobileNumber}
+                                    value={data.mobileNumber}
                                         onChange={(e) =>
                                             setData({
                                                 ...data,
@@ -195,14 +164,14 @@ const RegistrationForm = () => {
                                 <div className="form-input">
                                     <label>Pincode</label>
                                     <input
-                                        value={data.address.pincode}
+                                    value={data?.address?.pincode}
                                         onChange={(e) =>
                                             setData({
                                                 ...data,
-                                                address: {
+                                                address:{
                                                     ...data.address,
-                                                    pincode: e.target.value,
-                                                },
+                                                    pincode:e.target.value
+                                                }
                                             })
                                         }
                                     />
@@ -213,14 +182,14 @@ const RegistrationForm = () => {
                                 <div className="form-input">
                                     <label>Locality</label>
                                     <textarea
-                                        value={data.address.locality}
+                                    value={data?.address?.locality}
                                         onChange={(e) =>
                                             setData({
                                                 ...data,
-                                                address: {
+                                                address:{
                                                     ...data.address,
-                                                    locality: e.target.value,
-                                                },
+                                                    locality:e.target.value
+                                                }
                                             })
                                         }
                                     />
@@ -228,14 +197,14 @@ const RegistrationForm = () => {
                                 <div className="form-input">
                                     <label>City</label>
                                     <input
-                                        value={data.address.city}
+                                    value={data?.address?.city}
                                         onChange={(e) =>
                                             setData({
                                                 ...data,
-                                                address: {
+                                                address:{
                                                     ...data.address,
-                                                    city: e.target.value,
-                                                },
+                                                    city:e.target.value
+                                                }
                                             })
                                         }
                                     />
@@ -250,17 +219,15 @@ const RegistrationForm = () => {
                                 <div className="form-input">
                                     <label>Name</label>
                                     <input
-                                        value={data.parentDetails.father.name}
+                                    value={data?.parentDetails?.father?.name}
                                         onChange={(e) =>
                                             setData({
-                                                ...data,
-                                                parentDetails: {
-                                                    ...data.parentDetails,
-                                                    father: {
-                                                        ...data.father,
-                                                        name: e.target.value,
-                                                    },
-                                                },
+                                                ...data,parentDetails:{
+                                                    ...data.parentDetails,father:{
+                                                        ...data.father,name:e.target.value
+                                                    }
+                                                }
+                                                
                                             })
                                         }
                                     />
@@ -269,20 +236,15 @@ const RegistrationForm = () => {
                                 <div className="form-input">
                                     <label>Occupation</label>
                                     <input
-                                        value={
-                                            data.parentDetails.father.occupation
-                                        }
+                                    value={data?.parentDetails?.father?.occupation}
                                         onChange={(e) =>
                                             setData({
-                                                ...data,
-                                                parentDetails: {
-                                                    ...data.parentDetails,
-                                                    father: {
-                                                        ...data.father,
-                                                        occupation:
-                                                            e.target.value,
-                                                    },
-                                                },
+                                                ...data,parentDetails:{
+                                                    ...data.parentDetails,father:{
+                                                        ...data.father,occupation:e.target.value
+                                                    }
+                                                }
+                                                
                                             })
                                         }
                                     />
@@ -290,21 +252,15 @@ const RegistrationForm = () => {
                                 <div className="form-input">
                                     <label>Phone Number</label>
                                     <input
-                                        value={
-                                            data.parentDetails.father
-                                                .mobileNumber
-                                        }
+                                    value={data?.parentDetails?.father?.mobileNumber}
                                         onChange={(e) =>
                                             setData({
-                                                ...data,
-                                                parentDetails: {
-                                                    ...data.parentDetails,
-                                                    father: {
-                                                        ...data.father,
-                                                        mobileNumber:
-                                                            e.target.value,
-                                                    },
-                                                },
+                                                ...data,parentDetails:{
+                                                    ...data.parentDetails,father:{
+                                                        ...data.father,mobileNumber:e.target.value
+                                                    }
+                                                }
+                                                
                                             })
                                         }
                                     />
@@ -315,17 +271,15 @@ const RegistrationForm = () => {
                                 <div className="form-input">
                                     <label>Name</label>
                                     <input
-                                        value={data.parentDetails.mother.name}
+                                    value={data?.parentDetails?.mother?.name}
                                         onChange={(e) =>
                                             setData({
-                                                ...data,
-                                                parentDetails: {
-                                                    ...data.parentDetails,
-                                                    mother: {
-                                                        ...data.mother,
-                                                        name: e.target.value,
-                                                    },
-                                                },
+                                                ...data,parentDetails:{
+                                                    ...data.parentDetails,mother:{
+                                                        ...data.mother,name:e.target.value
+                                                    }
+                                                }
+                                                
                                             })
                                         }
                                     />
@@ -333,20 +287,15 @@ const RegistrationForm = () => {
                                 <div className="form-input">
                                     <label>Occupation</label>
                                     <input
-                                        value={
-                                            data.parentDetails.mother.occupation
-                                        }
+                                    value={data?.parentDetails?.mother?.occupation}
                                         onChange={(e) =>
                                             setData({
-                                                ...data,
-                                                parentDetails: {
-                                                    ...data.parentDetails,
-                                                    mother: {
-                                                        ...data.mother,
-                                                        occupation:
-                                                            e.target.value,
-                                                    },
-                                                },
+                                                ...data,parentDetails:{
+                                                    ...data.parentDetails,mother:{
+                                                        ...data.mother,occupation:e.target.value
+                                                    }
+                                                }
+                                                
                                             })
                                         }
                                     />
@@ -354,21 +303,15 @@ const RegistrationForm = () => {
                                 <div className="form-input">
                                     <label>Phone Number</label>
                                     <input
-                                        value={
-                                            data.parentDetails.mother
-                                                .mobileNumber
-                                        }
+                                    value={data?.parentDetails?.mother?.mobileNumber}
                                         onChange={(e) =>
                                             setData({
-                                                ...data,
-                                                parentDetails: {
-                                                    ...data.parentDetails,
-                                                    mother: {
-                                                        ...data.mother,
-                                                        mobileNumber:
-                                                            e.target.value,
-                                                    },
-                                                },
+                                                ...data,parentDetails:{
+                                                    ...data.parentDetails,mother:{
+                                                        ...data.mother,mobileNumber:e.target.value
+                                                    }
+                                                }
+                                                
                                             })
                                         }
                                     />
@@ -402,4 +345,4 @@ const RegistrationForm = () => {
     );
 };
 
-export default RegistrationForm;
+export default EditProfileForm;

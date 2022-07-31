@@ -5,8 +5,7 @@ const { validatePassword, issueJwt, genPassword } = require('../../passport/jwtM
 
 route.post('/register', async (req,res) =>{
     // console.log(req.user);
-    console.log(req.body);
-    const {username,password,firstName,lastName,email,avatarColor,outstandingFee,isAdmin,gender,age,dob,standard,roll,subjects,attendance,mobileNumber,fatherName,fatherOccupation,fatherMobileNumber,motherName,motherOccupation,motherMobileNumber,locality,city,pincode} = req.body;
+    const {username,password,isAdmin,firstName,lastName,email,gender,dob,age,outstandingFee,standard,roll,subjects,attendance,mobileNumber,avatarColor,parentDetails,address}=req.body;
 
     try {
         
@@ -34,20 +33,20 @@ route.post('/register', async (req,res) =>{
             mobileNumber: mobileNumber,
             parentDetails: {
                 father: {
-                    name: fatherName,
-                    occupation: fatherOccupation,
-                    mobileNumber: fatherMobileNumber,
+                    name: parentDetails.father.name,
+                    occupation: parentDetails.father.occupation,
+                    mobileNumber: parentDetails.father.mobileNumber,
                 },
                 mother: {
-                    name: motherName,
-                    occupation: motherOccupation,
-                    mobileNumber: motherMobileNumber,
+                    name: parentDetails.mother.name,
+                    occupation: parentDetails.mother.occupation,
+                    mobileNumber: parentDetails.mother.mobileNumber,
                 },
             },
             address: {
-                locality: locality,
-                city: city,
-                pincode: pincode,
+                locality: address.locality,
+                city: address.city,
+                pincode: address.pincode,
             }
         })
         console.log('user created')
@@ -85,20 +84,20 @@ route.put('/editUser/:id', async (req,res) =>{
             mobileNumber: mobileNumber,
             parentDetails: {
                 father: {
-                    name: parentDetails.father.name,
-                    occupation: parentDetails.father.ccupation,
-                    mobileNumber: parentDetails.father.mobileNumber,
+                    name: parentDetails?.father?.name,
+                    occupation: parentDetails?.father?.ccupation,
+                    mobileNumber: parentDetails?.father?.mobileNumber,
                 },
                 mother: {
-                    name: parentDetails.mother.name,
-                    occupation: parentDetails.mother.occupation,
-                    mobileNumber: parentDetails.mother.mobileNumber,
+                    name: parentDetails?.mother?.name,
+                    occupation: parentDetails?.mother?.occupation,
+                    mobileNumber: parentDetails?.mother?.mobileNumber,
                 },
             },
             address: {
-                locality: address.locality,
-                city: address.city,
-                pincode: address.pincode,
+                locality: address?.locality,
+                city: address?.city,
+                pincode: address?.pincode,
             }
         },{new:true})
         console.log(updatedUser)

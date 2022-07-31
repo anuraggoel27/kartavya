@@ -40,26 +40,26 @@ function StudyMaterialContent() {
 
     const [search, setSearch] = useState("");
     const handleSearch = async () => {
-        console.log(search);
-        if (search === "") {
+        if (search.length > 0) {
+            await axios
+                .get(`http://localhost:5000/file/getFile/${search}`, {
+                    headers: {
+                        Authorization: token,
+                    },
+                })
+                .then((res) => {
+                    if (res.data.lenght === 1) setMaterial([res.data]);
+                    else setMaterial(res.data);
+                })
+                .catch((err) => {
+                    console.log(err);
+                    // window.alert("You need to login");
+                    // window.location = "http://localhost:3000";
+                });
+        } else if (search === "") {
             setMaterial(original);
             return;
         }
-        await axios
-            .get(`http://localhost:5000/file/getFile/${search}`, {
-                headers: {
-                    Authorization: token,
-                },
-            })
-            .then((res) => {
-                if (res.data.lenght === 1) setMaterial([res.data]);
-                else setMaterial(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-                // window.alert("You need to login");
-                // window.location = "http://localhost:3000";
-            });
     };
     useEffect(() => {
         handleSearch();
